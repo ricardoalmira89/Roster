@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rosterModelStoreContainer" CdmEntityContainer="rosterEntities">
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="rosterModel.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedules">
+      <EntityTypeMapping TypeName="rosterModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="languages" ColumnName="languages" />
+          <ScalarProperty Name="program_id" ColumnName="program_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="rosterModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="C__home_phone" ColumnName="&#xD;&#xA;home_phone" />
+          <ScalarProperty Name="bussiness_phone" ColumnName="bussiness_phone" />
+          <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+          <ScalarProperty Name="fax_number" ColumnName="fax_number" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="credit_trans" ColumnName="credit_trans" />
+          <ScalarProperty Name="refered" ColumnName="refered" />
+          <ScalarProperty Name="web_page" ColumnName="web_page" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="attachment" ColumnName="attachment" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="locker" ColumnName="locker" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="EO" ColumnName="EO" />
+          <ScalarProperty Name="emergency_contact_name" ColumnName="emergency_contact_name" />
+          <ScalarProperty Name="emergency_contact_phone1" ColumnName="emergency_contact_phone1" />
+          <ScalarProperty Name="emergency_contact_phone2" ColumnName="emergency_contact_phone2" />
+          <ScalarProperty Name="emergency_contact_phone3" ColumnName="emergency_contact_phone3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Schedule">
+      <EntityTypeMapping TypeName="rosterModel.Student_Schedule">
+        <MappingFragment StoreEntitySet="Student_Schedule">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

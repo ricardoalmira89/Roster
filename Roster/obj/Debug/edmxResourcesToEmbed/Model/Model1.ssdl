@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rosterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="rosterModelStoreContainer">
+    <EntitySet Name="Program" EntityType="rosterModel.Store.Program" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedule" EntityType="rosterModel.Store.Schedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Student" EntityType="rosterModel.Store.Student" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Student_Schedule" EntityType="rosterModel.Store.Student_Schedule" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fk_program" Association="rosterModel.Store.fk_program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="fk_schedule" Association="rosterModel.Store.fk_schedule">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="Student_Schedule" EntitySet="Student_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student" Association="rosterModel.Store.fk_student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Student_Schedule" EntitySet="Student_Schedule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="text" Nullable="false" />
+    <Property Name="slug" Type="text" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="text" Nullable="false" />
+    <Property Name="slug" Type="text" Nullable="false" />
+    <Property Name="languages" Type="text" />
+    <Property Name="program_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="last_name" Type="text" />
+    <Property Name="first_name" Type="text" />
+    <Property Name="email" Type="text" />
+    <Property Name="start_date" Type="smalldatetime" Nullable="false" />
+    <Property Name="end_date" Type="smalldatetime" Nullable="false" />
+    <Property Name="&#xD;&#xA;home_phone" Type="text" />
+    <Property Name="bussiness_phone" Type="text" />
+    <Property Name="mobile_phone" Type="text" />
+    <Property Name="fax_number" Type="text" />
+    <Property Name="address" Type="text" />
+    <Property Name="city" Type="text" />
+    <Property Name="state" Type="text" />
+    <Property Name="ZIP" Type="text" />
+    <Property Name="country" Type="text" />
+    <Property Name="company" Type="text" />
+    <Property Name="credit_trans" Type="text" />
+    <Property Name="refered" Type="text" />
+    <Property Name="web_page" Type="text" />
+    <Property Name="notes" Type="text" />
+    <Property Name="attachment" Type="text" />
+    <Property Name="location" Type="text" />
+    <Property Name="locker" Type="text" />
+    <Property Name="status" Type="text" />
+    <Property Name="comments" Type="text" />
+    <Property Name="EO" Type="text" />
+    <Property Name="emergency_contact_name" Type="text" />
+    <Property Name="emergency_contact_phone1" Type="text" />
+    <Property Name="emergency_contact_phone2" Type="text" />
+    <Property Name="emergency_contact_phone3" Type="text" />
+  </EntityType>
+  <EntityType Name="Student_Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="schedule_id" Type="int" Nullable="false" />
+    <Property Name="student_id" Type="int" />
+  </EntityType>
+  <Association Name="fk_program">
+    <End Role="Program" Type="rosterModel.Store.Program" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Schedule" Type="rosterModel.Store.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="program_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_schedule">
+    <End Role="Schedule" Type="rosterModel.Store.Schedule" Multiplicity="1" />
+    <End Role="Student_Schedule" Type="rosterModel.Store.Student_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student_Schedule">
+        <PropertyRef Name="schedule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_student">
+    <End Role="Student" Type="rosterModel.Store.Student" Multiplicity="0..1" />
+    <End Role="Student_Schedule" Type="rosterModel.Store.Student_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student_Schedule">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

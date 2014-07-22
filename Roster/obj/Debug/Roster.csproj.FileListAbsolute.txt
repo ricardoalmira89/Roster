@@ -1,0 +1,15 @@
+C:\Users\cyber\Desktop\Roster\Roster\bin\Debug\Roster.exe.config
+C:\Users\cyber\Desktop\Roster\Roster\bin\Debug\Roster.exe
+C:\Users\cyber\Desktop\Roster\Roster\bin\Debug\Roster.pdb
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Properties.Resources.resources
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.csproj.GenerateResource.Cache
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.exe
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.pdb
+C:\Users\cyber\Desktop\Roster\Roster\bin\Debug\EntityFramework.dll
+C:\Users\cyber\Desktop\Roster\Roster\bin\Debug\EntityFramework.xml
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.csprojResolveAssemblyReference.cache
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Form1.resources
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Forms.AddStudentForm.resources
+G:\WORK\Roster\Roster\bin\Debug\Roster.exe.config
+G:\WORK\Roster\Roster\obj\Debug\Roster.exe
+G:\WORK\Roster\Roster\obj\Debug\Roster.pdb

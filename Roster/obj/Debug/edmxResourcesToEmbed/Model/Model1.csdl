@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rosterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="rosterEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Programs" EntityType="rosterModel.Program" />
+    <EntitySet Name="Schedules" EntityType="rosterModel.Schedule" />
+    <EntitySet Name="Students" EntityType="rosterModel.Student" />
+    <EntitySet Name="Student_Schedule" EntityType="rosterModel.Student_Schedule" />
+    <AssociationSet Name="fk_program" Association="rosterModel.fk_program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="fk_schedule" Association="rosterModel.fk_schedule">
+      <End Role="Schedule" EntitySet="Schedules" />
+      <End Role="Student_Schedule" EntitySet="Student_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student" Association="rosterModel.fk_student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Student_Schedule" EntitySet="Student_Schedule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="slug" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Schedules" Relationship="rosterModel.fk_program" FromRole="Program" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="slug" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="languages" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="program_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Program" Relationship="rosterModel.fk_program" FromRole="Schedule" ToRole="Program" />
+    <NavigationProperty Name="Student_Schedule" Relationship="rosterModel.fk_schedule" FromRole="Schedule" ToRole="Student_Schedule" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="first_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="C__home_phone" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="bussiness_phone" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="mobile_phone" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="fax_number" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="state" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="ZIP" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="country" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="company" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="credit_trans" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="refered" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="web_page" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="notes" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="attachment" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="location" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="locker" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="comments" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="EO" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="emergency_contact_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="emergency_contact_phone1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="emergency_contact_phone2" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="emergency_contact_phone3" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Student_Schedule" Relationship="rosterModel.fk_student" FromRole="Student" ToRole="Student_Schedule" />
+  </EntityType>
+  <EntityType Name="Student_Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="schedule_id" Type="Int32" Nullable="false" />
+    <Property Name="student_id" Type="Int32" />
+    <NavigationProperty Name="Schedule" Relationship="rosterModel.fk_schedule" FromRole="Student_Schedule" ToRole="Schedule" />
+    <NavigationProperty Name="Student" Relationship="rosterModel.fk_student" FromRole="Student_Schedule" ToRole="Student" />
+  </EntityType>
+  <Association Name="fk_program">
+    <End Role="Program" Type="rosterModel.Program" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Schedule" Type="rosterModel.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="program_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_schedule">
+    <End Role="Schedule" Type="rosterModel.Schedule" Multiplicity="1" />
+    <End Role="Student_Schedule" Type="rosterModel.Student_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student_Schedule">
+        <PropertyRef Name="schedule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_student">
+    <End Role="Student" Type="rosterModel.Student" Multiplicity="0..1" />
+    <End Role="Student_Schedule" Type="rosterModel.Student_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student_Schedule">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
