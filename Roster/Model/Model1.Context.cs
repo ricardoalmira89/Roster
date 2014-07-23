@@ -29,5 +29,6 @@ namespace Roster.Model
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Student_Program> Student_Program { get; set; }
+        public DbSet<Student_Schedule> Student_Schedule { get; set; }
     }
 }

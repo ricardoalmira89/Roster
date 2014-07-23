@@ -12,23 +12,13 @@ namespace Roster.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Program
+    public partial class Student_Schedule
     {
-        public Program()
-        {
-            this.Schedules = new HashSet<Schedule>();
-            this.Student_Program = new HashSet<Student_Program>();
-        }
-    
         public int id { get; set; }
-        public string name { get; set; }
-        public string slug { get; set; }
+        public int student_id { get; set; }
+        public int schedule_id { get; set; }
     
-        public virtual ICollection<Schedule> Schedules { get; set; }
-        public virtual ICollection<Student_Program> Student_Program { get; set; }
-        public override string ToString()
-        {
-            return name;
-        }
+        public virtual Schedule Schedule { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

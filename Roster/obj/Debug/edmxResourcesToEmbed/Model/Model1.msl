@@ -66,5 +66,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Student_Schedule">
+      <EntityTypeMapping TypeName="rosterModel.Student_Schedule">
+        <MappingFragment StoreEntitySet="Student_Schedule">
+          <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

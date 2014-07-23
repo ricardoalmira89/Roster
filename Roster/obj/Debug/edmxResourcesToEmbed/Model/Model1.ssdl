@@ -5,6 +5,7 @@
     <EntitySet Name="Schedule" EntityType="rosterModel.Store.Schedule" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Student" EntityType="rosterModel.Store.Student" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Student_Program" EntityType="rosterModel.Store.Student_Program" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Student_Schedule" EntityType="rosterModel.Store.Student_Schedule" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK__Schedule__progra__45F365D3" Association="rosterModel.Store.FK__Schedule__progra__45F365D3">
       <End Role="Program" EntitySet="Program" />
       <End Role="Schedule" EntitySet="Schedule" />
@@ -16,6 +17,14 @@
     <AssociationSet Name="FK__Student_P__stude__47DBAE45" Association="rosterModel.Store.FK__Student_P__stude__47DBAE45">
       <End Role="Student" EntitySet="Student" />
       <End Role="Student_Program" EntitySet="Student_Program" />
+    </AssociationSet>
+    <AssociationSet Name="fk_schedule" Association="rosterModel.Store.fk_schedule">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="Student_Schedule" EntitySet="Student_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student" Association="rosterModel.Store.fk_student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Student_Schedule" EntitySet="Student_Schedule" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Program">
@@ -40,7 +49,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="last_name" Type="text" />
     <Property Name="first_name" Type="text" />
     <Property Name="email" Type="text" />
@@ -79,6 +88,14 @@
     <Property Name="student_id" Type="int" Nullable="false" />
     <Property Name="program_id" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Student_Schedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="student_id" Type="int" Nullable="false" />
+    <Property Name="schedule_id" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="FK__Schedule__progra__45F365D3">
     <End Role="Program" Type="rosterModel.Store.Program" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -113,6 +130,30 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Student_Program">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_schedule">
+    <End Role="Schedule" Type="rosterModel.Store.Schedule" Multiplicity="1" />
+    <End Role="Student_Schedule" Type="rosterModel.Store.Student_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student_Schedule">
+        <PropertyRef Name="schedule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_student">
+    <End Role="Student" Type="rosterModel.Store.Student" Multiplicity="1" />
+    <End Role="Student_Schedule" Type="rosterModel.Store.Student_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student_Schedule">
         <PropertyRef Name="student_id" />
       </Dependent>
     </ReferentialConstraint>

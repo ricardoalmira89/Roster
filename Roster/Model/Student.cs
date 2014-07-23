@@ -17,6 +17,7 @@ namespace Roster.Model
         public Student()
         {
             this.Student_Program = new HashSet<Student_Program>();
+            this.Student_Schedule = new HashSet<Student_Schedule>();
         }
     
         public int id { get; set; }
@@ -49,7 +50,16 @@ namespace Roster.Model
         public string emergency_contact_phone1 { get; set; }
         public string emergency_contact_phone2 { get; set; }
         public string emergency_contact_phone3 { get; set; }
-    
+        
+        //--- generated ----
+        public string Full_Name
+        {
+            get
+            {
+                return first_name + " " + last_name;
+            }
+        }
         public virtual ICollection<Student_Program> Student_Program { get; set; }
+        public virtual ICollection<Student_Schedule> Student_Schedule { get; set; }
     }
 }

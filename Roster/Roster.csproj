@@ -35,12 +35,15 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +65,12 @@
     </Compile>
     <Compile Include="Forms\AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FindStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindStudentForm.Designer.cs">
+      <DependentUpon>FindStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -90,6 +99,9 @@
     <Compile Include="Model\Student_Program.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Student_Schedule.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -97,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindStudentForm.resx">
+      <DependentUpon>FindStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,7 +121,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reporting\Report1.rdlc" />
     <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -146,7 +163,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

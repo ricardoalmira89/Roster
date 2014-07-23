@@ -22,3 +22,6 @@ G:\WORK\Roster\Roster\bin\Debug\Roster.exe
 G:\WORK\Roster\Roster\bin\Debug\Roster.pdb
 G:\WORK\Roster\Roster\bin\Debug\EntityFramework.dll
 G:\WORK\Roster\Roster\bin\Debug\EntityFramework.xml
+G:\WORK\Roster\Roster\obj\Debug\Roster.Forms.FindStudentForm.resources
+G:\WORK\Roster\Roster\obj\Debug\RdlCompile.cache
+G:\WORK\Roster\Roster\obj\Debug\RdlCompile.compiled

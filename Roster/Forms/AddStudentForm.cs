@@ -14,9 +14,9 @@ namespace Roster.Forms
     public partial class AddStudentForm : Form
     {
         rosterEntities context = new rosterEntities();
-        Roster.Model.Program Program;
-        Roster.Model.Schedule Schedule;
-        //Roster.Model.Student_Schedule Student_Schedule;
+        Program program;
+        Schedule schedule;
+        List<Schedule> Schedules = new List<Schedule>();
 
         public AddStudentForm()
         {
@@ -41,52 +41,121 @@ namespace Roster.Forms
         private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             scheduleBindingSource.DataSource = context.Schedules.ToList();
-            Program = context.Programs.First(c => c.id == (int)programComboBox.SelectedValue);
-            scheduleBindingSource.DataSource = Program.Schedules.ToList();
+            program = context.Programs.First(c => c.id == (int)programComboBox.SelectedValue);
+            scheduleBindingSource.DataSource = program.Schedules.ToList();
         }
 
         private void scheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Schedule = Program.Schedules.First(s => s.id == (int)scheduleComboBox.SelectedValue);
+            schedule = program.Schedules.First(s => s.id == (int)scheduleComboBox.SelectedValue);
         }
+
+        private void addProgram_btn_Click(object sender, EventArgs e)
+        {
+            if (!Schedules.Exists(c => c.Program.id == program.id))
+            {
+                Schedules.Add(schedule);
+                CurrentProgramsBindingSource.DataSource = Schedules.ToList();
+            }
+            else MessageBox.Show("Current Program already exists for this student.\nPlease select another one.", "Program already exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            /*Student student = new Student();
-            student.address = addressTextBox.Text;
-            student.attachment = attachmentTextBox.Text;
-            student.bussiness_phone = bussiness_phoneTextBox.Text;
-            student.C__home_phone = c__home_phoneTextBox.Text;
-            student.city = cityTextBox.Text;
-            student.comments = commentsTextBox.Text;
-            student.company = companyTextBox.Text;
-            student.country = countryTextBox.Text;
-            student.credit_trans = credit_transTextBox.Text;
-            student.email = emailTextBox.Text;
-            student.emergency_contact_name = emergency_contact_nameTextBox.Text;
-            student.emergency_contact_phone1 = emergency_contact_phone1TextBox.Text;
-            student.emergency_contact_phone2 = emergency_contact_phone2TextBox.Text;
-            student.emergency_contact_phone3 = emergency_contact_phone3TextBox.Text;
-            student.end_date = end_dateDateTimePicker.Value;
-            student.start_date = start_dateDateTimePicker.Value;
-            student.EO = eOTextBox.Text;
-            student.fax_number = fax_numberTextBox.Text;
-            student.first_name = first_nameTextBox.Text;
-            student.last_name = last_nameTextBox.Text;
-            student.location = locationTextBox.Text;
-            student.locker = lockerTextBox.Text;
-            student.mobile_phone = mobile_phoneTextBox.Text;
-            student.notes = notesTextBox.Text;
-            student.refered = referedTextBox.Text;
-            student.state = stateTextBox.Text;
-            student.status = stateTextBox.Text;
-            student.web_page = web_pageTextBox.Text;
-            student.ZIP = zIPTextBox.Text;*/
+            Student student = new Student()
+            {
+                address = addressTextBox.Text,
+                attachment = attachmentTextBox.Text,
+                bussiness_phone = bussiness_phoneTextBox.Text,
+                home_phone = home_phoneTextBox.Text,
+                city = cityTextBox.Text,
+                comments = commentsTextBox.Text,
+                company = companyTextBox.Text,
+                country = countryTextBox.Text,
+                credit_trans = credit_transTextBox.Text,
+                email = emailTextBox.Text,
+                emergency_contact_name = emergency_contact_nameTextBox.Text,
+                emergency_contact_phone1 = emergency_contact_phone1TextBox.Text,
+                emergency_contact_phone2 = emergency_contact_phone2TextBox.Text,
+                emergency_contact_phone3 = emergency_contact_phone3TextBox.Text,
+                end_date = end_dateDateTimePicker.Value,
+                start_date = start_dateDateTimePicker.Value,
+                EO = eOTextBox.Text,
+                fax_number = fax_numberTextBox.Text,
+                first_name = first_nameTextBox.Text,
+                last_name = last_nameTextBox.Text,
+                location = locationTextBox.Text,
+                locker = lockerTextBox.Text,
+                mobile_phone = mobile_phoneTextBox.Text,
+                notes = notesTextBox.Text,
+                refered = referedTextBox.Text,
+                state = stateTextBox.Text,
+                status = stateTextBox.Text,
+                web_page = web_pageTextBox.Text,
+                ZIP = zIPTextBox.Text
+            };
 
-            //context.Students.Add(student);
-            //context.SaveChanges();
+
+            context.Students.Add(student);
+
+            foreach (Schedule schedule in Schedules)
+            {
+                Student_Program sp = new Student_Program()
+                {
+                    Student = student,
+                    Program = schedule.Program
+                };
+
+                Student_Schedule ssch = new Student_Schedule()
+                {
+                    Student = student,
+                    Schedule = schedule
+                };
+
+                context.Student_Schedule.Add(ssch);
+                context.Student_Program.Add(sp);
+            }
+
+            try
+            {
+                context.SaveChanges();
+                MessageBox.Show("Student successfully added.", "Add Student OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has ocurred. Student could not be added.", "Add Student Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
             
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Schedules.RemoveAll(sch => sch.id == (int)ProgramsGridView.CurrentRow.Cells["id"].Value);
+            CurrentProgramsBindingSource.DataSource = Schedules.ToList();
+        }
+
+        private void fax_numberLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fax_numberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
 
 
 

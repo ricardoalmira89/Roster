@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="address">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!address.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>address</rd:DefaultName>
+        <Top>1.08162cm</Top>
+        <Left>0.7112cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="attachment">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!attachment.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>attachment</rd:DefaultName>
+        <Top>2.19287cm</Top>
+        <Left>0.76412cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="bussiness_phone">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!bussiness_phone.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>bussiness_phone</rd:DefaultName>
+        <Top>3.40995cm</Top>
+        <Left>0.7112cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="email">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!email.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>email</rd:DefaultName>
+        <Top>4.60058cm</Top>
+        <Left>0.65828cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="first_name">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!first_name.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>first_name</rd:DefaultName>
+        <Top>5.87058cm</Top>
+        <Left>0.76412cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Full_Name">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Full_Name.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Full_Name</rd:DefaultName>
+        <Top>7.40516cm</Top>
+        <Left>0.89641cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>5.66667in</Height>
+    <Style />
+  </Body>
+  <Width>9.29167in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="RosterModel">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>8a37f2fc-3c73-4c18-8dd9-7db9808e7822</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>RosterModel</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="address">
+          <DataField>address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="attachment">
+          <DataField>attachment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="bussiness_phone">
+          <DataField>bussiness_phone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="city">
+          <DataField>city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="comments">
+          <DataField>comments</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="company">
+          <DataField>company</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="country">
+          <DataField>country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="credit_trans">
+          <DataField>credit_trans</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="email">
+          <DataField>email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="emergency_contact_name">
+          <DataField>emergency_contact_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="emergency_contact_phone1">
+          <DataField>emergency_contact_phone1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="emergency_contact_phone2">
+          <DataField>emergency_contact_phone2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="emergency_contact_phone3">
+          <DataField>emergency_contact_phone3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="end_date">
+          <DataField>end_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="EO">
+          <DataField>EO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fax_number">
+          <DataField>fax_number</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Full_Name">
+          <DataField>Full_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="home_phone">
+          <DataField>home_phone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="location">
+          <DataField>location</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="locker">
+          <DataField>locker</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="mobile_phone">
+          <DataField>mobile_phone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="notes">
+          <DataField>notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="refered">
+          <DataField>refered</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="start_date">
+          <DataField>start_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="state">
+          <DataField>state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="status">
+          <DataField>status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="web_page">
+          <DataField>web_page</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ZIP">
+          <DataField>ZIP</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Roster.Model</rd:DataSetName>
+        <rd:TableName>Student</rd:TableName>
+        <rd:ObjectDataSourceType>Roster.Model.Student, Roster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>d7fdbd78-f340-45e7-bbd8-2de9ec4a88a4</rd:ReportID>
+</Report>

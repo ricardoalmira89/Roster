@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Roster
 {
-    static class Program
+    static class Programa
     {
         /// <summary>
         /// The main entry point for the application.
