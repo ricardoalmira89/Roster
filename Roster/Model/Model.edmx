@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="rosterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="rosterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="rosterModelStoreContainer">
           <EntitySet Name="Program" EntityType="rosterModel.Store.Program" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Schedule" EntityType="rosterModel.Store.Schedule" store:Type="Tables" Schema="dbo" />
@@ -163,15 +163,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="rosterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="rosterEntities" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="Context" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Programs" EntityType="rosterModel.Program" />
           <EntitySet Name="Schedules" EntityType="rosterModel.Schedule" />
           <EntitySet Name="Students" EntityType="rosterModel.Student" />
           <EntitySet Name="Student_Program" EntityType="rosterModel.Student_Program" />
+          <EntitySet Name="Student_Schedule" EntityType="rosterModel.Student_Schedule" />
           <AssociationSet Name="FK__Schedule__progra__45F365D3" Association="rosterModel.FK__Schedule__progra__45F365D3">
             <End Role="Program" EntitySet="Programs" />
             <End Role="Schedule" EntitySet="Schedules" />
@@ -180,14 +182,13 @@
             <End Role="Program" EntitySet="Programs" />
             <End Role="Student_Program" EntitySet="Student_Program" />
           </AssociationSet>
-          <AssociationSet Name="FK__Student_P__stude__47DBAE45" Association="rosterModel.FK__Student_P__stude__47DBAE45">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="Student_Program" EntitySet="Student_Program" />
-          </AssociationSet>
-          <EntitySet Name="Student_Schedule" EntityType="rosterModel.Student_Schedule" />
           <AssociationSet Name="fk_schedule" Association="rosterModel.fk_schedule">
             <End Role="Schedule" EntitySet="Schedules" />
             <End Role="Student_Schedule" EntitySet="Student_Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student_P__stude__47DBAE45" Association="rosterModel.FK__Student_P__stude__47DBAE45">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Student_Program" EntitySet="Student_Program" />
           </AssociationSet>
           <AssociationSet Name="fk_student" Association="rosterModel.fk_student">
             <End Role="Student" EntitySet="Students" />
@@ -220,7 +221,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="last_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="first_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="email" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -263,6 +264,16 @@
           <NavigationProperty Name="Program" Relationship="rosterModel.FK__Student_P__progr__46E78A0C" FromRole="Student_Program" ToRole="Program" />
           <NavigationProperty Name="Student" Relationship="rosterModel.FK__Student_P__stude__47DBAE45" FromRole="Student_Program" ToRole="Student" />
         </EntityType>
+        <EntityType Name="Student_Schedule">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="schedule_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Schedule" Relationship="rosterModel.fk_schedule" FromRole="Student_Schedule" ToRole="Schedule" />
+          <NavigationProperty Name="Student" Relationship="rosterModel.fk_student" FromRole="Student_Schedule" ToRole="Student" />
+        </EntityType>
         <Association Name="FK__Schedule__progra__45F365D3">
           <End Role="Program" Type="rosterModel.Program" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -289,6 +300,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_schedule">
+          <End Role="Schedule" Type="rosterModel.Schedule" Multiplicity="1" />
+          <End Role="Student_Schedule" Type="rosterModel.Student_Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Student_Schedule">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Student_P__stude__47DBAE45">
           <End Role="Student" Type="rosterModel.Student" Multiplicity="1" />
           <End Role="Student_Program" Type="rosterModel.Student_Program" Multiplicity="*" />
@@ -301,31 +324,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Student_Schedule">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="student_id" Nullable="false" />
-          <Property Type="Int32" Name="schedule_id" Nullable="false" />
-          <NavigationProperty Name="Schedule" Relationship="rosterModel.fk_schedule" FromRole="Student_Schedule" ToRole="Schedule" />
-          <NavigationProperty Name="Student" Relationship="rosterModel.fk_student" FromRole="Student_Schedule" ToRole="Student" />
-        </EntityType>
-        <Association Name="fk_schedule">
-          <End Type="rosterModel.Schedule" Role="Schedule" Multiplicity="1" />
-          <End Type="rosterModel.Student_Schedule" Role="Student_Schedule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Schedule">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Student_Schedule">
-              <PropertyRef Name="schedule_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_student">
-          <End Type="rosterModel.Student" Role="Student" Multiplicity="1" />
-          <End Type="rosterModel.Student_Schedule" Role="Student_Schedule" Multiplicity="*" />
+          <End Role="Student" Type="rosterModel.Student" Multiplicity="1" />
+          <End Role="Student_Schedule" Type="rosterModel.Student_Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
               <PropertyRef Name="id" />
@@ -340,7 +341,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="rosterModelStoreContainer" CdmEntityContainer="rosterEntities">
+        <EntityContainerMapping StorageEntityContainer="rosterModelStoreContainer" CdmEntityContainer="Context">
           <EntitySetMapping Name="Programs">
             <EntityTypeMapping TypeName="rosterModel.Program">
               <MappingFragment StoreEntitySet="Program">
@@ -409,9 +410,9 @@
           <EntitySetMapping Name="Student_Schedule">
             <EntityTypeMapping TypeName="rosterModel.Student_Schedule">
               <MappingFragment StoreEntitySet="Student_Schedule">
-                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
-                <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -429,8 +430,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

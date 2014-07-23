@@ -13,7 +13,7 @@ namespace Roster.Forms
 {
     public partial class UpdateStudentForm : Form
     {
-        rosterEntities Context = new rosterEntities();
+        Context Context = new Context();
         Program program;
         Schedule schedule;
         List<Schedule> Schedules = new List<Schedule>();
@@ -29,7 +29,7 @@ namespace Roster.Forms
 
         }
 
-        public void ShowDialog(Student student, rosterEntities context)
+        public void ShowDialog(Student student, Context context)
         {
             Context = context;
             programBindingSource.DataSource = Context.Programs.ToList();

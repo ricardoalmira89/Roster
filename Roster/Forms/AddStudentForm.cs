@@ -13,7 +13,7 @@ namespace Roster.Forms
 {
     public partial class AddStudentForm : Form
     {
-        rosterEntities Context;
+        Context Context;
         Program program;
         Schedule schedule;
         List<Schedule> Schedules = new List<Schedule>();
@@ -23,7 +23,7 @@ namespace Roster.Forms
             InitializeComponent();
         }
 
-        public void ShowDialog(rosterEntities context)
+        public void ShowDialog(Context context)
         {
             Context = context;
             this.ShowDialog();
@@ -119,7 +119,7 @@ namespace Roster.Forms
                 Context.SaveChanges();
                 MessageBox.Show("Student successfully added.", "Add Student OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("An error has ocurred. Student could not be added.", "Add Student Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

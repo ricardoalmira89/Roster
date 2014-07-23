@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="53ed4fdbd29241f5a7a7c639a34dce1e" Name="Diagram1">
+        <EntityTypeShape EntityType="rosterModel.Program" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rosterModel.Schedule" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="rosterModel.Student" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="rosterModel.Student_Program" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rosterModel.Student_Schedule" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="rosterModel.FK__Schedule__progra__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="rosterModel.FK__Student_P__progr__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="rosterModel.fk_schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="rosterModel.FK__Student_P__stude__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="rosterModel.fk_student" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

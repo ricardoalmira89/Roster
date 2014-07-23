@@ -13,7 +13,7 @@ namespace Roster.Forms
 {
     public partial class FindStudentForm : Form
     {
-        rosterEntities Context;
+        Context Context;
         Student student;
         int id = 0;
 
@@ -22,7 +22,7 @@ namespace Roster.Forms
             InitializeComponent();
         }
 
-        public void ShowDialog(rosterEntities context)
+        public void ShowDialog(Context context)
         {
             Context = context;
             this.ShowDialog();

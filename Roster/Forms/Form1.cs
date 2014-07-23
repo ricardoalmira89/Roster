@@ -16,7 +16,7 @@ namespace Roster
     {
         public AddStudentForm AddStudent = new AddStudentForm();
         public FindStudentForm FindStudent = new FindStudentForm();
-        public rosterEntities Context = new Model.rosterEntities();
+        public Context Context = new Model.Context();
 
         public Form1()
         {

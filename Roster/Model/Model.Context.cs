@@ -13,10 +13,10 @@ namespace Roster.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class rosterEntities : DbContext
+    public partial class Context : DbContext
     {
-        public rosterEntities()
-            : base("name=rosterEntities")
+        public Context()
+            : base("name=Context")
         {
         }
     
