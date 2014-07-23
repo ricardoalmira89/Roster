@@ -52,8 +52,11 @@ namespace Roster.Forms
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            id = (int)studentsGridView.CurrentRow.Cells[0].Value;
-            student = Context.Students.First(s => s.id == id);
+            if (Context.Students.Count() > 0)
+            {
+                id = (int)studentsGridView.CurrentRow.Cells[0].Value;
+                student = Context.Students.First(s => s.id == id);
+            }
         }
 
         private void FindStudentForm_Load(object sender, EventArgs e)

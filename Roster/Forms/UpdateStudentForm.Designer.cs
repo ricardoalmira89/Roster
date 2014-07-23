@@ -62,6 +62,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.start_dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.end_dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.web_pageTextBox = new System.Windows.Forms.TextBox();
             this.statusTextBox = new System.Windows.Forms.TextBox();
@@ -97,15 +98,21 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.ProgramsGridView = new System.Windows.Forms.DataGridView();
+            this.programDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slugDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CurrentProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addProgram_btn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.scheduleComboBox = new System.Windows.Forms.ComboBox();
-            this.programComboBox = new System.Windows.Forms.ComboBox();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.programComboBox = new System.Windows.Forms.ComboBox();
+            this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.programMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             start_dateLabel = new System.Windows.Forms.Label();
             end_dateLabel = new System.Windows.Forms.Label();
             web_pageLabel = new System.Windows.Forms.Label();
@@ -138,14 +145,277 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProgramsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentProgramsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
+            this.programMenuStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // start_dateLabel
+            // 
+            start_dateLabel.AutoSize = true;
+            start_dateLabel.Location = new System.Drawing.Point(14, 404);
+            start_dateLabel.Name = "start_dateLabel";
+            start_dateLabel.Size = new System.Drawing.Size(54, 13);
+            start_dateLabel.TabIndex = 90;
+            start_dateLabel.Text = "start date:";
+            // 
+            // end_dateLabel
+            // 
+            end_dateLabel.AutoSize = true;
+            end_dateLabel.Location = new System.Drawing.Point(16, 377);
+            end_dateLabel.Name = "end_dateLabel";
+            end_dateLabel.Size = new System.Drawing.Size(52, 13);
+            end_dateLabel.TabIndex = 88;
+            end_dateLabel.Text = "end date:";
+            // 
+            // web_pageLabel
+            // 
+            web_pageLabel.AutoSize = true;
+            web_pageLabel.Location = new System.Drawing.Point(11, 66);
+            web_pageLabel.Name = "web_pageLabel";
+            web_pageLabel.Size = new System.Drawing.Size(57, 13);
+            web_pageLabel.TabIndex = 86;
+            web_pageLabel.Text = "web page:";
+            // 
+            // statusLabel
+            // 
+            statusLabel.AutoSize = true;
+            statusLabel.Location = new System.Drawing.Point(30, 354);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new System.Drawing.Size(38, 13);
+            statusLabel.TabIndex = 84;
+            statusLabel.Text = "status:";
+            // 
+            // stateLabel
+            // 
+            stateLabel.AutoSize = true;
+            stateLabel.Location = new System.Drawing.Point(35, 332);
+            stateLabel.Name = "stateLabel";
+            stateLabel.Size = new System.Drawing.Size(33, 13);
+            stateLabel.TabIndex = 82;
+            stateLabel.Text = "state:";
+            // 
+            // referedLabel
+            // 
+            referedLabel.AutoSize = true;
+            referedLabel.Location = new System.Drawing.Point(25, 309);
+            referedLabel.Name = "referedLabel";
+            referedLabel.Size = new System.Drawing.Size(43, 13);
+            referedLabel.TabIndex = 80;
+            referedLabel.Text = "refered:";
+            // 
+            // notesLabel
+            // 
+            notesLabel.AutoSize = true;
+            notesLabel.Location = new System.Drawing.Point(32, 287);
+            notesLabel.Name = "notesLabel";
+            notesLabel.Size = new System.Drawing.Size(36, 13);
+            notesLabel.TabIndex = 78;
+            notesLabel.Text = "notes:";
+            // 
+            // lockerLabel
+            // 
+            lockerLabel.AutoSize = true;
+            lockerLabel.Location = new System.Drawing.Point(29, 265);
+            lockerLabel.Name = "lockerLabel";
+            lockerLabel.Size = new System.Drawing.Size(39, 13);
+            lockerLabel.TabIndex = 76;
+            lockerLabel.Text = "locker:";
+            // 
+            // locationLabel
+            // 
+            locationLabel.AutoSize = true;
+            locationLabel.Location = new System.Drawing.Point(21, 243);
+            locationLabel.Name = "locationLabel";
+            locationLabel.Size = new System.Drawing.Size(47, 13);
+            locationLabel.TabIndex = 74;
+            locationLabel.Text = "location:";
+            // 
+            // last_nameLabel
+            // 
+            last_nameLabel.AutoSize = true;
+            last_nameLabel.Location = new System.Drawing.Point(13, 44);
+            last_nameLabel.Name = "last_nameLabel";
+            last_nameLabel.Size = new System.Drawing.Size(55, 13);
+            last_nameLabel.TabIndex = 72;
+            last_nameLabel.Text = "last name:";
+            // 
+            // first_nameLabel
+            // 
+            first_nameLabel.AutoSize = true;
+            first_nameLabel.Location = new System.Drawing.Point(13, 22);
+            first_nameLabel.Name = "first_nameLabel";
+            first_nameLabel.Size = new System.Drawing.Size(55, 13);
+            first_nameLabel.TabIndex = 70;
+            first_nameLabel.Text = "first name:";
+            // 
+            // eOLabel
+            // 
+            eOLabel.AutoSize = true;
+            eOLabel.Location = new System.Drawing.Point(43, 221);
+            eOLabel.Name = "eOLabel";
+            eOLabel.Size = new System.Drawing.Size(25, 13);
+            eOLabel.TabIndex = 68;
+            eOLabel.Text = "EO:";
+            // 
+            // credit_transLabel
+            // 
+            credit_transLabel.AutoSize = true;
+            credit_transLabel.Location = new System.Drawing.Point(6, 176);
+            credit_transLabel.Name = "credit_transLabel";
+            credit_transLabel.Size = new System.Drawing.Size(62, 13);
+            credit_transLabel.TabIndex = 66;
+            credit_transLabel.Text = "credit trans:";
+            // 
+            // countryLabel
+            // 
+            countryLabel.AutoSize = true;
+            countryLabel.Location = new System.Drawing.Point(23, 154);
+            countryLabel.Name = "countryLabel";
+            countryLabel.Size = new System.Drawing.Size(45, 13);
+            countryLabel.TabIndex = 64;
+            countryLabel.Text = "country:";
+            // 
+            // companyLabel
+            // 
+            companyLabel.AutoSize = true;
+            companyLabel.Location = new System.Drawing.Point(15, 132);
+            companyLabel.Name = "companyLabel";
+            companyLabel.Size = new System.Drawing.Size(53, 13);
+            companyLabel.TabIndex = 62;
+            companyLabel.Text = "company:";
+            // 
+            // commentsLabel
+            // 
+            commentsLabel.AutoSize = true;
+            commentsLabel.Location = new System.Drawing.Point(10, 110);
+            commentsLabel.Name = "commentsLabel";
+            commentsLabel.Size = new System.Drawing.Size(58, 13);
+            commentsLabel.TabIndex = 60;
+            commentsLabel.Text = "comments:";
+            // 
+            // cityLabel
+            // 
+            cityLabel.AutoSize = true;
+            cityLabel.Location = new System.Drawing.Point(42, 88);
+            cityLabel.Name = "cityLabel";
+            cityLabel.Size = new System.Drawing.Size(26, 13);
+            cityLabel.TabIndex = 58;
+            cityLabel.Text = "city:";
+            // 
+            // attachmentLabel
+            // 
+            attachmentLabel.AutoSize = true;
+            attachmentLabel.Location = new System.Drawing.Point(5, 199);
+            attachmentLabel.Name = "attachmentLabel";
+            attachmentLabel.Size = new System.Drawing.Size(63, 13);
+            attachmentLabel.TabIndex = 56;
+            attachmentLabel.Text = "attachment:";
+            // 
+            // emergency_contact_phone3Label
+            // 
+            emergency_contact_phone3Label.AutoSize = true;
+            emergency_contact_phone3Label.Location = new System.Drawing.Point(46, 102);
+            emergency_contact_phone3Label.Name = "emergency_contact_phone3Label";
+            emergency_contact_phone3Label.Size = new System.Drawing.Size(50, 13);
+            emergency_contact_phone3Label.TabIndex = 90;
+            emergency_contact_phone3Label.Text = "Phone 3:";
+            // 
+            // emergency_contact_phone2Label
+            // 
+            emergency_contact_phone2Label.AutoSize = true;
+            emergency_contact_phone2Label.Location = new System.Drawing.Point(46, 79);
+            emergency_contact_phone2Label.Name = "emergency_contact_phone2Label";
+            emergency_contact_phone2Label.Size = new System.Drawing.Size(50, 13);
+            emergency_contact_phone2Label.TabIndex = 88;
+            emergency_contact_phone2Label.Text = "Phone 2:";
+            // 
+            // emergency_contact_phone1Label
+            // 
+            emergency_contact_phone1Label.AutoSize = true;
+            emergency_contact_phone1Label.Location = new System.Drawing.Point(49, 55);
+            emergency_contact_phone1Label.Name = "emergency_contact_phone1Label";
+            emergency_contact_phone1Label.Size = new System.Drawing.Size(47, 13);
+            emergency_contact_phone1Label.TabIndex = 86;
+            emergency_contact_phone1Label.Text = "Phone1:";
+            // 
+            // emergency_contact_nameLabel
+            // 
+            emergency_contact_nameLabel.AutoSize = true;
+            emergency_contact_nameLabel.Location = new System.Drawing.Point(58, 32);
+            emergency_contact_nameLabel.Name = "emergency_contact_nameLabel";
+            emergency_contact_nameLabel.Size = new System.Drawing.Size(38, 13);
+            emergency_contact_nameLabel.TabIndex = 84;
+            emergency_contact_nameLabel.Text = "Name:";
+            // 
+            // mobile_phoneLabel
+            // 
+            mobile_phoneLabel.AutoSize = true;
+            mobile_phoneLabel.Location = new System.Drawing.Point(21, 147);
+            mobile_phoneLabel.Name = "mobile_phoneLabel";
+            mobile_phoneLabel.Size = new System.Drawing.Size(73, 13);
+            mobile_phoneLabel.TabIndex = 88;
+            mobile_phoneLabel.Text = "mobile phone:";
+            // 
+            // fax_numberLabel
+            // 
+            fax_numberLabel.AutoSize = true;
+            fax_numberLabel.Location = new System.Drawing.Point(32, 170);
+            fax_numberLabel.Name = "fax_numberLabel";
+            fax_numberLabel.Size = new System.Drawing.Size(62, 13);
+            fax_numberLabel.TabIndex = 86;
+            fax_numberLabel.Text = "fax number:";
+            // 
+            // c__home_phoneLabel
+            // 
+            c__home_phoneLabel.AutoSize = true;
+            c__home_phoneLabel.Location = new System.Drawing.Point(25, 124);
+            c__home_phoneLabel.Name = "c__home_phoneLabel";
+            c__home_phoneLabel.Size = new System.Drawing.Size(69, 13);
+            c__home_phoneLabel.TabIndex = 84;
+            c__home_phoneLabel.Text = "home phone:";
+            // 
+            // bussiness_phoneLabel
+            // 
+            bussiness_phoneLabel.AutoSize = true;
+            bussiness_phoneLabel.Location = new System.Drawing.Point(6, 101);
+            bussiness_phoneLabel.Name = "bussiness_phoneLabel";
+            bussiness_phoneLabel.Size = new System.Drawing.Size(89, 13);
+            bussiness_phoneLabel.TabIndex = 82;
+            bussiness_phoneLabel.Text = "bussiness phone:";
+            // 
+            // addressLabel
+            // 
+            addressLabel.AutoSize = true;
+            addressLabel.Location = new System.Drawing.Point(48, 78);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new System.Drawing.Size(47, 13);
+            addressLabel.TabIndex = 80;
+            addressLabel.Text = "address:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(61, 55);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(34, 13);
+            emailLabel.TabIndex = 78;
+            emailLabel.Text = "email:";
+            // 
+            // zIPLabel
+            // 
+            zIPLabel.AutoSize = true;
+            zIPLabel.Location = new System.Drawing.Point(68, 32);
+            zIPLabel.Name = "zIPLabel";
+            zIPLabel.Size = new System.Drawing.Size(27, 13);
+            zIPLabel.TabIndex = 76;
+            zIPLabel.Text = "ZIP:";
             // 
             // tabControl1
             // 
@@ -219,15 +489,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "General Information";
             // 
-            // start_dateLabel
-            // 
-            start_dateLabel.AutoSize = true;
-            start_dateLabel.Location = new System.Drawing.Point(14, 404);
-            start_dateLabel.Name = "start_dateLabel";
-            start_dateLabel.Size = new System.Drawing.Size(54, 13);
-            start_dateLabel.TabIndex = 90;
-            start_dateLabel.Text = "start date:";
-            // 
             // start_dateDateTimePicker
             // 
             this.start_dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studentBindingSource, "start_date", true));
@@ -236,14 +497,9 @@
             this.start_dateDateTimePicker.Size = new System.Drawing.Size(250, 20);
             this.start_dateDateTimePicker.TabIndex = 91;
             // 
-            // end_dateLabel
+            // studentBindingSource
             // 
-            end_dateLabel.AutoSize = true;
-            end_dateLabel.Location = new System.Drawing.Point(16, 377);
-            end_dateLabel.Name = "end_dateLabel";
-            end_dateLabel.Size = new System.Drawing.Size(52, 13);
-            end_dateLabel.TabIndex = 88;
-            end_dateLabel.Text = "end date:";
+            this.studentBindingSource.DataSource = typeof(Roster.Model.Student);
             // 
             // end_dateDateTimePicker
             // 
@@ -253,15 +509,6 @@
             this.end_dateDateTimePicker.Size = new System.Drawing.Size(250, 20);
             this.end_dateDateTimePicker.TabIndex = 89;
             // 
-            // web_pageLabel
-            // 
-            web_pageLabel.AutoSize = true;
-            web_pageLabel.Location = new System.Drawing.Point(11, 66);
-            web_pageLabel.Name = "web_pageLabel";
-            web_pageLabel.Size = new System.Drawing.Size(57, 13);
-            web_pageLabel.TabIndex = 86;
-            web_pageLabel.Text = "web page:";
-            // 
             // web_pageTextBox
             // 
             this.web_pageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "web_page", true));
@@ -269,15 +516,6 @@
             this.web_pageTextBox.Name = "web_pageTextBox";
             this.web_pageTextBox.Size = new System.Drawing.Size(250, 20);
             this.web_pageTextBox.TabIndex = 87;
-            // 
-            // statusLabel
-            // 
-            statusLabel.AutoSize = true;
-            statusLabel.Location = new System.Drawing.Point(30, 354);
-            statusLabel.Name = "statusLabel";
-            statusLabel.Size = new System.Drawing.Size(38, 13);
-            statusLabel.TabIndex = 84;
-            statusLabel.Text = "status:";
             // 
             // statusTextBox
             // 
@@ -287,15 +525,6 @@
             this.statusTextBox.Size = new System.Drawing.Size(250, 20);
             this.statusTextBox.TabIndex = 85;
             // 
-            // stateLabel
-            // 
-            stateLabel.AutoSize = true;
-            stateLabel.Location = new System.Drawing.Point(35, 332);
-            stateLabel.Name = "stateLabel";
-            stateLabel.Size = new System.Drawing.Size(33, 13);
-            stateLabel.TabIndex = 82;
-            stateLabel.Text = "state:";
-            // 
             // stateTextBox
             // 
             this.stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "state", true));
@@ -303,15 +532,6 @@
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(250, 20);
             this.stateTextBox.TabIndex = 83;
-            // 
-            // referedLabel
-            // 
-            referedLabel.AutoSize = true;
-            referedLabel.Location = new System.Drawing.Point(25, 309);
-            referedLabel.Name = "referedLabel";
-            referedLabel.Size = new System.Drawing.Size(43, 13);
-            referedLabel.TabIndex = 80;
-            referedLabel.Text = "refered:";
             // 
             // referedTextBox
             // 
@@ -321,15 +541,6 @@
             this.referedTextBox.Size = new System.Drawing.Size(250, 20);
             this.referedTextBox.TabIndex = 81;
             // 
-            // notesLabel
-            // 
-            notesLabel.AutoSize = true;
-            notesLabel.Location = new System.Drawing.Point(32, 287);
-            notesLabel.Name = "notesLabel";
-            notesLabel.Size = new System.Drawing.Size(36, 13);
-            notesLabel.TabIndex = 78;
-            notesLabel.Text = "notes:";
-            // 
             // notesTextBox
             // 
             this.notesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "notes", true));
@@ -337,15 +548,6 @@
             this.notesTextBox.Name = "notesTextBox";
             this.notesTextBox.Size = new System.Drawing.Size(250, 20);
             this.notesTextBox.TabIndex = 79;
-            // 
-            // lockerLabel
-            // 
-            lockerLabel.AutoSize = true;
-            lockerLabel.Location = new System.Drawing.Point(29, 265);
-            lockerLabel.Name = "lockerLabel";
-            lockerLabel.Size = new System.Drawing.Size(39, 13);
-            lockerLabel.TabIndex = 76;
-            lockerLabel.Text = "locker:";
             // 
             // lockerTextBox
             // 
@@ -355,15 +557,6 @@
             this.lockerTextBox.Size = new System.Drawing.Size(250, 20);
             this.lockerTextBox.TabIndex = 77;
             // 
-            // locationLabel
-            // 
-            locationLabel.AutoSize = true;
-            locationLabel.Location = new System.Drawing.Point(21, 243);
-            locationLabel.Name = "locationLabel";
-            locationLabel.Size = new System.Drawing.Size(47, 13);
-            locationLabel.TabIndex = 74;
-            locationLabel.Text = "location:";
-            // 
             // locationTextBox
             // 
             this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "location", true));
@@ -371,15 +564,6 @@
             this.locationTextBox.Name = "locationTextBox";
             this.locationTextBox.Size = new System.Drawing.Size(250, 20);
             this.locationTextBox.TabIndex = 75;
-            // 
-            // last_nameLabel
-            // 
-            last_nameLabel.AutoSize = true;
-            last_nameLabel.Location = new System.Drawing.Point(13, 44);
-            last_nameLabel.Name = "last_nameLabel";
-            last_nameLabel.Size = new System.Drawing.Size(55, 13);
-            last_nameLabel.TabIndex = 72;
-            last_nameLabel.Text = "last name:";
             // 
             // last_nameTextBox
             // 
@@ -389,15 +573,6 @@
             this.last_nameTextBox.Size = new System.Drawing.Size(250, 20);
             this.last_nameTextBox.TabIndex = 73;
             // 
-            // first_nameLabel
-            // 
-            first_nameLabel.AutoSize = true;
-            first_nameLabel.Location = new System.Drawing.Point(13, 22);
-            first_nameLabel.Name = "first_nameLabel";
-            first_nameLabel.Size = new System.Drawing.Size(55, 13);
-            first_nameLabel.TabIndex = 70;
-            first_nameLabel.Text = "first name:";
-            // 
             // first_nameTextBox
             // 
             this.first_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "first_name", true));
@@ -405,15 +580,6 @@
             this.first_nameTextBox.Name = "first_nameTextBox";
             this.first_nameTextBox.Size = new System.Drawing.Size(250, 20);
             this.first_nameTextBox.TabIndex = 71;
-            // 
-            // eOLabel
-            // 
-            eOLabel.AutoSize = true;
-            eOLabel.Location = new System.Drawing.Point(43, 221);
-            eOLabel.Name = "eOLabel";
-            eOLabel.Size = new System.Drawing.Size(25, 13);
-            eOLabel.TabIndex = 68;
-            eOLabel.Text = "EO:";
             // 
             // eOTextBox
             // 
@@ -423,15 +589,6 @@
             this.eOTextBox.Size = new System.Drawing.Size(250, 20);
             this.eOTextBox.TabIndex = 69;
             // 
-            // credit_transLabel
-            // 
-            credit_transLabel.AutoSize = true;
-            credit_transLabel.Location = new System.Drawing.Point(6, 176);
-            credit_transLabel.Name = "credit_transLabel";
-            credit_transLabel.Size = new System.Drawing.Size(62, 13);
-            credit_transLabel.TabIndex = 66;
-            credit_transLabel.Text = "credit trans:";
-            // 
             // credit_transTextBox
             // 
             this.credit_transTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "credit_trans", true));
@@ -439,15 +596,6 @@
             this.credit_transTextBox.Name = "credit_transTextBox";
             this.credit_transTextBox.Size = new System.Drawing.Size(250, 20);
             this.credit_transTextBox.TabIndex = 67;
-            // 
-            // countryLabel
-            // 
-            countryLabel.AutoSize = true;
-            countryLabel.Location = new System.Drawing.Point(23, 154);
-            countryLabel.Name = "countryLabel";
-            countryLabel.Size = new System.Drawing.Size(45, 13);
-            countryLabel.TabIndex = 64;
-            countryLabel.Text = "country:";
             // 
             // countryTextBox
             // 
@@ -457,15 +605,6 @@
             this.countryTextBox.Size = new System.Drawing.Size(250, 20);
             this.countryTextBox.TabIndex = 65;
             // 
-            // companyLabel
-            // 
-            companyLabel.AutoSize = true;
-            companyLabel.Location = new System.Drawing.Point(15, 132);
-            companyLabel.Name = "companyLabel";
-            companyLabel.Size = new System.Drawing.Size(53, 13);
-            companyLabel.TabIndex = 62;
-            companyLabel.Text = "company:";
-            // 
             // companyTextBox
             // 
             this.companyTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "company", true));
@@ -473,15 +612,6 @@
             this.companyTextBox.Name = "companyTextBox";
             this.companyTextBox.Size = new System.Drawing.Size(250, 20);
             this.companyTextBox.TabIndex = 63;
-            // 
-            // commentsLabel
-            // 
-            commentsLabel.AutoSize = true;
-            commentsLabel.Location = new System.Drawing.Point(10, 110);
-            commentsLabel.Name = "commentsLabel";
-            commentsLabel.Size = new System.Drawing.Size(58, 13);
-            commentsLabel.TabIndex = 60;
-            commentsLabel.Text = "comments:";
             // 
             // commentsTextBox
             // 
@@ -491,15 +621,6 @@
             this.commentsTextBox.Size = new System.Drawing.Size(250, 20);
             this.commentsTextBox.TabIndex = 61;
             // 
-            // cityLabel
-            // 
-            cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(42, 88);
-            cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(26, 13);
-            cityLabel.TabIndex = 58;
-            cityLabel.Text = "city:";
-            // 
             // cityTextBox
             // 
             this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "city", true));
@@ -507,15 +628,6 @@
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(250, 20);
             this.cityTextBox.TabIndex = 59;
-            // 
-            // attachmentLabel
-            // 
-            attachmentLabel.AutoSize = true;
-            attachmentLabel.Location = new System.Drawing.Point(5, 199);
-            attachmentLabel.Name = "attachmentLabel";
-            attachmentLabel.Size = new System.Drawing.Size(63, 13);
-            attachmentLabel.TabIndex = 56;
-            attachmentLabel.Text = "attachment:";
             // 
             // attachmentTextBox
             // 
@@ -542,15 +654,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Emergency Contact Information";
             // 
-            // emergency_contact_phone3Label
-            // 
-            emergency_contact_phone3Label.AutoSize = true;
-            emergency_contact_phone3Label.Location = new System.Drawing.Point(46, 102);
-            emergency_contact_phone3Label.Name = "emergency_contact_phone3Label";
-            emergency_contact_phone3Label.Size = new System.Drawing.Size(50, 13);
-            emergency_contact_phone3Label.TabIndex = 90;
-            emergency_contact_phone3Label.Text = "Phone 3:";
-            // 
             // emergency_contact_phone3TextBox
             // 
             this.emergency_contact_phone3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "emergency_contact_phone3", true));
@@ -558,15 +661,6 @@
             this.emergency_contact_phone3TextBox.Name = "emergency_contact_phone3TextBox";
             this.emergency_contact_phone3TextBox.Size = new System.Drawing.Size(130, 20);
             this.emergency_contact_phone3TextBox.TabIndex = 91;
-            // 
-            // emergency_contact_phone2Label
-            // 
-            emergency_contact_phone2Label.AutoSize = true;
-            emergency_contact_phone2Label.Location = new System.Drawing.Point(46, 79);
-            emergency_contact_phone2Label.Name = "emergency_contact_phone2Label";
-            emergency_contact_phone2Label.Size = new System.Drawing.Size(50, 13);
-            emergency_contact_phone2Label.TabIndex = 88;
-            emergency_contact_phone2Label.Text = "Phone 2:";
             // 
             // emergency_contact_phone2TextBox
             // 
@@ -576,15 +670,6 @@
             this.emergency_contact_phone2TextBox.Size = new System.Drawing.Size(130, 20);
             this.emergency_contact_phone2TextBox.TabIndex = 89;
             // 
-            // emergency_contact_phone1Label
-            // 
-            emergency_contact_phone1Label.AutoSize = true;
-            emergency_contact_phone1Label.Location = new System.Drawing.Point(49, 55);
-            emergency_contact_phone1Label.Name = "emergency_contact_phone1Label";
-            emergency_contact_phone1Label.Size = new System.Drawing.Size(47, 13);
-            emergency_contact_phone1Label.TabIndex = 86;
-            emergency_contact_phone1Label.Text = "Phone1:";
-            // 
             // emergency_contact_phone1TextBox
             // 
             this.emergency_contact_phone1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "emergency_contact_phone1", true));
@@ -592,15 +677,6 @@
             this.emergency_contact_phone1TextBox.Name = "emergency_contact_phone1TextBox";
             this.emergency_contact_phone1TextBox.Size = new System.Drawing.Size(130, 20);
             this.emergency_contact_phone1TextBox.TabIndex = 87;
-            // 
-            // emergency_contact_nameLabel
-            // 
-            emergency_contact_nameLabel.AutoSize = true;
-            emergency_contact_nameLabel.Location = new System.Drawing.Point(58, 32);
-            emergency_contact_nameLabel.Name = "emergency_contact_nameLabel";
-            emergency_contact_nameLabel.Size = new System.Drawing.Size(38, 13);
-            emergency_contact_nameLabel.TabIndex = 84;
-            emergency_contact_nameLabel.Text = "Name:";
             // 
             // emergency_contact_nameTextBox
             // 
@@ -633,15 +709,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contact Information";
             // 
-            // mobile_phoneLabel
-            // 
-            mobile_phoneLabel.AutoSize = true;
-            mobile_phoneLabel.Location = new System.Drawing.Point(21, 147);
-            mobile_phoneLabel.Name = "mobile_phoneLabel";
-            mobile_phoneLabel.Size = new System.Drawing.Size(73, 13);
-            mobile_phoneLabel.TabIndex = 88;
-            mobile_phoneLabel.Text = "mobile phone:";
-            // 
             // mobile_phoneTextBox
             // 
             this.mobile_phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "mobile_phone", true));
@@ -649,15 +716,6 @@
             this.mobile_phoneTextBox.Name = "mobile_phoneTextBox";
             this.mobile_phoneTextBox.Size = new System.Drawing.Size(131, 20);
             this.mobile_phoneTextBox.TabIndex = 89;
-            // 
-            // fax_numberLabel
-            // 
-            fax_numberLabel.AutoSize = true;
-            fax_numberLabel.Location = new System.Drawing.Point(32, 170);
-            fax_numberLabel.Name = "fax_numberLabel";
-            fax_numberLabel.Size = new System.Drawing.Size(62, 13);
-            fax_numberLabel.TabIndex = 86;
-            fax_numberLabel.Text = "fax number:";
             // 
             // fax_numberTextBox
             // 
@@ -667,15 +725,6 @@
             this.fax_numberTextBox.Size = new System.Drawing.Size(131, 20);
             this.fax_numberTextBox.TabIndex = 87;
             // 
-            // c__home_phoneLabel
-            // 
-            c__home_phoneLabel.AutoSize = true;
-            c__home_phoneLabel.Location = new System.Drawing.Point(25, 124);
-            c__home_phoneLabel.Name = "c__home_phoneLabel";
-            c__home_phoneLabel.Size = new System.Drawing.Size(69, 13);
-            c__home_phoneLabel.TabIndex = 84;
-            c__home_phoneLabel.Text = "home phone:";
-            // 
             // home_phoneTextBox
             // 
             this.home_phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "home_phone", true));
@@ -683,15 +732,6 @@
             this.home_phoneTextBox.Name = "home_phoneTextBox";
             this.home_phoneTextBox.Size = new System.Drawing.Size(131, 20);
             this.home_phoneTextBox.TabIndex = 85;
-            // 
-            // bussiness_phoneLabel
-            // 
-            bussiness_phoneLabel.AutoSize = true;
-            bussiness_phoneLabel.Location = new System.Drawing.Point(6, 101);
-            bussiness_phoneLabel.Name = "bussiness_phoneLabel";
-            bussiness_phoneLabel.Size = new System.Drawing.Size(89, 13);
-            bussiness_phoneLabel.TabIndex = 82;
-            bussiness_phoneLabel.Text = "bussiness phone:";
             // 
             // bussiness_phoneTextBox
             // 
@@ -701,15 +741,6 @@
             this.bussiness_phoneTextBox.Size = new System.Drawing.Size(131, 20);
             this.bussiness_phoneTextBox.TabIndex = 83;
             // 
-            // addressLabel
-            // 
-            addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(48, 78);
-            addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(47, 13);
-            addressLabel.TabIndex = 80;
-            addressLabel.Text = "address:";
-            // 
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "address", true));
@@ -718,15 +749,6 @@
             this.addressTextBox.Size = new System.Drawing.Size(131, 20);
             this.addressTextBox.TabIndex = 81;
             // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(61, 55);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(34, 13);
-            emailLabel.TabIndex = 78;
-            emailLabel.Text = "email:";
-            // 
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "email", true));
@@ -734,15 +756,6 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(131, 20);
             this.emailTextBox.TabIndex = 79;
-            // 
-            // zIPLabel
-            // 
-            zIPLabel.AutoSize = true;
-            zIPLabel.Location = new System.Drawing.Point(68, 32);
-            zIPLabel.Name = "zIPLabel";
-            zIPLabel.Size = new System.Drawing.Size(27, 13);
-            zIPLabel.TabIndex = 76;
-            zIPLabel.Text = "ZIP:";
             // 
             // zIPTextBox
             // 
@@ -801,14 +814,27 @@
             // 
             // ProgramsGridView
             // 
+            this.ProgramsGridView.AutoGenerateColumns = false;
             this.ProgramsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProgramsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id});
+            this.programDataGridViewTextBoxColumn,
+            this.id,
+            this.nameDataGridViewTextBoxColumn,
+            this.slugDataGridViewTextBoxColumn,
+            this.languagesDataGridViewTextBoxColumn});
+            this.ProgramsGridView.ContextMenuStrip = this.programMenuStrip;
+            this.ProgramsGridView.DataSource = this.CurrentProgramsBindingSource;
             this.ProgramsGridView.Location = new System.Drawing.Point(20, 106);
             this.ProgramsGridView.Name = "ProgramsGridView";
             this.ProgramsGridView.RowHeadersVisible = false;
             this.ProgramsGridView.Size = new System.Drawing.Size(474, 340);
             this.ProgramsGridView.TabIndex = 6;
+            // 
+            // programDataGridViewTextBoxColumn
+            // 
+            this.programDataGridViewTextBoxColumn.DataPropertyName = "Program";
+            this.programDataGridViewTextBoxColumn.HeaderText = "Program";
+            this.programDataGridViewTextBoxColumn.Name = "programDataGridViewTextBoxColumn";
             // 
             // id
             // 
@@ -816,6 +842,28 @@
             this.id.HeaderText = "id";
             this.id.Name = "id";
             this.id.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Schedule";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // slugDataGridViewTextBoxColumn
+            // 
+            this.slugDataGridViewTextBoxColumn.DataPropertyName = "slug";
+            this.slugDataGridViewTextBoxColumn.HeaderText = "Slug";
+            this.slugDataGridViewTextBoxColumn.Name = "slugDataGridViewTextBoxColumn";
+            // 
+            // languagesDataGridViewTextBoxColumn
+            // 
+            this.languagesDataGridViewTextBoxColumn.DataPropertyName = "languages";
+            this.languagesDataGridViewTextBoxColumn.HeaderText = "Lang";
+            this.languagesDataGridViewTextBoxColumn.Name = "languagesDataGridViewTextBoxColumn";
+            // 
+            // CurrentProgramsBindingSource
+            // 
+            this.CurrentProgramsBindingSource.DataSource = typeof(Roster.Model.Schedule);
             // 
             // addProgram_btn
             // 
@@ -825,6 +873,7 @@
             this.addProgram_btn.TabIndex = 5;
             this.addProgram_btn.Text = "Add Program";
             this.addProgram_btn.UseVisualStyleBackColor = true;
+            this.addProgram_btn.Click += new System.EventHandler(this.addProgram_btn_Click);
             // 
             // label2
             // 
@@ -856,6 +905,10 @@
             this.scheduleComboBox.ValueMember = "id";
             this.scheduleComboBox.SelectedIndexChanged += new System.EventHandler(this.scheduleComboBox_SelectedIndexChanged);
             // 
+            // scheduleBindingSource
+            // 
+            this.scheduleBindingSource.DataSource = typeof(Roster.Model.Schedule);
+            // 
             // programComboBox
             // 
             this.programComboBox.DataSource = this.programBindingSource;
@@ -868,17 +921,23 @@
             this.programComboBox.ValueMember = "id";
             this.programComboBox.SelectedIndexChanged += new System.EventHandler(this.programComboBox_SelectedIndexChanged);
             // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(Roster.Model.Student);
-            // 
             // programBindingSource
             // 
             this.programBindingSource.DataSource = typeof(Roster.Model.Program);
             // 
-            // scheduleBindingSource
+            // programMenuStrip
             // 
-            this.scheduleBindingSource.DataSource = typeof(Roster.Model.Schedule);
+            this.programMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.programMenuStrip.Name = "programMenuStrip";
+            this.programMenuStrip.Size = new System.Drawing.Size(153, 48);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // UpdateStudentForm
             // 
@@ -893,6 +952,7 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -900,9 +960,10 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProgramsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentProgramsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
+            this.programMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -948,7 +1009,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView ProgramsGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.Button addProgram_btn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -957,5 +1017,13 @@
         private System.Windows.Forms.BindingSource studentBindingSource;
         private System.Windows.Forms.BindingSource scheduleBindingSource;
         private System.Windows.Forms.BindingSource programBindingSource;
+        private System.Windows.Forms.BindingSource CurrentProgramsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn programDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slugDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn languagesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ContextMenuStrip programMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

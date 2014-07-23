@@ -23,7 +23,11 @@ namespace Roster.Model
         public int id { get; set; }
         public string name { get; set; }
         public string slug { get; set; }
-    
+
+        public override string ToString()
+        {
+            return name;
+        }
         public virtual ICollection<Schedule> Schedules { get; set; }
         public virtual ICollection<Student_Program> Student_Program { get; set; }
     }

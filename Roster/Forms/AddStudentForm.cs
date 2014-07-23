@@ -98,20 +98,8 @@ namespace Roster.Forms
 
             foreach (Schedule schedule in Schedules)
             {
-                Student_Program sp = new Student_Program()
-                {
-                    Student = student,
-                    Program = schedule.Program
-                };
-
-                Student_Schedule ssch = new Student_Schedule()
-                {
-                    Student = student,
-                    Schedule = schedule
-                };
-
-                Context.Student_Schedule.Add(ssch);
-                Context.Student_Program.Add(sp);
+                Context.Student_Schedule.Add(new Student_Schedule { Student = student, Schedule = schedule });
+                Context.Student_Program.Add( new Student_Program  { Student = student, Program  = program  });
             }
 
             try

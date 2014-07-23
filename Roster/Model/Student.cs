@@ -57,7 +57,29 @@ namespace Roster.Model
                 return first_name + " " + last_name;
             }
         }
-    
+        public List<Program> Programs
+        {
+            get 
+            {
+                List<Program> progs = new List<Program>();
+                foreach (Student_Program sp in Student_Program)
+                    progs.Add(sp.Program);
+
+                return progs;
+            }
+        }
+        public List<Schedule> Schedules
+        {
+            get
+            {
+                List<Schedule> sch = new List<Schedule>();
+                foreach (Student_Schedule s in Student_Schedule)
+                    sch.Add(s.Schedule);
+
+                return sch;
+            }
+        }
+
         public virtual ICollection<Student_Program> Student_Program { get; set; }
         public virtual ICollection<Student_Schedule> Student_Schedule { get; set; }
     }

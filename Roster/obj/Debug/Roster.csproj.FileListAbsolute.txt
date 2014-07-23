@@ -26,3 +26,7 @@ G:\WORK\Roster\Roster\obj\Debug\Roster.Forms.FindStudentForm.resources
 G:\WORK\Roster\Roster\obj\Debug\RdlCompile.cache
 G:\WORK\Roster\Roster\obj\Debug\RdlCompile.compiled
 G:\WORK\Roster\Roster\obj\Debug\Roster.Forms.UpdateStudentForm.resources
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Forms.FindStudentForm.resources
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Forms.UpdateStudentForm.resources
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\RdlCompile.cache
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\RdlCompile.compiled

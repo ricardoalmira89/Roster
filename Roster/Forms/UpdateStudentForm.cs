@@ -16,7 +16,6 @@ namespace Roster.Forms
         Context Context = new Context();
         Program program;
         Schedule schedule;
-        List<Schedule> Schedules = new List<Schedule>();
         Student Student;
 
         public UpdateStudentForm()
@@ -32,20 +31,18 @@ namespace Roster.Forms
         public void ShowDialog(Student student, Context context)
         {
             Context = context;
-            programBindingSource.DataSource = Context.Programs.ToList();
             Student = student;
 
-            
-
             studentBindingSource.DataSource = student;
-
-
+            programBindingSource.DataSource = Context.Programs.ToList();
+            CurrentProgramsBindingSource.DataSource = student.Schedules.ToList();
+ 
             this.ShowDialog();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            
+            Context.SaveChanges();
         }
 
         private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +55,24 @@ namespace Roster.Forms
         private void scheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             schedule = program.Schedules.First(s => s.id == (int)scheduleComboBox.SelectedValue);
+        }
+
+        private void addProgram_btn_Click(object sender, EventArgs e)
+        {
+            if (!Student.Schedules.Exists(c => c.Program.id == program.id))
+            {
+                Context.Student_Schedule.Add(new Student_Schedule { Student = this.Student, Schedule = this.schedule });
+                Context.Student_Program.Add(new Student_Program   { Student = this.Student, Program  = this.program  });
+            }
+            else MessageBox.Show("Current Program already exists for this student.\nPlease select another one.", "Program already exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CurrentProgramsBindingSource.DataSource = Student.Schedules.ToList();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Context.Student_Schedule.Remove(Student.Student_Schedule.First(ssch => ssch.schedule_id == (int)ProgramsGridView.CurrentRow.Cells["id"].Value));
+            CurrentProgramsBindingSource.DataSource = Student.Schedules.ToList();
         }
     }
 }

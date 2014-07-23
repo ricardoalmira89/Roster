@@ -24,7 +24,11 @@ namespace Roster.Model
         public string slug { get; set; }
         public string languages { get; set; }
         public int program_id { get; set; }
-    
+
+        public override string ToString()
+        {
+            return name;
+        }
         public virtual Program Program { get; set; }
         public virtual ICollection<Student_Schedule> Student_Schedule { get; set; }
     }
