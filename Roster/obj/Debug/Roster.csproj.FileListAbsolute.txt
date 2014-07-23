@@ -13,3 +13,12 @@ C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Forms.AddStudentForm.resou
 G:\WORK\Roster\Roster\bin\Debug\Roster.exe.config
 G:\WORK\Roster\Roster\obj\Debug\Roster.exe
 G:\WORK\Roster\Roster\obj\Debug\Roster.pdb
+G:\WORK\Roster\Roster\obj\Debug\Roster.csprojResolveAssemblyReference.cache
+G:\WORK\Roster\Roster\obj\Debug\Roster.Form1.resources
+G:\WORK\Roster\Roster\obj\Debug\Roster.Forms.AddStudentForm.resources
+G:\WORK\Roster\Roster\obj\Debug\Roster.Properties.Resources.resources
+G:\WORK\Roster\Roster\obj\Debug\Roster.csproj.GenerateResource.Cache
+G:\WORK\Roster\Roster\bin\Debug\Roster.exe
+G:\WORK\Roster\Roster\bin\Debug\Roster.pdb
+G:\WORK\Roster\Roster\bin\Debug\EntityFramework.dll
+G:\WORK\Roster\Roster\bin\Debug\EntityFramework.xml

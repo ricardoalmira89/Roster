@@ -16,7 +16,7 @@ namespace Roster.Forms
         rosterEntities context = new rosterEntities();
         Roster.Model.Program Program;
         Roster.Model.Schedule Schedule;
-        Roster.Model.Student_Schedule Student_Schedule;
+        //Roster.Model.Student_Schedule Student_Schedule;
 
         public AddStudentForm()
         {
@@ -83,19 +83,8 @@ namespace Roster.Forms
             student.web_page = web_pageTextBox.Text;
             student.ZIP = zIPTextBox.Text;*/
 
-            Student_Schedule = new Student_Schedule();
-            Student_Schedule.Schedule = Schedule;
-            Student_Schedule.Student = new Student();
-            //Student_Schedule.Student = student;
-            //Student_Schedule.schedule_id = Schedule.id;
-            //Student_Schedule.student_id = student.id;
-          
-
-            //student.Student_Schedule.Add(Student_Schedule);
-            
-            context.Student_Schedule.Add(Student_Schedule);
             //context.Students.Add(student);
-            context.SaveChanges();
+            //context.SaveChanges();
             
         }
 

@@ -30,7 +30,7 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="start_date" ColumnName="start_date" />
           <ScalarProperty Name="end_date" ColumnName="end_date" />
-          <ScalarProperty Name="C__home_phone" ColumnName="&#xD;&#xA;home_phone" />
+          <ScalarProperty Name="home_phone" ColumnName="home_phone" />
           <ScalarProperty Name="bussiness_phone" ColumnName="bussiness_phone" />
           <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
           <ScalarProperty Name="fax_number" ColumnName="fax_number" />
@@ -57,12 +57,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Student_Schedule">
-      <EntityTypeMapping TypeName="rosterModel.Student_Schedule">
-        <MappingFragment StoreEntitySet="Student_Schedule">
+    <EntitySetMapping Name="Student_Program">
+      <EntityTypeMapping TypeName="rosterModel.Student_Program">
+        <MappingFragment StoreEntitySet="Student_Program">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
           <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="program_id" ColumnName="program_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

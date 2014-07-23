@@ -17,6 +17,7 @@ namespace Roster.Model
         public Program()
         {
             this.Schedules = new HashSet<Schedule>();
+            this.Student_Program = new HashSet<Student_Program>();
         }
     
         public int id { get; set; }
@@ -24,5 +25,6 @@ namespace Roster.Model
         public string slug { get; set; }
     
         public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual ICollection<Student_Program> Student_Program { get; set; }
     }
 }

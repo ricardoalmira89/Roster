@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="042a3d37d59a4259a5b2532b1319d030" Name="Diagram1">
-        <EntityTypeShape EntityType="rosterModel.Program" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="rosterModel.Schedule" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="rosterModel.Student" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="rosterModel.Student_Schedule" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="rosterModel.fk_program" ManuallyRouted="false" />
-        <AssociationConnector Association="rosterModel.fk_schedule" ManuallyRouted="false" />
-        <AssociationConnector Association="rosterModel.fk_student" ManuallyRouted="false" />
+      <Diagram DiagramId="9dba7ab5a7484be680c3e76a649f8370" Name="Diagram1">
+        <EntityTypeShape EntityType="rosterModel.Program" Width="1.5" PointX="1.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="rosterModel.Schedule" Width="1.5" PointX="1.375" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rosterModel.Student" Width="1.5" PointX="7.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rosterModel.Student_Program" Width="1.5" PointX="5.125" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="rosterModel.FK__Schedule__progra__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="rosterModel.FK__Student_P__progr__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="rosterModel.FK__Student_P__stude__47DBAE45" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

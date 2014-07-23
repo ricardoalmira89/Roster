@@ -12,13 +12,13 @@ namespace Roster.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Student_Schedule
+    public partial class Student_Program
     {
         public int id { get; set; }
-        public int schedule_id { get; set; }
-        public Nullable<int> student_id { get; set; }
+        public int student_id { get; set; }
+        public int program_id { get; set; }
     
-        public virtual Schedule Schedule { get; set; }
+        public virtual Program Program { get; set; }
         public virtual Student Student { get; set; }
     }
 }

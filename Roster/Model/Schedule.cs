@@ -14,11 +14,6 @@ namespace Roster.Model
     
     public partial class Schedule
     {
-        public Schedule()
-        {
-            this.Student_Schedule = new HashSet<Student_Schedule>();
-        }
-    
         public int id { get; set; }
         public string name { get; set; }
         public string slug { get; set; }
@@ -26,6 +21,5 @@ namespace Roster.Model
         public int program_id { get; set; }
     
         public virtual Program Program { get; set; }
-        public virtual ICollection<Student_Schedule> Student_Schedule { get; set; }
     }
 }
