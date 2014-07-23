@@ -16,6 +16,7 @@ namespace Roster
     {
         public AddStudentForm AddStudent = new AddStudentForm();
         public FindStudentForm FindStudent = new FindStudentForm();
+        public rosterEntities Context = new Model.rosterEntities();
 
         public Form1()
         {
@@ -31,12 +32,12 @@ namespace Roster
   
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddStudent.ShowDialog();
+            AddStudent.ShowDialog(Context);
         }
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FindStudent.ShowDialog();
+            FindStudent.ShowDialog(Context);
         }
     }
 }

@@ -224,7 +224,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Program / Schedule";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // label3
             // 
@@ -380,7 +379,7 @@
             fax_numberLabel.Size = new System.Drawing.Size(62, 13);
             fax_numberLabel.TabIndex = 86;
             fax_numberLabel.Text = "fax number:";
-            fax_numberLabel.Click += new System.EventHandler(this.fax_numberLabel_Click);
+ 
             // 
             // fax_numberTextBox
             // 
@@ -390,7 +389,6 @@
             this.fax_numberTextBox.Size = new System.Drawing.Size(131, 20);
             this.fax_numberTextBox.TabIndex = 87;
             this.fax_numberTextBox.Text = "-";
-            this.fax_numberTextBox.TextChanged += new System.EventHandler(this.fax_numberTextBox_TextChanged);
             // 
             // c__home_phoneLabel
             // 
@@ -498,8 +496,7 @@
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Emergency Contact Information";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
+             // 
             // emergency_contact_phone3Label
             // 
             emergency_contact_phone3Label.AutoSize = true;

@@ -13,7 +13,7 @@ namespace Roster.Forms
 {
     public partial class AddStudentForm : Form
     {
-        rosterEntities context = new rosterEntities();
+        rosterEntities Context;
         Program program;
         Schedule schedule;
         List<Schedule> Schedules = new List<Schedule>();
@@ -23,25 +23,21 @@ namespace Roster.Forms
             InitializeComponent();
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
+        public void ShowDialog(rosterEntities context)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-  
+            Context = context;
+            this.ShowDialog();
         }
 
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
-            programBindingSource.DataSource = context.Programs.ToList();
+            programBindingSource.DataSource = Context.Programs.ToList();
         }
 
         private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            scheduleBindingSource.DataSource = context.Schedules.ToList();
-            program = context.Programs.First(c => c.id == (int)programComboBox.SelectedValue);
+            scheduleBindingSource.DataSource = Context.Schedules.ToList();
+            program = Context.Programs.First(c => c.id == (int)programComboBox.SelectedValue);
             scheduleBindingSource.DataSource = program.Schedules.ToList();
         }
 
@@ -98,7 +94,7 @@ namespace Roster.Forms
             };
 
 
-            context.Students.Add(student);
+            Context.Students.Add(student);
 
             foreach (Schedule schedule in Schedules)
             {
@@ -114,13 +110,13 @@ namespace Roster.Forms
                     Schedule = schedule
                 };
 
-                context.Student_Schedule.Add(ssch);
-                context.Student_Program.Add(sp);
+                Context.Student_Schedule.Add(ssch);
+                Context.Student_Program.Add(sp);
             }
 
             try
             {
-                context.SaveChanges();
+                Context.SaveChanges();
                 MessageBox.Show("Student successfully added.", "Add Student OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -138,20 +134,7 @@ namespace Roster.Forms
             CurrentProgramsBindingSource.DataSource = Schedules.ToList();
         }
 
-        private void fax_numberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fax_numberTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+    
 
 
 
