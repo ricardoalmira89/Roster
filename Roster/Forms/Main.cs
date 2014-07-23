@@ -14,8 +14,10 @@ namespace Roster
 {
     public partial class Form1 : Form
     {
-        public AddStudentForm AddStudent = new AddStudentForm();
-        public FindStudentForm FindStudent = new FindStudentForm();
+        AddStudentForm AddStudent = new AddStudentForm();
+        FindStudentForm FindStudent = new FindStudentForm();
+        AddProgramForm AddProgram = new AddProgramForm();
+ 
         public Context Context = new Model.Context();
 
         public Form1()
@@ -38,6 +40,11 @@ namespace Roster
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindStudent.ShowDialog(Context);
+        }
+
+        private void newProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddProgram.ShowDialog(Context);
         }
     }
 }

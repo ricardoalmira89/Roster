@@ -61,14 +61,14 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.addToolStripMenuItem.Text = "New Student";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // findToolStripMenuItem
             // 
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
@@ -84,13 +84,14 @@
             // newProgramToolStripMenuItem
             // 
             this.newProgramToolStripMenuItem.Name = "newProgramToolStripMenuItem";
-            this.newProgramToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.newProgramToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newProgramToolStripMenuItem.Text = "New Program";
+            this.newProgramToolStripMenuItem.Click += new System.EventHandler(this.newProgramToolStripMenuItem_Click);
             // 
             // newScheduleToolStripMenuItem
             // 
             this.newScheduleToolStripMenuItem.Name = "newScheduleToolStripMenuItem";
-            this.newScheduleToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.newScheduleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newScheduleToolStripMenuItem.Text = "New Schedule";
             // 
             // Form1

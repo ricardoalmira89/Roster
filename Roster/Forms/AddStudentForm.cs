@@ -32,12 +32,16 @@ namespace Roster.Forms
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
             programBindingSource.DataSource = Context.Programs.ToList();
+            program = Context.Programs.First();
+
+            scheduleBindingSource.DataSource = program.Schedules.ToList();
+            schedule = program.Schedules.First();
         }
 
         private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            scheduleBindingSource.DataSource = Context.Schedules.ToList();
             program = Context.Programs.First(c => c.id == (int)programComboBox.SelectedValue);
+            schedule = program.Schedules.First();
             scheduleBindingSource.DataSource = program.Schedules.ToList();
         }
 

@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.studentsGridView = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.findtext = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,14 +47,21 @@
             this.mobilephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.studentsGridView)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // studentsGridView
             // 
+            this.studentsGridView.AllowUserToAddRows = false;
+            this.studentsGridView.AllowUserToDeleteRows = false;
+            this.studentsGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.studentsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.studentsGridView.AutoGenerateColumns = false;
+            this.studentsGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.studentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -65,12 +73,41 @@
             this.studentsGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.studentsGridView.DataSource = this.studentBindingSource;
             this.studentsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentsGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.studentsGridView.Location = new System.Drawing.Point(0, 25);
+            this.studentsGridView.MultiSelect = false;
             this.studentsGridView.Name = "studentsGridView";
+            this.studentsGridView.ReadOnly = true;
             this.studentsGridView.RowHeadersVisible = false;
+            this.studentsGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Bisque;
+            this.studentsGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.studentsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentsGridView.Size = new System.Drawing.Size(611, 392);
             this.studentsGridView.TabIndex = 1;
+            this.studentsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsGridView_CellDoubleClick);
             this.studentsGridView.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem,
+            this.editToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(152, 48);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.deleteToolStripMenuItem.Text = "Delete Student";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.editToolStripMenuItem.Text = "Edit Student";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // toolStripLabel2
             // 
@@ -111,33 +148,12 @@
             this.toolStripButton1.Text = "Find Now!";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteToolStripMenuItem,
-            this.editToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(152, 48);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.deleteToolStripMenuItem.Text = "Delete Student";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.editToolStripMenuItem.Text = "Edit Student";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lastnameDataGridViewTextBoxColumn
             // 
@@ -151,24 +167,28 @@
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // startdateDataGridViewTextBoxColumn
             // 
             this.startdateDataGridViewTextBoxColumn.DataPropertyName = "start_date";
             this.startdateDataGridViewTextBoxColumn.HeaderText = "Start Date";
             this.startdateDataGridViewTextBoxColumn.Name = "startdateDataGridViewTextBoxColumn";
+            this.startdateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // enddateDataGridViewTextBoxColumn
             // 
             this.enddateDataGridViewTextBoxColumn.DataPropertyName = "end_date";
             this.enddateDataGridViewTextBoxColumn.HeaderText = "End Date";
             this.enddateDataGridViewTextBoxColumn.Name = "enddateDataGridViewTextBoxColumn";
+            this.enddateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // mobilephoneDataGridViewTextBoxColumn
             // 
             this.mobilephoneDataGridViewTextBoxColumn.DataPropertyName = "mobile_phone";
             this.mobilephoneDataGridViewTextBoxColumn.HeaderText = "Mobile Phone";
             this.mobilephoneDataGridViewTextBoxColumn.Name = "mobilephoneDataGridViewTextBoxColumn";
+            this.mobilephoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // studentBindingSource
             // 
@@ -185,9 +205,9 @@
             this.Text = "FindStudentForm";
             this.Load += new System.EventHandler(this.FindStudentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentsGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

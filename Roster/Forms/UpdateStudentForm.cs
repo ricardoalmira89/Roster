@@ -34,21 +34,34 @@ namespace Roster.Forms
             Student = student;
 
             studentBindingSource.DataSource = student;
-            programBindingSource.DataSource = Context.Programs.ToList();
+
             CurrentProgramsBindingSource.DataSource = student.Schedules.ToList();
+            programBindingSource.DataSource = Context.Programs.ToList();
+            
+            program = context.Programs.First();
+            scheduleBindingSource.DataSource = program.Schedules.ToList();
  
             this.ShowDialog();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            Context.SaveChanges();
+            try
+            {
+                Context.SaveChanges();
+                MessageBox.Show("Student successfully updated.", "Update Student OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error has ocurred. Student could not be Updated.", "Update Student Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            scheduleBindingSource.DataSource = Context.Schedules.ToList();
             program = Context.Programs.First(c => c.id == (int)programComboBox.SelectedValue);
+            schedule = program.Schedules.First();
             scheduleBindingSource.DataSource = program.Schedules.ToList();
         }
 
@@ -63,10 +76,9 @@ namespace Roster.Forms
             {
                 Context.Student_Schedule.Add(new Student_Schedule { Student = this.Student, Schedule = this.schedule });
                 Context.Student_Program.Add(new Student_Program   { Student = this.Student, Program  = this.program  });
+                CurrentProgramsBindingSource.DataSource = Student.Schedules.ToList();
             }
             else MessageBox.Show("Current Program already exists for this student.\nPlease select another one.", "Program already exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            CurrentProgramsBindingSource.DataSource = Student.Schedules.ToList();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

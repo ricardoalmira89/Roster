@@ -96,6 +96,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.student_name_lbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ProgramsGridView = new System.Windows.Forms.DataGridView();
             this.programDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,6 +104,8 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.slugDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.languagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CurrentProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addProgram_btn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -111,8 +114,6 @@
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.programComboBox = new System.Windows.Forms.ComboBox();
             this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.programMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             start_dateLabel = new System.Windows.Forms.Label();
             end_dateLabel = new System.Windows.Forms.Label();
             web_pageLabel = new System.Windows.Forms.Label();
@@ -150,10 +151,10 @@
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProgramsGridView)).BeginInit();
+            this.programMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentProgramsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
-            this.programMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // start_dateLabel
@@ -788,6 +789,7 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.Controls.Add(this.student_name_lbl);
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.ProgramsGridView);
             this.tabPage3.Controls.Add(this.addProgram_btn);
@@ -803,14 +805,25 @@
             this.tabPage3.Text = "Program / Schedule";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // student_name_lbl
+            // 
+            this.student_name_lbl.AutoSize = true;
+            this.student_name_lbl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Full_Name", true));
+            this.student_name_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.student_name_lbl.Location = new System.Drawing.Point(119, 90);
+            this.student_name_lbl.Name = "student_name_lbl";
+            this.student_name_lbl.Size = new System.Drawing.Size(41, 13);
+            this.student_name_lbl.TabIndex = 8;
+            this.student_name_lbl.Text = "label4";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 13);
+            this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Current Student´s Programs";
+            this.label3.Text = "Current Programs for ";
             // 
             // ProgramsGridView
             // 
@@ -860,6 +873,20 @@
             this.languagesDataGridViewTextBoxColumn.DataPropertyName = "languages";
             this.languagesDataGridViewTextBoxColumn.HeaderText = "Lang";
             this.languagesDataGridViewTextBoxColumn.Name = "languagesDataGridViewTextBoxColumn";
+            // 
+            // programMenuStrip
+            // 
+            this.programMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.programMenuStrip.Name = "programMenuStrip";
+            this.programMenuStrip.Size = new System.Drawing.Size(108, 26);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // CurrentProgramsBindingSource
             // 
@@ -925,20 +952,6 @@
             // 
             this.programBindingSource.DataSource = typeof(Roster.Model.Program);
             // 
-            // programMenuStrip
-            // 
-            this.programMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteToolStripMenuItem});
-            this.programMenuStrip.Name = "programMenuStrip";
-            this.programMenuStrip.Size = new System.Drawing.Size(153, 48);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
             // UpdateStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -960,10 +973,10 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProgramsGridView)).EndInit();
+            this.programMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CurrentProgramsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
-            this.programMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1025,5 +1038,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn languagesDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip programMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.Label student_name_lbl;
     }
 }

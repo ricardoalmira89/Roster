@@ -15,6 +15,7 @@ namespace Roster.Forms
     {
         Context Context;
         Student student;
+        UpdateStudentForm UpdateStudent = new UpdateStudentForm();
         int id = 0;
 
         public FindStudentForm()
@@ -32,7 +33,7 @@ namespace Roster.Forms
         {
             var query =
                 from student in Context.Students.ToList()
-                where (student.first_name.Contains(findtext.Text) || student.last_name.Contains(findtext.Text) || student.id == int.Parse(findtext.Text))
+                where (student.first_name.Contains(findtext.Text) || student.last_name.Contains(findtext.Text)|| student.id.ToString() == findtext.Text)
                 select student;
 
 
@@ -41,12 +42,13 @@ namespace Roster.Forms
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Context.Students.Remove(student);
+            Context.SaveChanges();
+            studentBindingSource.DataSource = Context.Students.ToList();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateStudentForm UpdateStudent = new UpdateStudentForm();
             UpdateStudent.ShowDialog(student, Context);
         }
 
@@ -62,6 +64,11 @@ namespace Roster.Forms
         private void FindStudentForm_Load(object sender, EventArgs e)
         {
             studentBindingSource.DataSource = Context.Students.ToList();
+        }
+
+        private void studentsGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateStudent.ShowDialog(student, Context);
         }
     }
 }

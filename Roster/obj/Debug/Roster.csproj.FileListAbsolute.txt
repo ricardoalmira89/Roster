@@ -30,3 +30,4 @@ C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Forms.FindStudentForm.reso
 C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Forms.UpdateStudentForm.resources
 C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\RdlCompile.cache
 C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\RdlCompile.compiled
+C:\Users\cyber\Desktop\Roster\Roster\obj\Debug\Roster.Forms.AddProgramForm.resources
