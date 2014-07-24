@@ -141,7 +141,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reporting\Report1.rdlc" />
     <EntityDeploy Include="Model\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -161,7 +160,6 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Roster.Model.Program.datasource" />
-    <None Include="Properties\DataSources\Roster.Model.rosterEntities.datasource" />
     <None Include="Properties\DataSources\Roster.Model.Schedule.datasource" />
     <None Include="Properties\DataSources\Roster.Model.Student.datasource" />
     <None Include="Properties\DataSources\Roster.Model.Student_Schedule.datasource" />
@@ -183,6 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reporting\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
