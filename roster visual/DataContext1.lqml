@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database Name="roster_mysql" EntityNamespace="roster_visual" ContextNamespace="roster_visual" Class="RosterMysqlDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="e540e539-a741-4a53-a746-dd430ef5d879" Provider="Devart.Data.MySql.Linq.Provider.MySqlDataProvider, Devart.Data.MySql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+  <Connection Mode="ConnectionString" ConnectionString="User Id=root;Host=localhost;Database=roster_mysql;Persist Security Info=True" Provider="Devart.Data.MySql" />
+  <Table Name="roster_mysql.drop_info" Member="DropInfos">
+    <Type Name="DropInfo" ed:Guid="eaaa61b0-a26f-4df8-ad49-524eda69392e">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="a1602c62-5b3e-40e0-a3a4-68b90ef8973d" />
+      <Column Name="refund" Member="Refund" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="916d0008-c06a-4ec8-9a50-8743c9dfbdf9" />
+      <Column Name="amount" Member="Amount" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="d36f5cfa-c1cb-4259-b3aa-73b0073aaf4e" />
+      <Column Name="`date`" Member="Date" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="4d087540-87db-467c-8644-6827f816509d" />
+      <Column Name="`check`" Member="Check" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="f9d58b7a-fb04-48e1-8b6d-8af9b6132bf4" />
+      <Column Name="paid" Member="Paid" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="19ff7b05-cfad-4e37-93f0-8cf2bebf2e14" />
+      <Association Name="DropInfo_Student" ed:AssociationGuid="a0a5e65b-6aaf-4514-bd2e-9461f58c064b" Member="Students" ed:Guid="5b9da659-ac07-4338-a2cc-a0ac4a616eb9" ThisKey="Id" OtherKey="DropinfoId" Type="Student" />
+    </Type>
+  </Table>
+  <Table Name="roster_mysql.enrollment_officer" Member="EnrollmentOfficers">
+    <Type Name="EnrollmentOfficer" ed:Guid="e5cea913-3453-4b4f-8207-80d07441a3b9">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="87cb56aa-193b-41fd-bd90-0a7005e65465" />
+      <Column Name="`text`" Member="Text" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="bcfbaa32-857e-425b-9e8e-bc8492b9a97c" />
+      <Association Name="EnrollmentOfficer_Student" ed:AssociationGuid="cf457131-f72a-4558-bd2d-5a05cf15cf88" Member="Students" ed:Guid="a013b46e-abc9-4b00-ada9-ba4eaa19ca01" ThisKey="Id" OtherKey="EOId" Type="Student" />
+    </Type>
+  </Table>
+  <Table Name="roster_mysql.graduated" Member="Graduateds">
+    <Type Name="Graduated" ed:Guid="5adab34e-1a11-4ea9-884f-f4f0f60e26a6">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="293ab848-4e74-4eee-9918-ba05f58c8e71" />
+      <Column Name="licensed" Member="Licensed" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="f5c6efc0-71f6-4067-a8d8-fab520f4064c" />
+      <Column Name="temporary" Member="Temporary" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="f0680992-fd6b-4b3d-84ee-63963cc76763" />
+      <Column Name="employment_status" Member="EmploymentStatus" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="f68f954e-b572-4ff4-b3ab-713d7777a7c1" />
+      <Column Name="company_name" Member="CompanyName" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="a6e87494-30af-4893-b7a8-69e75d7126d3" />
+      <Column Name="company_address" Member="CompanyAddress" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="32dabbfb-4c0f-4533-8a63-0b38a913a6e8" />
+      <Column Name="company_city" Member="CompanyCity" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="b74b0803-4cd5-4811-bbc5-f27b066d3ba4" />
+      <Column Name="company_state" Member="CompanyState" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="00c7012a-7148-43db-a7bb-e17d7f0d0c87" />
+      <Column Name="company_zip" Member="CompanyZip" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="3e4f9c7b-35ae-45b5-b8f7-7fbdecfe3233" />
+      <Column Name="company_phone" Member="CompanyPhone" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="045c1826-0cf5-4703-b8f3-c5ffb9bfc3b6" />
+      <Column Name="full_time" Member="FullTime" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="0715662f-5ed8-42ce-b5e0-85d4ccdf8695" />
+      <Column Name="diploma_printed" Member="DiplomaPrinted" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="d9df1ab8-0976-4947-8d03-d7d5ef801499" />
+      <Column Name="start_working" Member="StartWorking" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="b0e43688-909c-4892-a922-0d8bbcda38d0" />
+      <Column Name="supervisor_phone" Member="SupervisorPhone" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="2b289625-50ff-4fe1-859d-5747e1a578a8" />
+      <Column Name="supervisor_name" Member="SupervisorName" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="259e7f35-4be1-4e9b-863b-e0165f1be048" />
+      <Column Name="job_title" Member="JobTitle" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="32008028-5bd3-4bb1-9f68-c410cc290984" />
+      <Column Name="employer_address" Member="EmployerAddress" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="f03e045d-0523-4670-819e-e64b0e0d8ff2" />
+      <Association Name="Graduated_Student" ed:AssociationGuid="1cac4464-ca3e-4760-916c-ae8a6aadf2d0" Member="Students" ed:Guid="cdb23c6f-b5ca-4374-afd7-4a1dfc4820ca" ThisKey="Id" OtherKey="GraduatedId" Type="Student" />
+    </Type>
+  </Table>
+  <Table Name="roster_mysql.program" Member="Programs">
+    <Type Name="Program" ed:Guid="3f80f78c-699d-4369-a3b9-64d7a8abff08">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="777c6bb2-2de1-484a-9e1e-57f95769aa60" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="TEXT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="da462321-4e65-48ab-b17a-781d2b519d68" />
+      <Column Name="slug" Member="Slug" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="36c8bd09-f6ba-474a-b230-45b66a00d999" />
+      <Association Name="Program_Schedule" ed:AssociationGuid="09974519-23d2-49d0-b62c-3a3a26cf49db" Member="Schedules" ed:Guid="6cb02808-19eb-484a-9549-21569a24fc4d" ThisKey="Id" OtherKey="ProgramId" Type="Schedule" />
+      <Association Name="Program_StudentProgram" ed:AssociationGuid="459095a4-d513-4e40-9aad-c2f6f0aae118" Member="StudentPrograms" ed:Guid="d31e6a26-f55c-4e22-9437-738b61df6078" ThisKey="Id" OtherKey="ProgramId" Type="StudentProgram" />
+    </Type>
+  </Table>
+  <Table Name="roster_mysql.schedule" Member="Schedules">
+    <Type Name="Schedule" ed:Guid="ebd4ffdf-ba54-4fb3-af2d-21ba7516f5ed">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="d7a7fef0-44ca-4de1-94a3-0005f29d5d13" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="TEXT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="2f1d287d-f48f-4e74-8a5e-04c81bc847cf" />
+      <Column Name="slug" Member="Slug" Type="System.String" DbType="TEXT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="bf87a10d-a611-4a5d-ad37-e8fe4c0be36b" />
+      <Column Name="languages" Member="Languages" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="d5d49d13-64c7-41ee-ba92-82a2195e6328" />
+      <Column Name="program_id" Member="ProgramId" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="5c21de4e-dda6-447d-850c-7cb72bd92b14" />
+      <Association Name="Program_Schedule" ed:AssociationGuid="09974519-23d2-49d0-b62c-3a3a26cf49db" Member="Program" ed:Guid="393125ad-fc11-41bc-a517-a1c432f140dc" ThisKey="ProgramId" OtherKey="Id" Type="Program" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="Schedule_StudentSchedule" ed:AssociationGuid="e6c82435-d1da-4d1c-8002-978ef771e13f" Member="StudentSchedules" ed:Guid="408385bf-96e6-41d5-9ee9-09f4522863ce" ThisKey="Id" OtherKey="ScheduleId" Type="StudentSchedule" />
+    </Type>
+  </Table>
+  <Table Name="roster_mysql.student" Member="Students">
+    <Type Name="Student" ed:Guid="4ea315ac-ed15-4017-a061-2162f6c2f281">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="9212c927-241f-4e2d-a85f-91d6ce364e92" />
+      <Column Name="last_name" Member="LastName" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="8da9aa87-4ef4-47ae-9703-c8e9e1314556" />
+      <Column Name="first_name" Member="FirstName" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="ebab6235-bc73-42c6-987b-4a05ce4fd1a9" />
+      <Column Name="email" Member="Email" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="9dc9609b-e902-459b-83df-3b08e77bfc23" />
+      <Column Name="start_date" Member="StartDate" Type="System.DateTime" DbType="DATETIME NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="2654326a-7af3-4342-9936-9e01e8fd2af7" />
+      <Column Name="end_date" Member="EndDate" Type="System.DateTime" DbType="DATETIME NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="6cb6471c-ce59-48ef-b128-4452bfc7f613" />
+      <Column Name="home_phone" Member="HomePhone" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="7a51fb3e-c9ce-4523-af57-d7e7f22ee32c" />
+      <Column Name="bussiness_phone" Member="BussinessPhone" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="ffff98ed-6d8f-4299-9a12-b25962862570" />
+      <Column Name="cell_phone" Member="CellPhone" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="f4122d1c-aea7-4cd6-ae17-522b460d7899" />
+      <Column Name="fax_number" Member="FaxNumber" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="fe00f005-385b-4e7a-82cf-482ea8faf776" />
+      <Column Name="address" Member="Address" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="86b5edf7-495a-48ff-857d-b3dc266485bc" />
+      <Column Name="city" Member="City" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="1a496cb3-b368-477d-9f51-ee2f253e1fdb" />
+      <Column Name="state" Member="State" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="5ebcbbec-267a-4f66-84dc-562dfc8b456b" />
+      <Column Name="ZIP" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="664db3e5-14ea-4670-bf82-19c3c44e994e" />
+      <Column Name="country" Member="Country" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="d0ab325b-58bf-4288-a83b-7b058d1ac571" />
+      <Column Name="credit_trans" Member="CreditTrans" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="79d52640-f1f6-45f7-886e-f8101161558c" />
+      <Column Name="refered" Member="Refered" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="ff99251c-5a78-4bae-abbc-2697a9a2c597" />
+      <Column Name="web_page" Member="WebPage" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="4e851ac1-dfc5-4a5f-9f56-1fda895e89e6" />
+      <Column Name="notes" Member="Notes" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="bf808379-b54e-4e5e-94d4-0cfe762a11c4" />
+      <Column Name="attachment" Member="Attachment" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="add8b952-ccb4-41aa-84ff-b4a24e794751" />
+      <Column Name="location" Member="Location" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="b939f9c6-bcda-44d0-86f2-b83edd843358" />
+      <Column Name="status" Member="Status" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="957b5385-257f-4842-9e15-234d5e0655b4" />
+      <Column Name="comments" Member="Comments" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="3887b468-107c-4663-8047-ee678fc7f709" />
+      <Column Name="emergency_contact_name" Member="EmergencyContactName" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="19ac72fe-9e58-4fcc-96f3-e466a99af22e" />
+      <Column Name="emergency_contact_phone1" Member="EmergencyContactPhone1" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="709accbe-4aa9-46ef-9a31-b4e877463d22" />
+      <Column Name="emergency_contact_phone2" Member="EmergencyContactPhone2" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="fec517a5-2e35-41ea-a128-17af2728ecfb" />
+      <Column Name="emergency_contact_phone3" Member="EmergencyContactPhone3" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="938fe1e9-68c5-4223-8e5c-8eb58a2231cb" />
+      <Column Name="cv" Member="Cv" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="58ffd441-7dcf-4584-a895-f7d4a5570ae1" />
+      <Column Name="cvs" Member="Cvs" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="53222074-82e7-4639-bbb3-470a9ab625e9" />
+      <Column Name="middle_initial" Member="MiddleInitial" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="8e6fb959-d7a1-4359-a7d3-d0161b153036" />
+      <Column Name="picture" Member="Picture" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="dd61e314-23d8-4fb8-98c2-b7cb8a9985dd" />
+      <Column Name="graduated_id" Member="GraduatedId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="06b8f940-43d1-4165-8349-478db8118345" />
+      <Column Name="payment_info" Member="PaymentInfo" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="9b6ff950-6fbb-4c60-a7bf-b3caa6dbf0fd" />
+      <Column Name="payment_plan_amount" Member="PaymentPlanAmount" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="e301fa71-d40b-4f85-9d79-3bad3acdca29" />
+      <Column Name="dropinfo_id" Member="DropinfoId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="355a1c35-21df-4898-b7fa-021ea208e312" />
+      <Column Name="EO_id" Member="EOId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="3415dbbd-537d-4887-a5e9-970e3df646d1" />
+      <Association Name="DropInfo_Student" ed:AssociationGuid="a0a5e65b-6aaf-4514-bd2e-9461f58c064b" Member="DropInfo" ed:Guid="028bdd6d-1417-4cf0-a477-97219933aa29" ThisKey="DropinfoId" OtherKey="Id" Type="DropInfo" DeleteRule="CASCADE" IsForeignKey="true" />
+      <Association Name="EnrollmentOfficer_Student" ed:AssociationGuid="cf457131-f72a-4558-bd2d-5a05cf15cf88" Member="EnrollmentOfficer" ed:Guid="fc3a0985-0662-42a6-a3eb-dbb0ce144526" ThisKey="EOId" OtherKey="Id" Type="EnrollmentOfficer" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="Graduated_Student" ed:AssociationGuid="1cac4464-ca3e-4760-916c-ae8a6aadf2d0" Member="Graduated" ed:Guid="22e2e8ce-456a-4461-9545-01d1c940054b" ThisKey="GraduatedId" OtherKey="Id" Type="Graduated" DeleteRule="CASCADE" IsForeignKey="true" />
+      <Association Name="Student_StudentProgram" ed:AssociationGuid="d5bbd9aa-0abe-4ac8-87e5-d1ff11bf7793" Member="StudentPrograms" ed:Guid="701bf5bb-a87b-40d9-a903-8bc49f8d6692" ThisKey="Id" OtherKey="StudentId" Type="StudentProgram" />
+      <Association Name="Student_StudentSchedule" ed:AssociationGuid="dfd8fbcf-3a59-4933-9061-7c23a1156106" Member="StudentSchedules" ed:Guid="dbb88040-6f43-44b3-90e2-be85c4524d84" ThisKey="Id" OtherKey="StudentId" Type="StudentSchedule" />
+    </Type>
+  </Table>
+  <Table Name="roster_mysql.student_program" Member="StudentPrograms">
+    <Type Name="StudentProgram" ed:Guid="394c0ffe-9abd-4c9c-a693-0e5caa6e643f">
+      <Column Name="id" Member="Id" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="c4662b26-968d-4dd7-92db-3dc8b635e5a7" />
+      <Column Name="student_id" Member="StudentId" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="882ad7ab-1f7b-4ba0-9fdb-d09f43da0fa0" />
+      <Column Name="program_id" Member="ProgramId" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="12c1449d-1972-4fec-84ee-3e70214d2441" />
+      <Association Name="Program_StudentProgram" ed:AssociationGuid="459095a4-d513-4e40-9aad-c2f6f0aae118" Member="Program" ed:Guid="4931ae1f-d0dd-4206-8c8a-876a84f24f20" ThisKey="ProgramId" OtherKey="Id" Type="Program" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="Student_StudentProgram" ed:AssociationGuid="d5bbd9aa-0abe-4ac8-87e5-d1ff11bf7793" Member="Student" ed:Guid="9b5893fe-42b4-463d-88e5-8e60bbb62fe4" ThisKey="StudentId" OtherKey="Id" Type="Student" DeleteRule="RESTRICT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="roster_mysql.student_schedule" Member="StudentSchedules">
+    <Type Name="StudentSchedule" ed:Guid="ba7dbe6a-9578-4450-8e33-e8a1df86609b">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="e47d89ed-46ec-4e36-8c79-c02e30052cba" />
+      <Column Name="student_id" Member="StudentId" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="4d4fb366-9981-4f83-9d17-8b21206ecf05" />
+      <Column Name="schedule_id" Member="ScheduleId" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="2ea95067-f8fa-4656-b6c8-2fe048e9bf01" />
+      <Association Name="Schedule_StudentSchedule" ed:AssociationGuid="e6c82435-d1da-4d1c-8002-978ef771e13f" Member="Schedule" ed:Guid="72e9b32a-d2e4-4050-a627-9f182d4e62a0" ThisKey="ScheduleId" OtherKey="Id" Type="Schedule" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="Student_StudentSchedule" ed:AssociationGuid="dfd8fbcf-3a59-4933-9061-7c23a1156106" Member="Student" ed:Guid="18fe04bf-fe68-48bb-95f0-ecb4e73b08b1" ThisKey="StudentId" OtherKey="Id" Type="Student" DeleteRule="RESTRICT" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

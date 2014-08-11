@@ -1,0 +1,19 @@
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\bin\Debug\roster visual.exe.config
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\bin\Debug\roster visual.exe
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\bin\Debug\roster visual.pdb
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\obj\Debug\roster visual.csprojResolveAssemblyReference.cache
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\obj\Debug\roster_visual.Form1.resources
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\obj\Debug\roster_visual.Properties.Resources.resources
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\obj\Debug\roster visual.csproj.GenerateResource.Cache
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\obj\Debug\roster visual.exe
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\obj\Debug\roster visual.pdb
+c:\users\administrator.cvalmynyc\documents\visual studio 2013\Projects\roster visual\roster visual\bin\Debug\roster 2014.accdb
+G:\Roster-master\roster visual\bin\Debug\roster visual.exe.config
+G:\Roster-master\roster visual\obj\Debug\roster visual.exe
+G:\Roster-master\roster visual\obj\Debug\roster visual.pdb
+G:\Roster-master\roster visual\obj\Debug\roster_visual.Form1.resources
+G:\Roster-master\roster visual\obj\Debug\roster_visual.Properties.Resources.resources
+G:\Roster-master\roster visual\obj\Debug\roster visual.csproj.GenerateResource.Cache
+G:\Roster-master\roster visual\bin\Debug\roster visual.exe
+G:\Roster-master\roster visual\bin\Debug\roster visual.pdb
+G:\Roster-master\roster visual\obj\Debug\roster visual.csprojResolveAssemblyReference.cache
