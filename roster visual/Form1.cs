@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace roster_visual
@@ -15,6 +16,8 @@ namespace roster_visual
     {
         Program Program = new Program();
         Schedule Schedule = new Schedule();
+        Student Student = new Student();
+
         RosterMysqlDataContext Context = new RosterMysqlDataContext();
 
         public Form1()
@@ -28,7 +31,9 @@ namespace roster_visual
             Program = Context.Programs.First();
             scheduleBindingSource.DataSource = Program.Schedules.ToList();
             Schedule = Program.Schedules.First();
+            enrollmentOfficerBindingSource.DataSource = Context.EnrollmentOfficers;
             
+           
 
         }
 
@@ -55,28 +60,17 @@ namespace roster_visual
 
         private void button4_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            picturePictureBox.Load(openFileDialog1.FileName);
-
-            /*try
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Bitmap image1 = (Bitmap)Image.FromFile(@"C:\Documents and Settings\" +
-                    @"All Users\Documents\error.png", true);
+                string new_filepath = Application.StartupPath + @"\Student_Pictures\" + Path.GetFileName(openFileDialog.FileName);
 
-                TextureBrush texture = new TextureBrush(image1);
-                texture.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
-                Graphics formGraphics = this.CreateGraphics();
-                formGraphics.FillEllipse(texture,
-                    new RectangleF(90.0F, 110.0F, 100, 100));
-                formGraphics.Dispose();
-
+                if (!File.Exists(new_filepath)) File.Copy(openFileDialog.FileName, new_filepath);
+                else 
+                {
+                    Student.Picture = new_filepath;
+                    studentImage.Load(new_filepath);
+                }
             }
-            catch (System.IO.FileNotFoundException)
-            {
-                MessageBox.Show("There was an error opening the bitmap." +
-                    "Please check the path.");
-            }*/
-
 
         }
 
@@ -101,8 +95,7 @@ namespace roster_visual
 
         private void picturePictureBox_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            picturePictureBox.Load(openFileDialog1.FileName);
+
         }
 
         private void tabPage4_Click(object sender, EventArgs e)
@@ -153,8 +146,7 @@ namespace roster_visual
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            
-            Context.SubmitChanges();
+
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -162,6 +154,18 @@ namespace roster_visual
 
         }
 
-       
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            Validate();
+            Context.SubmitChanges();
+        }
+
+        private void studentBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            Student = (Student)studentBindingSource.Current;
+            studentImage.Load(Student.Picture);
+        }
+
+      
     }
 }

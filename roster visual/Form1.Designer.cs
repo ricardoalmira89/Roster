@@ -73,7 +73,7 @@
             this.cITYTextBox = new System.Windows.Forms.TextBox();
             this.aDDRESSTextBox = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.picturePictureBox = new System.Windows.Forms.PictureBox();
+            this.studentImage = new System.Windows.Forms.PictureBox();
             this.e_MAIL_ADDRESSTextBox = new System.Windows.Forms.TextBox();
             this.cELL_PHONE__TextBox = new System.Windows.Forms.TextBox();
             this.hOME_PHONE__TextBox = new System.Windows.Forms.TextBox();
@@ -84,6 +84,7 @@
             this.schedule_cmb = new System.Windows.Forms.ComboBox();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eo_cmb = new System.Windows.Forms.ComboBox();
+            this.enrollmentOfficerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.program_cmb = new System.Windows.Forms.ComboBox();
             this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cOMMENTSTextBox = new System.Windows.Forms.TextBox();
@@ -113,8 +114,7 @@
             this.cOMPANY_NAMETextBox = new System.Windows.Forms.TextBox();
             this.cURRENT_EMPLOYMENT_STATUSTextBox = new System.Windows.Forms.TextBox();
             this.license__Y_N_TextBox = new System.Windows.Forms.TextBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
@@ -128,7 +128,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.save_btn = new System.Windows.Forms.ToolStripButton();
             iD_Label = new System.Windows.Forms.Label();
             lAST_NAMELabel = new System.Windows.Forms.Label();
             fIRST_NAMELabel = new System.Windows.Forms.Label();
@@ -161,9 +161,10 @@
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentImage)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enrollmentOfficerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -453,7 +454,7 @@
             this.tabPage1.Controls.Add(aDDRESSLabel);
             this.tabPage1.Controls.Add(this.aDDRESSTextBox);
             this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.picturePictureBox);
+            this.tabPage1.Controls.Add(this.studentImage);
             this.tabPage1.Controls.Add(e_MAIL_ADDRESSLabel);
             this.tabPage1.Controls.Add(this.e_MAIL_ADDRESSTextBox);
             this.tabPage1.Controls.Add(cELL_PHONE__Label);
@@ -556,6 +557,7 @@
             // studentBindingSource
             // 
             this.studentBindingSource.DataSource = typeof(roster_visual.Student);
+            this.studentBindingSource.PositionChanged += new System.EventHandler(this.studentBindingSource_PositionChanged);
             // 
             // sTATETextBox
             // 
@@ -591,14 +593,15 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // picturePictureBox
+            // studentImage
             // 
-            this.picturePictureBox.Location = new System.Drawing.Point(461, 25);
-            this.picturePictureBox.Name = "picturePictureBox";
-            this.picturePictureBox.Size = new System.Drawing.Size(132, 122);
-            this.picturePictureBox.TabIndex = 13;
-            this.picturePictureBox.TabStop = false;
-            this.picturePictureBox.Click += new System.EventHandler(this.picturePictureBox_Click);
+            this.studentImage.Location = new System.Drawing.Point(461, 25);
+            this.studentImage.Name = "studentImage";
+            this.studentImage.Size = new System.Drawing.Size(132, 122);
+            this.studentImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.studentImage.TabIndex = 13;
+            this.studentImage.TabStop = false;
+            this.studentImage.Click += new System.EventHandler(this.picturePictureBox_Click);
             // 
             // e_MAIL_ADDRESSTextBox
             // 
@@ -642,6 +645,7 @@
             // 
             // iD_TextBox
             // 
+            this.iD_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Cv", true));
             this.iD_TextBox.Location = new System.Drawing.Point(107, 25);
             this.iD_TextBox.Name = "iD_TextBox";
             this.iD_TextBox.Size = new System.Drawing.Size(100, 20);
@@ -687,11 +691,19 @@
             // 
             // eo_cmb
             // 
+            this.eo_cmb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.enrollmentOfficerBindingSource, "Text", true));
+            this.eo_cmb.DataSource = this.enrollmentOfficerBindingSource;
+            this.eo_cmb.DisplayMember = "Text";
             this.eo_cmb.FormattingEnabled = true;
             this.eo_cmb.Location = new System.Drawing.Point(91, 87);
             this.eo_cmb.Name = "eo_cmb";
             this.eo_cmb.Size = new System.Drawing.Size(121, 21);
             this.eo_cmb.TabIndex = 11;
+            this.eo_cmb.ValueMember = "Id";
+            // 
+            // enrollmentOfficerBindingSource
+            // 
+            this.enrollmentOfficerBindingSource.DataSource = typeof(roster_visual.EnrollmentOfficer);
             // 
             // program_cmb
             // 
@@ -980,15 +992,9 @@
             this.license__Y_N_TextBox.Size = new System.Drawing.Size(100, 20);
             this.license__Y_N_TextBox.TabIndex = 1;
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // directorySearcher1
-            // 
-            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.openFileDialog.Filter = "Png Images|*.png|Bitmap Images|*.bmp|JPG Images|*.jpg;*.jpeg|All Files|*.*";
             // 
             // textBox3
             // 
@@ -1024,7 +1030,7 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.toolStripButton1});
+            this.save_btn});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -1113,16 +1119,16 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton1
+            // save_btn
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::roster_visual.Properties.Resources.Tasks;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Save";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.save_btn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.save_btn.Image = global::roster_visual.Properties.Resources.Tasks;
+            this.save_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.save_btn.Name = "save_btn";
+            this.save_btn.RightToLeftAutoMirrorImage = true;
+            this.save_btn.Size = new System.Drawing.Size(23, 22);
+            this.save_btn.Text = "Save";
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
             // Form1
             // 
@@ -1144,10 +1150,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picturePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentImage)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enrollmentOfficerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -1172,7 +1179,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox iD_TextBox;
-        private System.Windows.Forms.PictureBox picturePictureBox;
+        private System.Windows.Forms.PictureBox studentImage;
         private System.Windows.Forms.TextBox e_MAIL_ADDRESSTextBox;
         private System.Windows.Forms.TextBox cELL_PHONE__TextBox;
         private System.Windows.Forms.TextBox hOME_PHONE__TextBox;
@@ -1190,7 +1197,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DateTimePicker end_DateDateTimePicker1;
@@ -1206,7 +1213,6 @@
         private System.Windows.Forms.TextBox cOMPANY_NAMETextBox;
         private System.Windows.Forms.TextBox cURRENT_EMPLOYMENT_STATUSTextBox;
         private System.Windows.Forms.TextBox license__Y_N_TextBox;
-        private System.DirectoryServices.DirectorySearcher directorySearcher1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1236,7 +1242,8 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton save_btn;
+        private System.Windows.Forms.BindingSource enrollmentOfficerBindingSource;
     }
 }
 
