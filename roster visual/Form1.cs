@@ -17,7 +17,6 @@ namespace roster_visual
         Program Program = new Program();
         Schedule Schedule = new Schedule();
         Student Student = new Student();
-
         RosterMysqlDataContext Context = new RosterMysqlDataContext();
 
         public Form1()
@@ -32,19 +31,17 @@ namespace roster_visual
             scheduleBindingSource.DataSource = Program.Schedules.ToList();
             Schedule = Program.Schedules.First();
             enrollmentOfficerBindingSource.DataSource = Context.EnrollmentOfficers;
-            
-           
+
+            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in Student.StudentSchedules
+                                                       from Schedules in Context.Schedules
+                                                       where StudentSchedules.ScheduleId == Schedules.Id
+                                                       select Schedules;
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             tabControl1.Visible = true;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -88,37 +85,7 @@ namespace roster_visual
             }
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void picturePictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void jOB_TITLELabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void program_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -134,24 +101,16 @@ namespace roster_visual
 
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
+        private void schedule_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-
+            try
+            {
+                Schedule = Context.Schedules.First(c => c.Id == (int)schedule_cmb.SelectedValue);
+            }
+            catch (Exception)
+            {
+            }
+            
         }
 
         private void save_btn_Click(object sender, EventArgs e)
@@ -165,6 +124,30 @@ namespace roster_visual
             Student = (Student)studentBindingSource.Current;
             studentImage.Load(Student.Picture);
         }
+
+        private void add_schedule_btn_Click(object sender, EventArgs e)
+        {
+            if (!Student.StudentPrograms.ToList().Exists(c => c.ProgramId == Program.Id))
+            {
+
+                Student.StudentSchedules.Add(new StudentSchedule() { Student = Student, Schedule = Schedule });
+                Student.StudentPrograms.Add(new StudentProgram() { Student = Student, Program = Program });
+
+                CurrentSchedulesBindingSource.DataSource = from StudentSchedules in Student.StudentSchedules
+                                                           from Schedules in Context.Schedules
+                                                           where StudentSchedules.ScheduleId == Schedules.Id
+                                                           select Schedules;
+                
+
+            }
+            else MessageBox.Show("Current Program already exists for this student.\nPlease select another one.", "Program already exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+
+
+            
+        }
+
+
 
       
     }

@@ -81,6 +81,13 @@
             this.lAST_NAMETextBox = new System.Windows.Forms.TextBox();
             this.iD_TextBox = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.add_schedule_btn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.programDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slugDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CurrentSchedulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.schedule_cmb = new System.Windows.Forms.ComboBox();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eo_cmb = new System.Windows.Forms.ComboBox();
@@ -114,6 +121,7 @@
             this.cOMPANY_NAMETextBox = new System.Windows.Forms.TextBox();
             this.cURRENT_EMPLOYMENT_STATUSTextBox = new System.Windows.Forms.TextBox();
             this.license__Y_N_TextBox = new System.Windows.Forms.TextBox();
+            this.studentProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -163,6 +171,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentImage)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentSchedulesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollmentOfficerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
@@ -170,6 +180,7 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).BeginInit();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentProgramsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
@@ -285,7 +296,7 @@
             // start_DateLabel
             // 
             start_DateLabel.AutoSize = true;
-            start_DateLabel.Location = new System.Drawing.Point(236, 29);
+            start_DateLabel.Location = new System.Drawing.Point(297, 24);
             start_DateLabel.Name = "start_DateLabel";
             start_DateLabel.Size = new System.Drawing.Size(58, 13);
             start_DateLabel.TabIndex = 4;
@@ -294,7 +305,7 @@
             // end_DateLabel
             // 
             end_DateLabel.AutoSize = true;
-            end_DateLabel.Location = new System.Drawing.Point(236, 64);
+            end_DateLabel.Location = new System.Drawing.Point(297, 59);
             end_DateLabel.Name = "end_DateLabel";
             end_DateLabel.Size = new System.Drawing.Size(55, 13);
             end_DateLabel.TabIndex = 6;
@@ -380,7 +391,6 @@
             jOB_TITLELabel.Size = new System.Drawing.Size(63, 13);
             jOB_TITLELabel.TabIndex = 6;
             jOB_TITLELabel.Text = "JOB TITLE:";
-            jOB_TITLELabel.Click += new System.EventHandler(this.jOB_TITLELabel_Click);
             // 
             // sTART_WORKING_DATELabel
             // 
@@ -439,7 +449,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(663, 373);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -474,7 +483,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox1
             // 
@@ -601,7 +609,6 @@
             this.studentImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.studentImage.TabIndex = 13;
             this.studentImage.TabStop = false;
-            this.studentImage.Click += new System.EventHandler(this.picturePictureBox_Click);
             // 
             // e_MAIL_ADDRESSTextBox
             // 
@@ -653,6 +660,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.add_schedule_btn);
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(label7);
             this.tabPage2.Controls.Add(this.schedule_cmb);
             this.tabPage2.Controls.Add(this.eo_cmb);
@@ -672,7 +681,61 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Enrollment";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // add_schedule_btn
+            // 
+            this.add_schedule_btn.Location = new System.Drawing.Point(218, 55);
+            this.add_schedule_btn.Name = "add_schedule_btn";
+            this.add_schedule_btn.Size = new System.Drawing.Size(23, 23);
+            this.add_schedule_btn.TabIndex = 15;
+            this.add_schedule_btn.UseVisualStyleBackColor = true;
+            this.add_schedule_btn.Click += new System.EventHandler(this.add_schedule_btn_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.programDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.slugDataGridViewTextBoxColumn,
+            this.languagesDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.CurrentSchedulesBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(300, 137);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(338, 107);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // programDataGridViewTextBoxColumn
+            // 
+            this.programDataGridViewTextBoxColumn.DataPropertyName = "Program";
+            this.programDataGridViewTextBoxColumn.HeaderText = "Program";
+            this.programDataGridViewTextBoxColumn.Name = "programDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Schedule";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // slugDataGridViewTextBoxColumn
+            // 
+            this.slugDataGridViewTextBoxColumn.DataPropertyName = "Slug";
+            this.slugDataGridViewTextBoxColumn.HeaderText = "Slug";
+            this.slugDataGridViewTextBoxColumn.Name = "slugDataGridViewTextBoxColumn";
+            this.slugDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // languagesDataGridViewTextBoxColumn
+            // 
+            this.languagesDataGridViewTextBoxColumn.DataPropertyName = "Languages";
+            this.languagesDataGridViewTextBoxColumn.HeaderText = "Lang";
+            this.languagesDataGridViewTextBoxColumn.Name = "languagesDataGridViewTextBoxColumn";
+            this.languagesDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // CurrentSchedulesBindingSource
+            // 
+            this.CurrentSchedulesBindingSource.DataSource = typeof(roster_visual.Schedule);
             // 
             // schedule_cmb
             // 
@@ -684,6 +747,7 @@
             this.schedule_cmb.Size = new System.Drawing.Size(121, 21);
             this.schedule_cmb.TabIndex = 12;
             this.schedule_cmb.ValueMember = "Id";
+            this.schedule_cmb.SelectedIndexChanged += new System.EventHandler(this.schedule_cmb_SelectedIndexChanged);
             // 
             // scheduleBindingSource
             // 
@@ -733,17 +797,17 @@
             // end_DateDateTimePicker
             // 
             this.end_DateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studentBindingSource, "EndDate", true));
-            this.end_DateDateTimePicker.Location = new System.Drawing.Point(297, 60);
+            this.end_DateDateTimePicker.Location = new System.Drawing.Point(361, 54);
             this.end_DateDateTimePicker.Name = "end_DateDateTimePicker";
-            this.end_DateDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.end_DateDateTimePicker.Size = new System.Drawing.Size(277, 20);
             this.end_DateDateTimePicker.TabIndex = 7;
             // 
             // start_DateDateTimePicker
             // 
             this.start_DateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studentBindingSource, "StartDate", true));
-            this.start_DateDateTimePicker.Location = new System.Drawing.Point(300, 25);
+            this.start_DateDateTimePicker.Location = new System.Drawing.Point(361, 20);
             this.start_DateDateTimePicker.Name = "start_DateDateTimePicker";
-            this.start_DateDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.start_DateDateTimePicker.Size = new System.Drawing.Size(277, 20);
             this.start_DateDateTimePicker.TabIndex = 5;
             // 
             // tabPage3
@@ -759,7 +823,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Financial";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // label5
             // 
@@ -829,7 +892,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Student Services";
             this.tabPage4.UseVisualStyleBackColor = true;
-            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // checkBox1
             // 
@@ -992,6 +1054,11 @@
             this.license__Y_N_TextBox.Size = new System.Drawing.Size(100, 20);
             this.license__Y_N_TextBox.TabIndex = 1;
             // 
+            // studentProgramsBindingSource
+            // 
+            this.studentProgramsBindingSource.DataMember = "StudentPrograms";
+            this.studentProgramsBindingSource.DataSource = this.programBindingSource;
+            // 
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Png Images|*.png|Bitmap Images|*.bmp|JPG Images|*.jpg;*.jpeg|All Files|*.*";
@@ -1011,7 +1078,6 @@
             this.button6.TabIndex = 9;
             this.button6.Text = "Search";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // bindingNavigator1
             // 
@@ -1050,7 +1116,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -1153,6 +1218,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentImage)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentSchedulesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enrollmentOfficerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
@@ -1163,6 +1230,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentProgramsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -1244,6 +1312,14 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton save_btn;
         private System.Windows.Forms.BindingSource enrollmentOfficerBindingSource;
+        private System.Windows.Forms.BindingSource studentProgramsBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn programDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slugDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn languagesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource CurrentSchedulesBindingSource;
+        private System.Windows.Forms.Button add_schedule_btn;
     }
 }
 

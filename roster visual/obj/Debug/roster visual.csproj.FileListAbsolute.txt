@@ -1,0 +1,16 @@
+G:\Roster-master\roster visual\bin\Debug\roster visual.exe.config
+G:\Roster-master\roster visual\bin\Debug\roster visual.exe
+G:\Roster-master\roster visual\bin\Debug\roster visual.pdb
+G:\Roster-master\roster visual\obj\Debug\roster_visual.Form1.resources
+G:\Roster-master\roster visual\obj\Debug\roster_visual.Properties.Resources.resources
+G:\Roster-master\roster visual\obj\Debug\roster visual.csproj.GenerateResource.Cache
+G:\Roster-master\roster visual\obj\Debug\roster visual.exe
+G:\Roster-master\roster visual\obj\Debug\roster visual.pdb
+C:\Users\cyber\Desktop\Roster-master\roster visual\bin\Debug\roster visual.exe.config
+C:\Users\cyber\Desktop\Roster-master\roster visual\bin\Debug\roster visual.exe
+C:\Users\cyber\Desktop\Roster-master\roster visual\bin\Debug\roster visual.pdb
+C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster_visual.Form1.resources
+C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster_visual.Properties.Resources.resources
+C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.csproj.GenerateResource.Cache
+C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.exe
+C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.pdb
