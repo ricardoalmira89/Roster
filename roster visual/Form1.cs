@@ -22,21 +22,6 @@ namespace roster_visual
         public Form1()
         {
             InitializeComponent();
-
-            studentBindingSource.DataSource = Context.Students;
-
-            //--- Load Program/Schedule Defaults ---
-            programBindingSource.DataSource = Context.Programs.ToList();
-            _Program = Context.Programs.First();
-            scheduleBindingSource.DataSource = _Program.Schedules.ToList();
-            _Schedule = _Program.Schedules.First();
-            enrollmentOfficerBindingSource.DataSource = Context.EnrollmentOfficers;
-
-            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
-                                                       from Schedules in Context.Schedules
-                                                       where StudentSchedules.ScheduleId == Schedules.Id
-                                                       select Schedules;
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,6 +32,19 @@ namespace roster_visual
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            studentBindingSource.DataSource = Context.Students;
+
+            //--- Load Program/Schedule Defaults ---
+            programBindingSource.DataSource = Context.Programs;
+            _Program = Context.Programs.First();
+            scheduleBindingSource.DataSource = _Program.Schedules.ToList();
+            _Schedule = _Program.Schedules.First();
+            enrollmentOfficerBindingSource.DataSource = Context.EnrollmentOfficers;
+
+            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
+                                                       from Schedules in Context.Schedules
+                                                       where StudentSchedules.ScheduleId == Schedules.Id
+                                                       select Schedules;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -85,7 +83,6 @@ namespace roster_visual
             }
         }
 
-       
         private void program_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -155,7 +152,7 @@ namespace roster_visual
             
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeleteStudentSchedule_Click(object sender, EventArgs e)
         {
 
             StudentSchedule StudentSchedule_To_Delete = _Student.StudentSchedules.First(sch => sch.Schedule.Id == (int)studentSchedulesGridView.CurrentRow.Cells["Id"].Value);
@@ -173,13 +170,20 @@ namespace roster_visual
         {
             studentBindingSource.DataSource = from Students in Context.Students
                                               where (
-                                              Students.FirstName.StartsWith(searchStudent_txt.Text) ||
-                                              Students.LastName.StartsWith(searchStudent_txt.Text)  ||
+                                              Students.FirstName.ToLower().StartsWith(searchStudent_txt.Text.ToLower()) ||
+                                              Students.LastName.ToLower().StartsWith(searchStudent_txt.Text.ToLower())  ||
                                               Students.Cv.StartsWith(searchStudent_txt.Text)
                                               )
                                               select Students;
-            //findStudent_tab.Focus();
-            tabControl1.SelectedTab = findStudent_tab;             
+
+            tabControl1.SelectedTab = findStudent_tab;
+            searchStudent_txt.Focus();
+        }
+
+        private void searchStudent_txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) btn_search_Click(sender, e);
+            
         }
 
 
