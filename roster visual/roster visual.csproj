@@ -59,6 +59,9 @@
     <Compile Include="DataContext1.Graduated.cs">
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </Compile>
+    <Compile Include="DataContext1.Locker.cs">
+      <DependentUpon>DataContext1.lqml</DependentUpon>
+    </Compile>
     <Compile Include="DataContext1.Program.cs">
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </Compile>
@@ -113,6 +116,7 @@
     <None Include="Properties\DataSources\DropInfo.datasource" />
     <None Include="Properties\DataSources\EnrollmentOfficer.datasource" />
     <None Include="Properties\DataSources\Graduated.datasource" />
+    <None Include="Properties\DataSources\Locker.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\Schedule.datasource" />
     <None Include="Properties\DataSources\Student.datasource" />

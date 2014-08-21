@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50524
 File Encoding         : 65001
 
-Date: 2014-08-20 16:08:12
+Date: 2014-08-21 14:55:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -79,6 +79,26 @@ CREATE TABLE `graduated` (
 -- ----------------------------
 -- Records of graduated
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for locker
+-- ----------------------------
+DROP TABLE IF EXISTS `locker`;
+CREATE TABLE `locker` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(3) NOT NULL,
+  `busy` bit(1) NOT NULL DEFAULT b'0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of locker
+-- ----------------------------
+INSERT INTO `locker` VALUES ('1', 'A1', '');
+INSERT INTO `locker` VALUES ('2', 'A2', '');
+INSERT INTO `locker` VALUES ('3', 'A3', '');
+INSERT INTO `locker` VALUES ('4', 'A4', '');
+INSERT INTO `locker` VALUES ('5', 'A5', '');
 
 -- ----------------------------
 -- Table structure for program
@@ -181,10 +201,13 @@ CREATE TABLE `student` (
   `payment_plan_amount` text,
   `dropinfo_id` int(11) DEFAULT NULL,
   `EO_id` int(11) DEFAULT NULL,
+  `locker_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_student_graduated` (`graduated_id`),
   KEY `fk_student_enrollmentofficer` (`EO_id`),
   KEY `fk_sudent_dropinfo` (`dropinfo_id`),
+  KEY `fk_student_locker` (`locker_id`),
+  CONSTRAINT `fk_student_locker` FOREIGN KEY (`locker_id`) REFERENCES `locker` (`id`),
   CONSTRAINT `fk_student_enrollmentofficer` FOREIGN KEY (`EO_id`) REFERENCES `enrollment_officer` (`id`),
   CONSTRAINT `fk_student_graduated` FOREIGN KEY (`graduated_id`) REFERENCES `graduated` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_sudent_dropinfo` FOREIGN KEY (`dropinfo_id`) REFERENCES `drop_info` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -193,8 +216,8 @@ CREATE TABLE `student` (
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES ('2', 'Almira', 'Ricardo', 'ricardoalmira89@bnjm.cu', '2014-07-01 11:54:15', '2014-09-01 11:54:20', '2036910', '6558999', '052789045', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '89998877', null, 'http://www.programacion.com', null, null, null, null, '123456', null, null, null, null, null, '', null, 'C:\\Users\\cyber\\Desktop\\Roster-master\\roster visual\\bin\\Debug\\Student_Pictures\\a661d680a7f53fbe5ce9e2b0c2ca4fcc01cec1bd.png', null, 'VESID', null, null, null);
-INSERT INTO `student` VALUES ('3', 'Alvarez', 'Dileimis', 'lili@gmail.com', '2014-06-01 13:30:31', '2014-08-11 13:30:36', '23456789', '65432123', '056777766', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '78887788', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `student` VALUES ('2', 'Almira', 'Ricardo', 'ricardoalmira89@bnjm.cu', '2014-07-01 11:54:15', '2014-09-01 11:54:20', '2036910', '6558999', '052789045', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '89998877', null, 'http://www.programacion.com', null, null, null, null, '123456', null, null, null, null, null, '', null, 'C:\\Users\\cyber\\Desktop\\Roster-master\\roster visual\\bin\\Debug\\Student_Pictures\\a661d680a7f53fbe5ce9e2b0c2ca4fcc01cec1bd.png', null, 'VESID', null, null, null, '1');
+INSERT INTO `student` VALUES ('3', 'Alvarez', 'Dileimis', 'lili@gmail.com', '2014-06-01 13:30:31', '2014-08-11 13:30:36', '23456789', '65432123', '056777766', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '78887788', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2');
 
 -- ----------------------------
 -- Table structure for student_schedule

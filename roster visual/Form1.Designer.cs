@@ -106,10 +106,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.locker_cmb = new System.Windows.Forms.ComboBox();
+            this.lockerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pRINTED_DIPLOMA_DATEDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.graduatedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lOCKER__TextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.end_DateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -165,7 +166,6 @@
             this.enrollmentOfficerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.graduatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dropInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.searchStudent_txt = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
@@ -223,11 +223,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lockerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.findStudent_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentProgramsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StudentNavigator)).BeginInit();
             this.StudentNavigator.SuspendLayout();
             this.SuspendLayout();
@@ -903,7 +903,6 @@
             this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Payment Plan Info:";
-            this.label5.Visible = false;
             // 
             // textBox1
             // 
@@ -912,7 +911,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(119, 20);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Visible = false;
             // 
             // comboBox1
             // 
@@ -944,11 +942,11 @@
             // tabPage4
             // 
             this.tabPage4.AutoScroll = true;
+            this.tabPage4.Controls.Add(this.locker_cmb);
             this.tabPage4.Controls.Add(this.checkBox1);
             this.tabPage4.Controls.Add(pRINTED_DIPLOMA_DATELabel);
             this.tabPage4.Controls.Add(this.pRINTED_DIPLOMA_DATEDateTimePicker);
             this.tabPage4.Controls.Add(lOCKER__Label);
-            this.tabPage4.Controls.Add(this.lOCKER__TextBox);
             this.tabPage4.Controls.Add(this.label6);
             this.tabPage4.Controls.Add(this.textBox2);
             this.tabPage4.Controls.Add(end_DateLabel1);
@@ -963,6 +961,23 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Student Services";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // locker_cmb
+            // 
+            this.locker_cmb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.studentBindingSource, "Locker", true));
+            this.locker_cmb.DataSource = this.lockerBindingSource;
+            this.locker_cmb.DisplayMember = "Name";
+            this.locker_cmb.FormattingEnabled = true;
+            this.locker_cmb.Location = new System.Drawing.Point(72, 75);
+            this.locker_cmb.Name = "locker_cmb";
+            this.locker_cmb.Size = new System.Drawing.Size(64, 21);
+            this.locker_cmb.TabIndex = 14;
+            this.locker_cmb.ValueMember = "Id";
+            this.locker_cmb.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // lockerBindingSource
+            // 
+            this.lockerBindingSource.DataSource = typeof(roster_visual.Locker);
             // 
             // checkBox1
             // 
@@ -986,13 +1001,6 @@
             // graduatedBindingSource
             // 
             this.graduatedBindingSource.DataSource = typeof(roster_visual.Graduated);
-            // 
-            // lOCKER__TextBox
-            // 
-            this.lOCKER__TextBox.Location = new System.Drawing.Point(72, 76);
-            this.lOCKER__TextBox.Name = "lOCKER__TextBox";
-            this.lOCKER__TextBox.Size = new System.Drawing.Size(100, 20);
-            this.lOCKER__TextBox.TabIndex = 10;
             // 
             // label6
             // 
@@ -1035,6 +1043,7 @@
             this.button5.TabIndex = 0;
             this.button5.Text = "Print ID";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // tabPage5
             // 
@@ -1421,11 +1430,6 @@
             this.dropInfoDataGridViewTextBoxColumn.HeaderText = "DropInfo";
             this.dropInfoDataGridViewTextBoxColumn.Name = "dropInfoDataGridViewTextBoxColumn";
             // 
-            // studentProgramsBindingSource
-            // 
-            this.studentProgramsBindingSource.DataMember = "StudentPrograms";
-            this.studentProgramsBindingSource.DataSource = this.programBindingSource;
-            // 
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Png Images|*.png|Bitmap Images|*.bmp|JPG Images|*.jpg;*.jpeg|All Files|*.*";
@@ -1597,6 +1601,7 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lockerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
@@ -1643,7 +1648,6 @@
         private System.Windows.Forms.DateTimePicker start_DateDateTimePicker1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DateTimePicker pRINTED_DIPLOMA_DATEDateTimePicker;
-        private System.Windows.Forms.TextBox lOCKER__TextBox;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox eMPLOYER_ADDRESSTextBox;
         private System.Windows.Forms.TextBox sUPERVISOR_PHONETextBox;
@@ -1683,7 +1687,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton save_btn;
         private System.Windows.Forms.BindingSource enrollmentOfficerBindingSource;
-        private System.Windows.Forms.BindingSource studentProgramsBindingSource;
         private System.Windows.Forms.DataGridView studentSchedulesGridView;
         private System.Windows.Forms.BindingSource CurrentSchedulesBindingSource;
         private System.Windows.Forms.Button add_schedule_btn;
@@ -1735,6 +1738,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox locker_cmb;
+        private System.Windows.Forms.BindingSource lockerBindingSource;
     }
 }
 

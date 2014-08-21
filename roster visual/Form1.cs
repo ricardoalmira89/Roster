@@ -22,15 +22,6 @@ namespace roster_visual
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            tabControl1.Visible = true;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
             studentBindingSource.DataSource = Context.Students;
 
@@ -45,6 +36,24 @@ namespace roster_visual
                                                        from Schedules in Context.Schedules
                                                        where StudentSchedules.ScheduleId == Schedules.Id
                                                        select Schedules;
+
+            /*lockerBindingSource.DataSource = from locker in Context.Lockers
+                                             where !locker.Busy
+                                             select locker;*/
+            lockerBindingSource.DataSource = Context.Lockers;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl1.Visible = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+ 
+
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -184,6 +193,16 @@ namespace roster_visual
         {
             if (e.KeyCode == Keys.Enter) btn_search_Click(sender, e);
             
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(_Student.Locker.Name);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -7,6 +7,7 @@
         <File Name="DataContext1.DropInfo.cs" />
         <File Name="DataContext1.EnrollmentOfficer.cs" />
         <File Name="DataContext1.Graduated.cs" />
+        <File Name="DataContext1.Locker.cs" />
         <File Name="DataContext1.Program.cs" />
         <File Name="DataContext1.Schedule.cs" />
         <File Name="DataContext1.Student.cs" />

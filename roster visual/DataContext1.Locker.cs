@@ -22,10 +22,10 @@ namespace roster_visual
 {
 
     /// <summary>
-    /// There are no comments for roster_visual.Program in the schema.
+    /// There are no comments for roster_visual.Locker in the schema.
     /// </summary>
-    [Table(Name = @"roster_mysql.program")]
-    public partial class Program : INotifyPropertyChanging, INotifyPropertyChanged
+    [Table(Name = @"roster_mysql.locker")]
+    public partial class Locker : INotifyPropertyChanging, INotifyPropertyChanged
     {
 
         private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(System.String.Empty);
@@ -35,12 +35,10 @@ namespace roster_visual
 
         private string _Name;
 
-        private string _Slug;
+        private bool _Busy = false;
         #pragma warning restore 0649
 
-        private EntitySet<Schedule> _Schedules;
-
-        private EntitySet<StudentSchedule> _StudentSchedules;
+        private EntitySet<Student> _Students;
     
         #region Extensibility Method Definitions
 
@@ -51,14 +49,13 @@ namespace roster_visual
         partial void OnIdChanged();
         partial void OnNameChanging(string value);
         partial void OnNameChanged();
-        partial void OnSlugChanging(string value);
-        partial void OnSlugChanged();
+        partial void OnBusyChanging(bool value);
+        partial void OnBusyChanged();
         #endregion
 
-        public Program()
+        public Locker()
         {
-            this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
-            this._StudentSchedules = new EntitySet<StudentSchedule>(new Action<StudentSchedule>(this.attach_StudentSchedules), new Action<StudentSchedule>(this.detach_StudentSchedules));
+            this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
             OnCreated();
         }
 
@@ -90,7 +87,7 @@ namespace roster_visual
         /// <summary>
         /// There are no comments for Name in the schema.
         /// </summary>
-        [Column(Name = @"name", Storage = "_Name", CanBeNull = false, DbType = "TEXT NOT NULL", UpdateCheck = UpdateCheck.Never)]
+        [Column(Name = @"name", Storage = "_Name", CanBeNull = false, DbType = "VARCHAR(3) NOT NULL", UpdateCheck = UpdateCheck.Never)]
         public string Name
         {
             get
@@ -112,59 +109,42 @@ namespace roster_visual
 
     
         /// <summary>
-        /// There are no comments for Slug in the schema.
+        /// There are no comments for Busy in the schema.
         /// </summary>
-        [Column(Name = @"slug", Storage = "_Slug", DbType = "TEXT NULL", UpdateCheck = UpdateCheck.Never)]
-        public string Slug
+        [Column(Name = @"busy", Storage = "_Busy", CanBeNull = false, DbType = "BIT NOT NULL", UpdateCheck = UpdateCheck.Never)]
+        public bool Busy
         {
             get
             {
-                return this._Slug;
+                return this._Busy;
             }
             set
             {
-                if (this._Slug != value)
+                if (this._Busy != value)
                 {
-                    this.OnSlugChanging(value);
+                    this.OnBusyChanging(value);
                     this.SendPropertyChanging();
-                    this._Slug = value;
-                    this.SendPropertyChanged("Slug");
-                    this.OnSlugChanged();
+                    this._Busy = value;
+                    this.SendPropertyChanged("Busy");
+                    this.OnBusyChanged();
                 }
             }
         }
 
     
         /// <summary>
-        /// There are no comments for Schedules in the schema.
+        /// There are no comments for Students in the schema.
         /// </summary>
-        [Devart.Data.Linq.Mapping.Association(Name="Program_Schedule", Storage="_Schedules", ThisKey="Id", OtherKey="ProgramId", DeleteRule="RESTRICT")]
-        public EntitySet<Schedule> Schedules
+        [Devart.Data.Linq.Mapping.Association(Name="Locker_Student", Storage="_Students", ThisKey="Id", OtherKey="LockerId", DeleteRule="RESTRICT")]
+        public EntitySet<Student> Students
         {
             get
             {
-                return this._Schedules;
+                return this._Students;
             }
             set
             {
-                this._Schedules.Assign(value);
-            }
-        }
-
-    
-        /// <summary>
-        /// There are no comments for StudentSchedules in the schema.
-        /// </summary>
-        [Devart.Data.Linq.Mapping.Association(Name="Program_StudentSchedule", Storage="_StudentSchedules", ThisKey="Id", OtherKey="ProgramId", DeleteRule="RESTRICT")]
-        public EntitySet<StudentSchedule> StudentSchedules
-        {
-            get
-            {
-                return this._StudentSchedules;
-            }
-            set
-            {
-                this._StudentSchedules.Assign(value);
+                this._Students.Assign(value);
             }
         }
    
@@ -193,28 +173,16 @@ namespace roster_visual
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void attach_Schedules(Schedule entity)
+        private void attach_Students(Student entity)
         {
-            this.SendPropertyChanging("Schedules");
-            entity.Program = this;
+            this.SendPropertyChanging("Students");
+            entity.Locker = this;
         }
     
-        private void detach_Schedules(Schedule entity)
+        private void detach_Students(Student entity)
         {
-            this.SendPropertyChanging("Schedules");
-            entity.Program = null;
-        }
-
-        private void attach_StudentSchedules(StudentSchedule entity)
-        {
-            this.SendPropertyChanging("StudentSchedules");
-            entity.Program = this;
-        }
-    
-        private void detach_StudentSchedules(StudentSchedule entity)
-        {
-            this.SendPropertyChanging("StudentSchedules");
-            entity.Program = null;
+            this.SendPropertyChanging("Students");
+            entity.Locker = null;
         }
 
         public override string ToString()

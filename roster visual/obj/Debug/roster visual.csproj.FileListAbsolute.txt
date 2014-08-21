@@ -14,4 +14,3 @@ C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster_visual.Prope
 C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.csproj.GenerateResource.Cache
 C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.exe
 C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.pdb
-C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.csprojResolveAssemblyReference.cache
