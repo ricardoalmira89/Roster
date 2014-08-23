@@ -30,6 +30,8 @@ namespace roster_visual
             _Program = Context.Programs.First();
             scheduleBindingSource.DataSource = _Program.Schedules.ToList();
             _Schedule = _Program.Schedules.First();
+
+
             enrollmentOfficerBindingSource.DataSource = Context.EnrollmentOfficers;
 
             CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
@@ -37,10 +39,8 @@ namespace roster_visual
                                                        where StudentSchedules.ScheduleId == Schedules.Id
                                                        select Schedules;
 
-            /*lockerBindingSource.DataSource = from locker in Context.Lockers
-                                             where !locker.Busy
-                                             select locker;*/
-            lockerBindingSource.DataSource = Context.Lockers;
+            lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -123,19 +123,16 @@ namespace roster_visual
         {
             Validate();
             Context.SubmitChanges();
+
+            lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
         }
 
         private void studentBindingSource_PositionChanged(object sender, EventArgs e)
         {
             _Student = (Student)studentBindingSource.Current;
-            try
-            {
-                studentImage.Load(_Student.Picture);
-            }
-            catch (Exception)
-            {
-            }
-            
+            if (_Student.Picture != null) studentImage.Load(_Student.Picture);
+                 else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
+
         }
 
         private void add_schedule_btn_Click(object sender, EventArgs e)
@@ -145,20 +142,13 @@ namespace roster_visual
 
                 _Student.StudentSchedules.Add(new StudentSchedule() { Student = _Student, Schedule = _Schedule, Program = _Program });
 
-
-                
                 CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
                                                            from Schedules in Context.Schedules
                                                            where StudentSchedules.ScheduleId == Schedules.Id
                                                            select Schedules;
-                
-                
             }
+
             else MessageBox.Show("Current Program already exists for this student.\nPlease select another one.", "Program already exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-
-
-            
         }
 
         private void DeleteStudentSchedule_Click(object sender, EventArgs e)
@@ -200,9 +190,10 @@ namespace roster_visual
             MessageBox.Show(_Student.Locker.Name);
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void locker_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            _Student.Locker = (Locker)locker_cmb.SelectedItem;
+            lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
         }
 
 

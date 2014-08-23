@@ -106,6 +106,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.locker_label = new System.Windows.Forms.Label();
             this.locker_cmb = new System.Windows.Forms.ComboBox();
             this.lockerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -651,6 +652,7 @@
             // 
             // studentImage
             // 
+            this.studentImage.Image = global::roster_visual.Properties.Resources.noimage;
             this.studentImage.Location = new System.Drawing.Point(461, 25);
             this.studentImage.Name = "studentImage";
             this.studentImage.Size = new System.Drawing.Size(132, 122);
@@ -942,6 +944,7 @@
             // tabPage4
             // 
             this.tabPage4.AutoScroll = true;
+            this.tabPage4.Controls.Add(this.locker_label);
             this.tabPage4.Controls.Add(this.locker_cmb);
             this.tabPage4.Controls.Add(this.checkBox1);
             this.tabPage4.Controls.Add(pRINTED_DIPLOMA_DATELabel);
@@ -962,18 +965,27 @@
             this.tabPage4.Text = "Student Services";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // locker_label
+            // 
+            this.locker_label.AutoSize = true;
+            this.locker_label.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Locker", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "N/A"));
+            this.locker_label.Location = new System.Drawing.Point(72, 79);
+            this.locker_label.Name = "locker_label";
+            this.locker_label.Size = new System.Drawing.Size(27, 13);
+            this.locker_label.TabIndex = 15;
+            this.locker_label.Text = "N/A";
+            // 
             // locker_cmb
             // 
-            this.locker_cmb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.studentBindingSource, "Locker", true));
             this.locker_cmb.DataSource = this.lockerBindingSource;
             this.locker_cmb.DisplayMember = "Name";
             this.locker_cmb.FormattingEnabled = true;
-            this.locker_cmb.Location = new System.Drawing.Point(72, 75);
+            this.locker_cmb.Location = new System.Drawing.Point(108, 76);
             this.locker_cmb.Name = "locker_cmb";
-            this.locker_cmb.Size = new System.Drawing.Size(64, 21);
+            this.locker_cmb.Size = new System.Drawing.Size(46, 21);
             this.locker_cmb.TabIndex = 14;
             this.locker_cmb.ValueMember = "Id";
-            this.locker_cmb.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.locker_cmb.SelectedIndexChanged += new System.EventHandler(this.locker_cmb_SelectedIndexChanged);
             // 
             // lockerBindingSource
             // 
@@ -1740,6 +1752,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox locker_cmb;
         private System.Windows.Forms.BindingSource lockerBindingSource;
+        private System.Windows.Forms.Label locker_label;
     }
 }
 

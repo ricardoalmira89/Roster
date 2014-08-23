@@ -45,8 +45,7 @@
     <Type Name="Locker" ed:Guid="e89191f1-7b45-4e83-8d7b-b51e1af36824">
       <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="True" ed:Guid="f8fb1564-348b-411d-b6f9-4275563fcb06" />
       <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="3" ed:ValidateMaxLength="3" ed:ValidateRequired="True" ed:Guid="664bd614-74ba-4af1-a3ce-c94608f39e29" />
-      <Column Name="busy" Member="Busy" Type="System.Boolean" DbType="BIT NOT NULL" CanBeNull="false" UpdateCheck="Never" DefaultValue="b'0'" ed:ValidateRequired="True" ed:Guid="35aa99e6-615b-487f-9840-0c8c4be647b2" />
-      <Association Name="Locker_Student" ed:AssociationGuid="7a2a304e-8ff1-44b6-a3d5-d6a5209ec4f9" Member="Students" ed:Guid="8823a887-d6ec-4f8e-8714-36623f4a0b94" ThisKey="Id" OtherKey="LockerId" Type="Student" />
+      <Association Name="Locker_Student" ed:AssociationGuid="7a2a304e-8ff1-44b6-a3d5-d6a5209ec4f9" Member="Student" ed:Guid="8823a887-d6ec-4f8e-8714-36623f4a0b94" ThisKey="Id" OtherKey="LockerId" Type="Student" Cardinality="One" />
     </Type>
   </Table>
   <Table Name="roster_mysql.program" Member="Programs">
@@ -108,10 +107,10 @@
       <Column Name="dropinfo_id" Member="DropinfoId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="b88ce8d6-b037-4d2a-905e-4b624d59d91c" />
       <Column Name="EO_id" Member="EOId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="9c05c4f7-2471-40e4-bb00-4b66474bb31a" />
       <Column Name="locker_id" Member="LockerId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="4f4f2731-bca5-422c-b6f7-ff1a27f36982" />
-      <Association Name="Locker_Student" ed:AssociationGuid="7a2a304e-8ff1-44b6-a3d5-d6a5209ec4f9" Member="Locker" ed:Guid="b28588fa-427c-4d9e-9aa5-f76b318382c1" ThisKey="LockerId" OtherKey="Id" Type="Locker" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="DropInfo_Student" ed:AssociationGuid="42511f85-0345-4e7f-8e11-87572fd473dc" Member="DropInfo" ed:Guid="be9490bd-dcc3-461a-911e-deb90db67453" ThisKey="DropinfoId" OtherKey="Id" Type="DropInfo" DeleteRule="CASCADE" IsForeignKey="true" />
       <Association Name="EnrollmentOfficer_Student" ed:AssociationGuid="f8cf87fb-f1a2-456d-8b6d-99144ab9dbcd" Member="EnrollmentOfficer" ed:Guid="f0f866ab-aa67-4872-bdd4-2ab0e8e0fd21" ThisKey="EOId" OtherKey="Id" Type="EnrollmentOfficer" DeleteRule="RESTRICT" IsForeignKey="true" />
       <Association Name="Graduated_Student" ed:AssociationGuid="3c374ac8-08b7-4c7e-8831-3edb9c4eb845" Member="Graduated" ed:Guid="7bdc22eb-ac9f-49b9-8061-f8d08d234b8c" ThisKey="GraduatedId" OtherKey="Id" Type="Graduated" DeleteRule="CASCADE" IsForeignKey="true" />
-      <Association Name="DropInfo_Student" ed:AssociationGuid="42511f85-0345-4e7f-8e11-87572fd473dc" Member="DropInfo" ed:Guid="be9490bd-dcc3-461a-911e-deb90db67453" ThisKey="DropinfoId" OtherKey="Id" Type="DropInfo" DeleteRule="CASCADE" IsForeignKey="true" />
+      <Association Name="Locker_Student" ed:AssociationGuid="7a2a304e-8ff1-44b6-a3d5-d6a5209ec4f9" Member="Locker" ed:Guid="b28588fa-427c-4d9e-9aa5-f76b318382c1" ThisKey="LockerId" OtherKey="Id" Type="Locker" DeleteRule="RESTRICT" IsForeignKey="true" Cardinality="One" />
       <Association Name="Student_StudentSchedule" ed:AssociationGuid="0bfe4c72-d3b5-4c91-adea-9bfa7c180ae3" Member="StudentSchedules" ed:Guid="146fedc7-d79c-43e5-9c4b-a330045c7313" ThisKey="Id" OtherKey="StudentId" Type="StudentSchedule" />
     </Type>
   </Table>
