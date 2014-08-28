@@ -14,9 +14,9 @@ namespace roster_visual
 {
     public partial class Form1 : Form
     {
-        Program Program = new Program();
-        Schedule Schedule = new Schedule();
-        Student Student = new Student();
+        Program _Program = new Program();
+        Schedule _Schedule = new Schedule();
+        Student _Student = new Student();
         RosterMysqlDataContext Context = new RosterMysqlDataContext();
 
         public Form1()
@@ -27,12 +27,12 @@ namespace roster_visual
 
             //--- Load Program/Schedule Defaults ---
             programBindingSource.DataSource = Context.Programs.ToList();
-            Program = Context.Programs.First();
-            scheduleBindingSource.DataSource = Program.Schedules.ToList();
-            Schedule = Program.Schedules.First();
+            _Program = Context.Programs.First();
+            scheduleBindingSource.DataSource = _Program.Schedules.ToList();
+            _Schedule = _Program.Schedules.First();
             enrollmentOfficerBindingSource.DataSource = Context.EnrollmentOfficers;
 
-            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in Student.StudentSchedules
+            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
                                                        from Schedules in Context.Schedules
                                                        where StudentSchedules.ScheduleId == Schedules.Id
                                                        select Schedules;
@@ -64,7 +64,7 @@ namespace roster_visual
                 if (!File.Exists(new_filepath)) File.Copy(openFileDialog.FileName, new_filepath);
                 else 
                 {
-                    Student.Picture = new_filepath;
+                    _Student.Picture = new_filepath;
                     studentImage.Load(new_filepath);
                 }
             }
@@ -90,9 +90,9 @@ namespace roster_visual
         {
             try
             {
-                Program = Context.Programs.First(c => c.Id == (int)program_cmb.SelectedValue);
-                Schedule = Program.Schedules.First();
-                scheduleBindingSource.DataSource = Program.Schedules.ToList();
+                _Program = Context.Programs.First(c => c.Id == (int)program_cmb.SelectedValue);
+                _Schedule = _Program.Schedules.First();
+                scheduleBindingSource.DataSource = _Program.Schedules.ToList();
             }
             catch (Exception)
             {
@@ -105,7 +105,7 @@ namespace roster_visual
         {
             try
             {
-                Schedule = Context.Schedules.First(c => c.Id == (int)schedule_cmb.SelectedValue);
+                _Schedule = Context.Schedules.First(c => c.Id == (int)schedule_cmb.SelectedValue);
             }
             catch (Exception)
             {
@@ -121,30 +121,65 @@ namespace roster_visual
 
         private void studentBindingSource_PositionChanged(object sender, EventArgs e)
         {
-            Student = (Student)studentBindingSource.Current;
-            studentImage.Load(Student.Picture);
+            _Student = (Student)studentBindingSource.Current;
+            try
+            {
+                studentImage.Load(_Student.Picture);
+            }
+            catch (Exception)
+            {
+            }
+            
         }
 
         private void add_schedule_btn_Click(object sender, EventArgs e)
         {
-            if (!Student.StudentPrograms.ToList().Exists(c => c.ProgramId == Program.Id))
+            if (!_Student.StudentSchedules.ToList().Exists(c => c.ProgramId == _Program.Id))
             {
 
-                Student.StudentSchedules.Add(new StudentSchedule() { Student = Student, Schedule = Schedule });
-                Student.StudentPrograms.Add(new StudentProgram() { Student = Student, Program = Program });
+                _Student.StudentSchedules.Add(new StudentSchedule() { Student = _Student, Schedule = _Schedule, Program = _Program });
 
-                CurrentSchedulesBindingSource.DataSource = from StudentSchedules in Student.StudentSchedules
+
+                
+                CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
                                                            from Schedules in Context.Schedules
                                                            where StudentSchedules.ScheduleId == Schedules.Id
                                                            select Schedules;
                 
-
+                
             }
             else MessageBox.Show("Current Program already exists for this student.\nPlease select another one.", "Program already exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
 
 
             
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            StudentSchedule StudentSchedule_To_Delete = _Student.StudentSchedules.First(sch => sch.Schedule.Id == (int)studentSchedulesGridView.CurrentRow.Cells["Id"].Value);
+            Context.StudentSchedules.DeleteOnSubmit(StudentSchedule_To_Delete);
+            _Student.StudentSchedules.Remove(StudentSchedule_To_Delete);
+
+
+            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
+                                                        from Schedules in Context.Schedules
+                                                        where StudentSchedules.ScheduleId == Schedules.Id
+                                                        select Schedules;
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            studentBindingSource.DataSource = from Students in Context.Students
+                                              where (
+                                              Students.FirstName.StartsWith(searchStudent_txt.Text) ||
+                                              Students.LastName.StartsWith(searchStudent_txt.Text)  ||
+                                              Students.Cv.StartsWith(searchStudent_txt.Text)
+                                              )
+                                              select Students;
+            //findStudent_tab.Focus();
+            tabControl1.SelectedTab = findStudent_tab;             
         }
 
 

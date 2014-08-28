@@ -71,9 +71,6 @@
     <Compile Include="DataContext1.Student.cs">
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </Compile>
-    <Compile Include="DataContext1.StudentProgram.cs">
-      <DependentUpon>DataContext1.lqml</DependentUpon>
-    </Compile>
     <Compile Include="DataContext1.StudentSchedule.cs">
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </Compile>

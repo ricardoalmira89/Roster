@@ -10,7 +10,6 @@
         <File Name="DataContext1.Program.cs" />
         <File Name="DataContext1.Schedule.cs" />
         <File Name="DataContext1.Student.cs" />
-        <File Name="DataContext1.StudentProgram.cs" />
         <File Name="DataContext1.StudentSchedule.cs" />
       </GeneratedFiles>
     </Generation>
