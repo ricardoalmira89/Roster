@@ -36,6 +36,7 @@
     <Reference Include="Devart.Data.Linq, Version=4.4.463.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data.MySql, Version=8.3.201.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data.MySql.Linq, Version=4.4.463.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.PostgreSql.Vs, Version=5.80.350.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -77,6 +78,12 @@
     <Compile Include="DataContext1.StudentSchedule.cs">
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </Compile>
+    <Compile Include="DropFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropFormcs.Designer.cs">
+      <DependentUpon>DropFormcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +92,9 @@
     </Compile>
     <Compile Include="Programa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DropFormcs.resx">
+      <DependentUpon>DropFormcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,7 +130,6 @@
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\Schedule.datasource" />
     <None Include="Properties\DataSources\Student.datasource" />
-    <None Include="Properties\DataSources\StudentProgram.datasource" />
     <None Include="Properties\DataSources\StudentSchedule.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

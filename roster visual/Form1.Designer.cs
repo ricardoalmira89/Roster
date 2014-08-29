@@ -58,8 +58,8 @@
             System.Windows.Forms.Label eMPLOYER_ADDRESSLabel;
             System.Windows.Forms.Label label7;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.StudentMainTab = new System.Windows.Forms.TabControl();
+            this.GeneralTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -117,7 +117,7 @@
             this.end_DateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.start_DateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.GraduatedTab = new System.Windows.Forms.TabPage();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.eMPLOYER_ADDRESSTextBox = new System.Windows.Forms.TextBox();
             this.sUPERVISOR_PHONETextBox = new System.Windows.Forms.TextBox();
@@ -127,46 +127,9 @@
             this.cURRENT_EMPLOYMENT_STATUSTextBox = new System.Windows.Forms.TextBox();
             this.license__Y_N_TextBox = new System.Windows.Forms.TextBox();
             this.findStudent_tab = new System.Windows.Forms.TabPage();
-            this.searchStudent_GridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.homePhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bussinessPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faxNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zIPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creditTransDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.referedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.webPageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attachmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emergencyContactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emergencyContactPhone1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emergencyContactPhone2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emergencyContactPhone3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cvsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.middleInitialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.graduatedIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentPlanAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dropinfoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eOIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enrollmentOfficerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.graduatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dropInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graduateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.searchStudent_txt = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
@@ -182,6 +145,95 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.save_btn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
+            this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
+            this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
+            this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
+            this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
+            this.searchStudent_GridView = new System.Windows.Forms.DataGridView();
+            this.dropInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.graduatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enrollmentOfficerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eOIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dropinfoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentPlanAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.graduatedIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middleInitialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cvsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactPhone3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactPhone2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactPhone1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attachmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.webPageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.referedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creditTransDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zIPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faxNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bussinessPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.homePhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.homePhoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bussinessPhoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellPhoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faxNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zIPDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creditTransDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.referedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.webPageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attachmentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactPhone1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactPhone2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emergencyContactPhone3DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cvDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cvsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middleInitialDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.graduatedIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentInfoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentPlanAmountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dropinfoIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eOIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lockerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lockerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enrollmentOfficerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.graduatedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dropInfoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilterGroupbox = new System.Windows.Forms.GroupBox();
+            this.DropFilter_chk = new System.Windows.Forms.CheckBox();
             iD_Label = new System.Windows.Forms.Label();
             lAST_NAMELabel = new System.Windows.Forms.Label();
             fIRST_NAMELabel = new System.Windows.Forms.Label();
@@ -210,8 +262,8 @@
             sUPERVISOR_PHONELabel = new System.Windows.Forms.Label();
             eMPLOYER_ADDRESSLabel = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.StudentMainTab.SuspendLayout();
+            this.GeneralTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentImage)).BeginInit();
@@ -226,11 +278,13 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).BeginInit();
-            this.tabPage5.SuspendLayout();
+            this.GraduatedTab.SuspendLayout();
             this.findStudent_tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).BeginInit();
+            this.StudentActionsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentNavigator)).BeginInit();
             this.StudentNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).BeginInit();
+            this.FilterGroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // iD_Label
@@ -485,53 +539,53 @@
             label7.TabIndex = 13;
             label7.Text = "SCHEDULE:";
             // 
-            // tabControl1
+            // StudentMainTab
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.findStudent_tab);
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(663, 373);
-            this.tabControl1.TabIndex = 0;
+            this.StudentMainTab.Controls.Add(this.GeneralTab);
+            this.StudentMainTab.Controls.Add(this.tabPage2);
+            this.StudentMainTab.Controls.Add(this.tabPage3);
+            this.StudentMainTab.Controls.Add(this.tabPage4);
+            this.StudentMainTab.Controls.Add(this.GraduatedTab);
+            this.StudentMainTab.Controls.Add(this.findStudent_tab);
+            this.StudentMainTab.Location = new System.Drawing.Point(0, 28);
+            this.StudentMainTab.Name = "StudentMainTab";
+            this.StudentMainTab.SelectedIndex = 0;
+            this.StudentMainTab.Size = new System.Drawing.Size(663, 373);
+            this.StudentMainTab.TabIndex = 0;
             // 
-            // tabPage1
+            // GeneralTab
             // 
-            this.tabPage1.AutoScroll = true;
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(zIP_CODELabel);
-            this.tabPage1.Controls.Add(this.zIP_CODETextBox);
-            this.tabPage1.Controls.Add(sTATELabel);
-            this.tabPage1.Controls.Add(this.sTATETextBox);
-            this.tabPage1.Controls.Add(cITYLabel);
-            this.tabPage1.Controls.Add(this.cITYTextBox);
-            this.tabPage1.Controls.Add(aDDRESSLabel);
-            this.tabPage1.Controls.Add(this.aDDRESSTextBox);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.studentImage);
-            this.tabPage1.Controls.Add(e_MAIL_ADDRESSLabel);
-            this.tabPage1.Controls.Add(this.e_MAIL_ADDRESSTextBox);
-            this.tabPage1.Controls.Add(cELL_PHONE__Label);
-            this.tabPage1.Controls.Add(this.cELL_PHONE__TextBox);
-            this.tabPage1.Controls.Add(hOME_PHONE__Label);
-            this.tabPage1.Controls.Add(this.hOME_PHONE__TextBox);
-            this.tabPage1.Controls.Add(fIRST_NAMELabel);
-            this.tabPage1.Controls.Add(this.fIRST_NAMETextBox);
-            this.tabPage1.Controls.Add(lAST_NAMELabel);
-            this.tabPage1.Controls.Add(this.lAST_NAMETextBox);
-            this.tabPage1.Controls.Add(iD_Label);
-            this.tabPage1.Controls.Add(this.iD_TextBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(655, 347);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "General";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.GeneralTab.AutoScroll = true;
+            this.GeneralTab.Controls.Add(this.groupBox1);
+            this.GeneralTab.Controls.Add(zIP_CODELabel);
+            this.GeneralTab.Controls.Add(this.zIP_CODETextBox);
+            this.GeneralTab.Controls.Add(sTATELabel);
+            this.GeneralTab.Controls.Add(this.sTATETextBox);
+            this.GeneralTab.Controls.Add(cITYLabel);
+            this.GeneralTab.Controls.Add(this.cITYTextBox);
+            this.GeneralTab.Controls.Add(aDDRESSLabel);
+            this.GeneralTab.Controls.Add(this.aDDRESSTextBox);
+            this.GeneralTab.Controls.Add(this.button4);
+            this.GeneralTab.Controls.Add(this.studentImage);
+            this.GeneralTab.Controls.Add(e_MAIL_ADDRESSLabel);
+            this.GeneralTab.Controls.Add(this.e_MAIL_ADDRESSTextBox);
+            this.GeneralTab.Controls.Add(cELL_PHONE__Label);
+            this.GeneralTab.Controls.Add(this.cELL_PHONE__TextBox);
+            this.GeneralTab.Controls.Add(hOME_PHONE__Label);
+            this.GeneralTab.Controls.Add(this.hOME_PHONE__TextBox);
+            this.GeneralTab.Controls.Add(fIRST_NAMELabel);
+            this.GeneralTab.Controls.Add(this.fIRST_NAMETextBox);
+            this.GeneralTab.Controls.Add(lAST_NAMELabel);
+            this.GeneralTab.Controls.Add(this.lAST_NAMETextBox);
+            this.GeneralTab.Controls.Add(iD_Label);
+            this.GeneralTab.Controls.Add(this.iD_TextBox);
+            this.GeneralTab.Location = new System.Drawing.Point(4, 22);
+            this.GeneralTab.Name = "GeneralTab";
+            this.GeneralTab.Padding = new System.Windows.Forms.Padding(3);
+            this.GeneralTab.Size = new System.Drawing.Size(655, 347);
+            this.GeneralTab.TabIndex = 0;
+            this.GeneralTab.Text = "General";
+            this.GeneralTab.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1057,31 +1111,31 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // tabPage5
+            // GraduatedTab
             // 
-            this.tabPage5.Controls.Add(this.dateTimePicker1);
-            this.tabPage5.Controls.Add(eMPLOYER_ADDRESSLabel);
-            this.tabPage5.Controls.Add(this.eMPLOYER_ADDRESSTextBox);
-            this.tabPage5.Controls.Add(sUPERVISOR_PHONELabel);
-            this.tabPage5.Controls.Add(this.sUPERVISOR_PHONETextBox);
-            this.tabPage5.Controls.Add(sUPERVISOR_NAMELabel);
-            this.tabPage5.Controls.Add(this.sUPERVISOR_NAMETextBox);
-            this.tabPage5.Controls.Add(sTART_WORKING_DATELabel);
-            this.tabPage5.Controls.Add(jOB_TITLELabel);
-            this.tabPage5.Controls.Add(this.jOB_TITLETextBox);
-            this.tabPage5.Controls.Add(cOMPANY_NAMELabel);
-            this.tabPage5.Controls.Add(this.cOMPANY_NAMETextBox);
-            this.tabPage5.Controls.Add(cURRENT_EMPLOYMENT_STATUSLabel);
-            this.tabPage5.Controls.Add(this.cURRENT_EMPLOYMENT_STATUSTextBox);
-            this.tabPage5.Controls.Add(license__Y_N_Label);
-            this.tabPage5.Controls.Add(this.license__Y_N_TextBox);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(655, 347);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Graduated Info";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.GraduatedTab.Controls.Add(this.dateTimePicker1);
+            this.GraduatedTab.Controls.Add(eMPLOYER_ADDRESSLabel);
+            this.GraduatedTab.Controls.Add(this.eMPLOYER_ADDRESSTextBox);
+            this.GraduatedTab.Controls.Add(sUPERVISOR_PHONELabel);
+            this.GraduatedTab.Controls.Add(this.sUPERVISOR_PHONETextBox);
+            this.GraduatedTab.Controls.Add(sUPERVISOR_NAMELabel);
+            this.GraduatedTab.Controls.Add(this.sUPERVISOR_NAMETextBox);
+            this.GraduatedTab.Controls.Add(sTART_WORKING_DATELabel);
+            this.GraduatedTab.Controls.Add(jOB_TITLELabel);
+            this.GraduatedTab.Controls.Add(this.jOB_TITLETextBox);
+            this.GraduatedTab.Controls.Add(cOMPANY_NAMELabel);
+            this.GraduatedTab.Controls.Add(this.cOMPANY_NAMETextBox);
+            this.GraduatedTab.Controls.Add(cURRENT_EMPLOYMENT_STATUSLabel);
+            this.GraduatedTab.Controls.Add(this.cURRENT_EMPLOYMENT_STATUSTextBox);
+            this.GraduatedTab.Controls.Add(license__Y_N_Label);
+            this.GraduatedTab.Controls.Add(this.license__Y_N_TextBox);
+            this.GraduatedTab.Location = new System.Drawing.Point(4, 22);
+            this.GraduatedTab.Name = "GraduatedTab";
+            this.GraduatedTab.Padding = new System.Windows.Forms.Padding(3);
+            this.GraduatedTab.Size = new System.Drawing.Size(655, 347);
+            this.GraduatedTab.TabIndex = 4;
+            this.GraduatedTab.Text = "Graduated Info";
+            this.GraduatedTab.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -1148,6 +1202,7 @@
             // 
             // findStudent_tab
             // 
+            this.findStudent_tab.Controls.Add(this.FilterGroupbox);
             this.findStudent_tab.Controls.Add(this.searchStudent_GridView);
             this.findStudent_tab.Location = new System.Drawing.Point(4, 22);
             this.findStudent_tab.Name = "findStudent_tab";
@@ -1157,290 +1212,26 @@
             this.findStudent_tab.Text = "Find";
             this.findStudent_tab.UseVisualStyleBackColor = true;
             // 
-            // searchStudent_GridView
+            // StudentActionsMenu
             // 
-            this.searchStudent_GridView.AutoGenerateColumns = false;
-            this.searchStudent_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchStudent_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.startDateDataGridViewTextBoxColumn,
-            this.endDateDataGridViewTextBoxColumn,
-            this.homePhoneDataGridViewTextBoxColumn,
-            this.bussinessPhoneDataGridViewTextBoxColumn,
-            this.cellPhoneDataGridViewTextBoxColumn,
-            this.faxNumberDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.stateDataGridViewTextBoxColumn,
-            this.zIPDataGridViewTextBoxColumn,
-            this.countryDataGridViewTextBoxColumn,
-            this.creditTransDataGridViewTextBoxColumn,
-            this.referedDataGridViewTextBoxColumn,
-            this.webPageDataGridViewTextBoxColumn,
-            this.notesDataGridViewTextBoxColumn,
-            this.attachmentDataGridViewTextBoxColumn,
-            this.locationDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.commentsDataGridViewTextBoxColumn,
-            this.emergencyContactNameDataGridViewTextBoxColumn,
-            this.emergencyContactPhone1DataGridViewTextBoxColumn,
-            this.emergencyContactPhone2DataGridViewTextBoxColumn,
-            this.emergencyContactPhone3DataGridViewTextBoxColumn,
-            this.cvDataGridViewTextBoxColumn,
-            this.cvsDataGridViewTextBoxColumn,
-            this.middleInitialDataGridViewTextBoxColumn,
-            this.pictureDataGridViewTextBoxColumn,
-            this.graduatedIdDataGridViewTextBoxColumn,
-            this.paymentInfoDataGridViewTextBoxColumn,
-            this.paymentPlanAmountDataGridViewTextBoxColumn,
-            this.dropinfoIdDataGridViewTextBoxColumn,
-            this.eOIdDataGridViewTextBoxColumn,
-            this.enrollmentOfficerDataGridViewTextBoxColumn,
-            this.graduatedDataGridViewTextBoxColumn,
-            this.dropInfoDataGridViewTextBoxColumn});
-            this.searchStudent_GridView.DataSource = this.studentBindingSource;
-            this.searchStudent_GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchStudent_GridView.Location = new System.Drawing.Point(3, 3);
-            this.searchStudent_GridView.Name = "searchStudent_GridView";
-            this.searchStudent_GridView.Size = new System.Drawing.Size(649, 341);
-            this.searchStudent_GridView.TabIndex = 0;
+            this.StudentActionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dropToolStripMenuItem,
+            this.graduateToolStripMenuItem});
+            this.StudentActionsMenu.Name = "StudentActionsMenu";
+            this.StudentActionsMenu.Size = new System.Drawing.Size(123, 48);
             // 
-            // idDataGridViewTextBoxColumn
+            // dropToolStripMenuItem
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.dropToolStripMenuItem.Name = "dropToolStripMenuItem";
+            this.dropToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.dropToolStripMenuItem.Text = "Drop";
+            this.dropToolStripMenuItem.Click += new System.EventHandler(this.dropToolStripMenuItem_Click);
             // 
-            // lastNameDataGridViewTextBoxColumn
+            // graduateToolStripMenuItem
             // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // startDateDataGridViewTextBoxColumn
-            // 
-            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
-            this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
-            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
-            // 
-            // endDateDataGridViewTextBoxColumn
-            // 
-            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
-            this.endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
-            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
-            // 
-            // homePhoneDataGridViewTextBoxColumn
-            // 
-            this.homePhoneDataGridViewTextBoxColumn.DataPropertyName = "HomePhone";
-            this.homePhoneDataGridViewTextBoxColumn.HeaderText = "HomePhone";
-            this.homePhoneDataGridViewTextBoxColumn.Name = "homePhoneDataGridViewTextBoxColumn";
-            // 
-            // bussinessPhoneDataGridViewTextBoxColumn
-            // 
-            this.bussinessPhoneDataGridViewTextBoxColumn.DataPropertyName = "BussinessPhone";
-            this.bussinessPhoneDataGridViewTextBoxColumn.HeaderText = "BussinessPhone";
-            this.bussinessPhoneDataGridViewTextBoxColumn.Name = "bussinessPhoneDataGridViewTextBoxColumn";
-            // 
-            // cellPhoneDataGridViewTextBoxColumn
-            // 
-            this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
-            this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "CellPhone";
-            this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
-            // 
-            // faxNumberDataGridViewTextBoxColumn
-            // 
-            this.faxNumberDataGridViewTextBoxColumn.DataPropertyName = "FaxNumber";
-            this.faxNumberDataGridViewTextBoxColumn.HeaderText = "FaxNumber";
-            this.faxNumberDataGridViewTextBoxColumn.Name = "faxNumberDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            // 
-            // stateDataGridViewTextBoxColumn
-            // 
-            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
-            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
-            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
-            // 
-            // zIPDataGridViewTextBoxColumn
-            // 
-            this.zIPDataGridViewTextBoxColumn.DataPropertyName = "ZIP";
-            this.zIPDataGridViewTextBoxColumn.HeaderText = "ZIP";
-            this.zIPDataGridViewTextBoxColumn.Name = "zIPDataGridViewTextBoxColumn";
-            // 
-            // countryDataGridViewTextBoxColumn
-            // 
-            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
-            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
-            // 
-            // creditTransDataGridViewTextBoxColumn
-            // 
-            this.creditTransDataGridViewTextBoxColumn.DataPropertyName = "CreditTrans";
-            this.creditTransDataGridViewTextBoxColumn.HeaderText = "CreditTrans";
-            this.creditTransDataGridViewTextBoxColumn.Name = "creditTransDataGridViewTextBoxColumn";
-            // 
-            // referedDataGridViewTextBoxColumn
-            // 
-            this.referedDataGridViewTextBoxColumn.DataPropertyName = "Refered";
-            this.referedDataGridViewTextBoxColumn.HeaderText = "Refered";
-            this.referedDataGridViewTextBoxColumn.Name = "referedDataGridViewTextBoxColumn";
-            // 
-            // webPageDataGridViewTextBoxColumn
-            // 
-            this.webPageDataGridViewTextBoxColumn.DataPropertyName = "WebPage";
-            this.webPageDataGridViewTextBoxColumn.HeaderText = "WebPage";
-            this.webPageDataGridViewTextBoxColumn.Name = "webPageDataGridViewTextBoxColumn";
-            // 
-            // notesDataGridViewTextBoxColumn
-            // 
-            this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
-            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
-            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
-            // 
-            // attachmentDataGridViewTextBoxColumn
-            // 
-            this.attachmentDataGridViewTextBoxColumn.DataPropertyName = "Attachment";
-            this.attachmentDataGridViewTextBoxColumn.HeaderText = "Attachment";
-            this.attachmentDataGridViewTextBoxColumn.Name = "attachmentDataGridViewTextBoxColumn";
-            // 
-            // locationDataGridViewTextBoxColumn
-            // 
-            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
-            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // commentsDataGridViewTextBoxColumn
-            // 
-            this.commentsDataGridViewTextBoxColumn.DataPropertyName = "Comments";
-            this.commentsDataGridViewTextBoxColumn.HeaderText = "Comments";
-            this.commentsDataGridViewTextBoxColumn.Name = "commentsDataGridViewTextBoxColumn";
-            // 
-            // emergencyContactNameDataGridViewTextBoxColumn
-            // 
-            this.emergencyContactNameDataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactName";
-            this.emergencyContactNameDataGridViewTextBoxColumn.HeaderText = "EmergencyContactName";
-            this.emergencyContactNameDataGridViewTextBoxColumn.Name = "emergencyContactNameDataGridViewTextBoxColumn";
-            // 
-            // emergencyContactPhone1DataGridViewTextBoxColumn
-            // 
-            this.emergencyContactPhone1DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone1";
-            this.emergencyContactPhone1DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone1";
-            this.emergencyContactPhone1DataGridViewTextBoxColumn.Name = "emergencyContactPhone1DataGridViewTextBoxColumn";
-            // 
-            // emergencyContactPhone2DataGridViewTextBoxColumn
-            // 
-            this.emergencyContactPhone2DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone2";
-            this.emergencyContactPhone2DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone2";
-            this.emergencyContactPhone2DataGridViewTextBoxColumn.Name = "emergencyContactPhone2DataGridViewTextBoxColumn";
-            // 
-            // emergencyContactPhone3DataGridViewTextBoxColumn
-            // 
-            this.emergencyContactPhone3DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone3";
-            this.emergencyContactPhone3DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone3";
-            this.emergencyContactPhone3DataGridViewTextBoxColumn.Name = "emergencyContactPhone3DataGridViewTextBoxColumn";
-            // 
-            // cvDataGridViewTextBoxColumn
-            // 
-            this.cvDataGridViewTextBoxColumn.DataPropertyName = "Cv";
-            this.cvDataGridViewTextBoxColumn.HeaderText = "Cv";
-            this.cvDataGridViewTextBoxColumn.Name = "cvDataGridViewTextBoxColumn";
-            // 
-            // cvsDataGridViewTextBoxColumn
-            // 
-            this.cvsDataGridViewTextBoxColumn.DataPropertyName = "Cvs";
-            this.cvsDataGridViewTextBoxColumn.HeaderText = "Cvs";
-            this.cvsDataGridViewTextBoxColumn.Name = "cvsDataGridViewTextBoxColumn";
-            // 
-            // middleInitialDataGridViewTextBoxColumn
-            // 
-            this.middleInitialDataGridViewTextBoxColumn.DataPropertyName = "MiddleInitial";
-            this.middleInitialDataGridViewTextBoxColumn.HeaderText = "MiddleInitial";
-            this.middleInitialDataGridViewTextBoxColumn.Name = "middleInitialDataGridViewTextBoxColumn";
-            // 
-            // pictureDataGridViewTextBoxColumn
-            // 
-            this.pictureDataGridViewTextBoxColumn.DataPropertyName = "Picture";
-            this.pictureDataGridViewTextBoxColumn.HeaderText = "Picture";
-            this.pictureDataGridViewTextBoxColumn.Name = "pictureDataGridViewTextBoxColumn";
-            // 
-            // graduatedIdDataGridViewTextBoxColumn
-            // 
-            this.graduatedIdDataGridViewTextBoxColumn.DataPropertyName = "GraduatedId";
-            this.graduatedIdDataGridViewTextBoxColumn.HeaderText = "GraduatedId";
-            this.graduatedIdDataGridViewTextBoxColumn.Name = "graduatedIdDataGridViewTextBoxColumn";
-            // 
-            // paymentInfoDataGridViewTextBoxColumn
-            // 
-            this.paymentInfoDataGridViewTextBoxColumn.DataPropertyName = "PaymentInfo";
-            this.paymentInfoDataGridViewTextBoxColumn.HeaderText = "PaymentInfo";
-            this.paymentInfoDataGridViewTextBoxColumn.Name = "paymentInfoDataGridViewTextBoxColumn";
-            // 
-            // paymentPlanAmountDataGridViewTextBoxColumn
-            // 
-            this.paymentPlanAmountDataGridViewTextBoxColumn.DataPropertyName = "PaymentPlanAmount";
-            this.paymentPlanAmountDataGridViewTextBoxColumn.HeaderText = "PaymentPlanAmount";
-            this.paymentPlanAmountDataGridViewTextBoxColumn.Name = "paymentPlanAmountDataGridViewTextBoxColumn";
-            // 
-            // dropinfoIdDataGridViewTextBoxColumn
-            // 
-            this.dropinfoIdDataGridViewTextBoxColumn.DataPropertyName = "DropinfoId";
-            this.dropinfoIdDataGridViewTextBoxColumn.HeaderText = "DropinfoId";
-            this.dropinfoIdDataGridViewTextBoxColumn.Name = "dropinfoIdDataGridViewTextBoxColumn";
-            // 
-            // eOIdDataGridViewTextBoxColumn
-            // 
-            this.eOIdDataGridViewTextBoxColumn.DataPropertyName = "EOId";
-            this.eOIdDataGridViewTextBoxColumn.HeaderText = "EOId";
-            this.eOIdDataGridViewTextBoxColumn.Name = "eOIdDataGridViewTextBoxColumn";
-            // 
-            // enrollmentOfficerDataGridViewTextBoxColumn
-            // 
-            this.enrollmentOfficerDataGridViewTextBoxColumn.DataPropertyName = "EnrollmentOfficer";
-            this.enrollmentOfficerDataGridViewTextBoxColumn.HeaderText = "EnrollmentOfficer";
-            this.enrollmentOfficerDataGridViewTextBoxColumn.Name = "enrollmentOfficerDataGridViewTextBoxColumn";
-            // 
-            // graduatedDataGridViewTextBoxColumn
-            // 
-            this.graduatedDataGridViewTextBoxColumn.DataPropertyName = "Graduated";
-            this.graduatedDataGridViewTextBoxColumn.HeaderText = "Graduated";
-            this.graduatedDataGridViewTextBoxColumn.Name = "graduatedDataGridViewTextBoxColumn";
-            // 
-            // dropInfoDataGridViewTextBoxColumn
-            // 
-            this.dropInfoDataGridViewTextBoxColumn.DataPropertyName = "DropInfo";
-            this.dropInfoDataGridViewTextBoxColumn.HeaderText = "DropInfo";
-            this.dropInfoDataGridViewTextBoxColumn.Name = "dropInfoDataGridViewTextBoxColumn";
+            this.graduateToolStripMenuItem.Name = "graduateToolStripMenuItem";
+            this.graduateToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.graduateToolStripMenuItem.Text = "Graduate";
             // 
             // openFileDialog
             // 
@@ -1481,7 +1272,8 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.save_btn});
+            this.save_btn,
+            this.toolStripSeparator1});
             this.StudentNavigator.Location = new System.Drawing.Point(0, 0);
             this.StudentNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.StudentNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -1580,6 +1372,601 @@
             this.save_btn.Text = "Save";
             this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BottomToolStripPanel
+            // 
+            this.BottomToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            this.BottomToolStripPanel.Name = "BottomToolStripPanel";
+            this.BottomToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.BottomToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.BottomToolStripPanel.Size = new System.Drawing.Size(0, 0);
+            // 
+            // TopToolStripPanel
+            // 
+            this.TopToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopToolStripPanel.Name = "TopToolStripPanel";
+            this.TopToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.TopToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.TopToolStripPanel.Size = new System.Drawing.Size(0, 0);
+            // 
+            // RightToolStripPanel
+            // 
+            this.RightToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            this.RightToolStripPanel.Name = "RightToolStripPanel";
+            this.RightToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.RightToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.RightToolStripPanel.Size = new System.Drawing.Size(0, 0);
+            // 
+            // LeftToolStripPanel
+            // 
+            this.LeftToolStripPanel.Location = new System.Drawing.Point(0, 0);
+            this.LeftToolStripPanel.Name = "LeftToolStripPanel";
+            this.LeftToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.LeftToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.LeftToolStripPanel.Size = new System.Drawing.Size(0, 0);
+            // 
+            // ContentPanel
+            // 
+            this.ContentPanel.Size = new System.Drawing.Size(125, 175);
+            // 
+            // searchStudent_GridView
+            // 
+            this.searchStudent_GridView.AutoGenerateColumns = false;
+            this.searchStudent_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchStudent_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.startDateDataGridViewTextBoxColumn,
+            this.endDateDataGridViewTextBoxColumn,
+            this.homePhoneDataGridViewTextBoxColumn,
+            this.bussinessPhoneDataGridViewTextBoxColumn,
+            this.cellPhoneDataGridViewTextBoxColumn,
+            this.faxNumberDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.cityDataGridViewTextBoxColumn,
+            this.stateDataGridViewTextBoxColumn,
+            this.zIPDataGridViewTextBoxColumn,
+            this.countryDataGridViewTextBoxColumn,
+            this.creditTransDataGridViewTextBoxColumn,
+            this.referedDataGridViewTextBoxColumn,
+            this.webPageDataGridViewTextBoxColumn,
+            this.notesDataGridViewTextBoxColumn,
+            this.attachmentDataGridViewTextBoxColumn,
+            this.locationDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.commentsDataGridViewTextBoxColumn,
+            this.emergencyContactNameDataGridViewTextBoxColumn,
+            this.emergencyContactPhone1DataGridViewTextBoxColumn,
+            this.emergencyContactPhone2DataGridViewTextBoxColumn,
+            this.emergencyContactPhone3DataGridViewTextBoxColumn,
+            this.cvDataGridViewTextBoxColumn,
+            this.cvsDataGridViewTextBoxColumn,
+            this.middleInitialDataGridViewTextBoxColumn,
+            this.pictureDataGridViewTextBoxColumn,
+            this.graduatedIdDataGridViewTextBoxColumn,
+            this.paymentInfoDataGridViewTextBoxColumn,
+            this.paymentPlanAmountDataGridViewTextBoxColumn,
+            this.dropinfoIdDataGridViewTextBoxColumn,
+            this.eOIdDataGridViewTextBoxColumn,
+            this.enrollmentOfficerDataGridViewTextBoxColumn,
+            this.graduatedDataGridViewTextBoxColumn,
+            this.dropInfoDataGridViewTextBoxColumn});
+            this.searchStudent_GridView.ContextMenuStrip = this.StudentActionsMenu;
+            this.searchStudent_GridView.DataSource = this.studentBindingSource;
+            this.searchStudent_GridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchStudent_GridView.Location = new System.Drawing.Point(3, 3);
+            this.searchStudent_GridView.Name = "searchStudent_GridView";
+            this.searchStudent_GridView.Size = new System.Drawing.Size(649, 341);
+            this.searchStudent_GridView.TabIndex = 0;
+            // 
+            // dropInfoDataGridViewTextBoxColumn
+            // 
+            this.dropInfoDataGridViewTextBoxColumn.DataPropertyName = "DropInfo";
+            this.dropInfoDataGridViewTextBoxColumn.HeaderText = "DropInfo";
+            this.dropInfoDataGridViewTextBoxColumn.Name = "dropInfoDataGridViewTextBoxColumn";
+            // 
+            // graduatedDataGridViewTextBoxColumn
+            // 
+            this.graduatedDataGridViewTextBoxColumn.DataPropertyName = "Graduated";
+            this.graduatedDataGridViewTextBoxColumn.HeaderText = "Graduated";
+            this.graduatedDataGridViewTextBoxColumn.Name = "graduatedDataGridViewTextBoxColumn";
+            // 
+            // enrollmentOfficerDataGridViewTextBoxColumn
+            // 
+            this.enrollmentOfficerDataGridViewTextBoxColumn.DataPropertyName = "EnrollmentOfficer";
+            this.enrollmentOfficerDataGridViewTextBoxColumn.HeaderText = "EnrollmentOfficer";
+            this.enrollmentOfficerDataGridViewTextBoxColumn.Name = "enrollmentOfficerDataGridViewTextBoxColumn";
+            // 
+            // eOIdDataGridViewTextBoxColumn
+            // 
+            this.eOIdDataGridViewTextBoxColumn.DataPropertyName = "EOId";
+            this.eOIdDataGridViewTextBoxColumn.HeaderText = "EOId";
+            this.eOIdDataGridViewTextBoxColumn.Name = "eOIdDataGridViewTextBoxColumn";
+            // 
+            // dropinfoIdDataGridViewTextBoxColumn
+            // 
+            this.dropinfoIdDataGridViewTextBoxColumn.DataPropertyName = "DropinfoId";
+            this.dropinfoIdDataGridViewTextBoxColumn.HeaderText = "DropinfoId";
+            this.dropinfoIdDataGridViewTextBoxColumn.Name = "dropinfoIdDataGridViewTextBoxColumn";
+            // 
+            // paymentPlanAmountDataGridViewTextBoxColumn
+            // 
+            this.paymentPlanAmountDataGridViewTextBoxColumn.DataPropertyName = "PaymentPlanAmount";
+            this.paymentPlanAmountDataGridViewTextBoxColumn.HeaderText = "PaymentPlanAmount";
+            this.paymentPlanAmountDataGridViewTextBoxColumn.Name = "paymentPlanAmountDataGridViewTextBoxColumn";
+            // 
+            // paymentInfoDataGridViewTextBoxColumn
+            // 
+            this.paymentInfoDataGridViewTextBoxColumn.DataPropertyName = "PaymentInfo";
+            this.paymentInfoDataGridViewTextBoxColumn.HeaderText = "PaymentInfo";
+            this.paymentInfoDataGridViewTextBoxColumn.Name = "paymentInfoDataGridViewTextBoxColumn";
+            // 
+            // graduatedIdDataGridViewTextBoxColumn
+            // 
+            this.graduatedIdDataGridViewTextBoxColumn.DataPropertyName = "GraduatedId";
+            this.graduatedIdDataGridViewTextBoxColumn.HeaderText = "GraduatedId";
+            this.graduatedIdDataGridViewTextBoxColumn.Name = "graduatedIdDataGridViewTextBoxColumn";
+            // 
+            // pictureDataGridViewTextBoxColumn
+            // 
+            this.pictureDataGridViewTextBoxColumn.DataPropertyName = "Picture";
+            this.pictureDataGridViewTextBoxColumn.HeaderText = "Picture";
+            this.pictureDataGridViewTextBoxColumn.Name = "pictureDataGridViewTextBoxColumn";
+            // 
+            // middleInitialDataGridViewTextBoxColumn
+            // 
+            this.middleInitialDataGridViewTextBoxColumn.DataPropertyName = "MiddleInitial";
+            this.middleInitialDataGridViewTextBoxColumn.HeaderText = "MiddleInitial";
+            this.middleInitialDataGridViewTextBoxColumn.Name = "middleInitialDataGridViewTextBoxColumn";
+            // 
+            // cvsDataGridViewTextBoxColumn
+            // 
+            this.cvsDataGridViewTextBoxColumn.DataPropertyName = "Cvs";
+            this.cvsDataGridViewTextBoxColumn.HeaderText = "Cvs";
+            this.cvsDataGridViewTextBoxColumn.Name = "cvsDataGridViewTextBoxColumn";
+            // 
+            // cvDataGridViewTextBoxColumn
+            // 
+            this.cvDataGridViewTextBoxColumn.DataPropertyName = "Cv";
+            this.cvDataGridViewTextBoxColumn.HeaderText = "Cv";
+            this.cvDataGridViewTextBoxColumn.Name = "cvDataGridViewTextBoxColumn";
+            // 
+            // emergencyContactPhone3DataGridViewTextBoxColumn
+            // 
+            this.emergencyContactPhone3DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone3";
+            this.emergencyContactPhone3DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone3";
+            this.emergencyContactPhone3DataGridViewTextBoxColumn.Name = "emergencyContactPhone3DataGridViewTextBoxColumn";
+            // 
+            // emergencyContactPhone2DataGridViewTextBoxColumn
+            // 
+            this.emergencyContactPhone2DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone2";
+            this.emergencyContactPhone2DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone2";
+            this.emergencyContactPhone2DataGridViewTextBoxColumn.Name = "emergencyContactPhone2DataGridViewTextBoxColumn";
+            // 
+            // emergencyContactPhone1DataGridViewTextBoxColumn
+            // 
+            this.emergencyContactPhone1DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone1";
+            this.emergencyContactPhone1DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone1";
+            this.emergencyContactPhone1DataGridViewTextBoxColumn.Name = "emergencyContactPhone1DataGridViewTextBoxColumn";
+            // 
+            // emergencyContactNameDataGridViewTextBoxColumn
+            // 
+            this.emergencyContactNameDataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactName";
+            this.emergencyContactNameDataGridViewTextBoxColumn.HeaderText = "EmergencyContactName";
+            this.emergencyContactNameDataGridViewTextBoxColumn.Name = "emergencyContactNameDataGridViewTextBoxColumn";
+            // 
+            // commentsDataGridViewTextBoxColumn
+            // 
+            this.commentsDataGridViewTextBoxColumn.DataPropertyName = "Comments";
+            this.commentsDataGridViewTextBoxColumn.HeaderText = "Comments";
+            this.commentsDataGridViewTextBoxColumn.Name = "commentsDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // locationDataGridViewTextBoxColumn
+            // 
+            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
+            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
+            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            // 
+            // attachmentDataGridViewTextBoxColumn
+            // 
+            this.attachmentDataGridViewTextBoxColumn.DataPropertyName = "Attachment";
+            this.attachmentDataGridViewTextBoxColumn.HeaderText = "Attachment";
+            this.attachmentDataGridViewTextBoxColumn.Name = "attachmentDataGridViewTextBoxColumn";
+            // 
+            // notesDataGridViewTextBoxColumn
+            // 
+            this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
+            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
+            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            // 
+            // webPageDataGridViewTextBoxColumn
+            // 
+            this.webPageDataGridViewTextBoxColumn.DataPropertyName = "WebPage";
+            this.webPageDataGridViewTextBoxColumn.HeaderText = "WebPage";
+            this.webPageDataGridViewTextBoxColumn.Name = "webPageDataGridViewTextBoxColumn";
+            // 
+            // referedDataGridViewTextBoxColumn
+            // 
+            this.referedDataGridViewTextBoxColumn.DataPropertyName = "Refered";
+            this.referedDataGridViewTextBoxColumn.HeaderText = "Refered";
+            this.referedDataGridViewTextBoxColumn.Name = "referedDataGridViewTextBoxColumn";
+            // 
+            // creditTransDataGridViewTextBoxColumn
+            // 
+            this.creditTransDataGridViewTextBoxColumn.DataPropertyName = "CreditTrans";
+            this.creditTransDataGridViewTextBoxColumn.HeaderText = "CreditTrans";
+            this.creditTransDataGridViewTextBoxColumn.Name = "creditTransDataGridViewTextBoxColumn";
+            // 
+            // countryDataGridViewTextBoxColumn
+            // 
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            // 
+            // zIPDataGridViewTextBoxColumn
+            // 
+            this.zIPDataGridViewTextBoxColumn.DataPropertyName = "ZIP";
+            this.zIPDataGridViewTextBoxColumn.HeaderText = "ZIP";
+            this.zIPDataGridViewTextBoxColumn.Name = "zIPDataGridViewTextBoxColumn";
+            // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // faxNumberDataGridViewTextBoxColumn
+            // 
+            this.faxNumberDataGridViewTextBoxColumn.DataPropertyName = "FaxNumber";
+            this.faxNumberDataGridViewTextBoxColumn.HeaderText = "FaxNumber";
+            this.faxNumberDataGridViewTextBoxColumn.Name = "faxNumberDataGridViewTextBoxColumn";
+            // 
+            // cellPhoneDataGridViewTextBoxColumn
+            // 
+            this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
+            // 
+            // bussinessPhoneDataGridViewTextBoxColumn
+            // 
+            this.bussinessPhoneDataGridViewTextBoxColumn.DataPropertyName = "BussinessPhone";
+            this.bussinessPhoneDataGridViewTextBoxColumn.HeaderText = "BussinessPhone";
+            this.bussinessPhoneDataGridViewTextBoxColumn.Name = "bussinessPhoneDataGridViewTextBoxColumn";
+            // 
+            // homePhoneDataGridViewTextBoxColumn
+            // 
+            this.homePhoneDataGridViewTextBoxColumn.DataPropertyName = "HomePhone";
+            this.homePhoneDataGridViewTextBoxColumn.HeaderText = "HomePhone";
+            this.homePhoneDataGridViewTextBoxColumn.Name = "homePhoneDataGridViewTextBoxColumn";
+            // 
+            // endDateDataGridViewTextBoxColumn
+            // 
+            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
+            this.endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
+            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // lastNameDataGridViewTextBoxColumn1
+            // 
+            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            // 
+            // firstNameDataGridViewTextBoxColumn1
+            // 
+            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            // 
+            // emailDataGridViewTextBoxColumn1
+            // 
+            this.emailDataGridViewTextBoxColumn1.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn1.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
+            // 
+            // startDateDataGridViewTextBoxColumn1
+            // 
+            this.startDateDataGridViewTextBoxColumn1.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn1.HeaderText = "StartDate";
+            this.startDateDataGridViewTextBoxColumn1.Name = "startDateDataGridViewTextBoxColumn1";
+            // 
+            // endDateDataGridViewTextBoxColumn1
+            // 
+            this.endDateDataGridViewTextBoxColumn1.DataPropertyName = "EndDate";
+            this.endDateDataGridViewTextBoxColumn1.HeaderText = "EndDate";
+            this.endDateDataGridViewTextBoxColumn1.Name = "endDateDataGridViewTextBoxColumn1";
+            // 
+            // homePhoneDataGridViewTextBoxColumn1
+            // 
+            this.homePhoneDataGridViewTextBoxColumn1.DataPropertyName = "HomePhone";
+            this.homePhoneDataGridViewTextBoxColumn1.HeaderText = "HomePhone";
+            this.homePhoneDataGridViewTextBoxColumn1.Name = "homePhoneDataGridViewTextBoxColumn1";
+            // 
+            // bussinessPhoneDataGridViewTextBoxColumn1
+            // 
+            this.bussinessPhoneDataGridViewTextBoxColumn1.DataPropertyName = "BussinessPhone";
+            this.bussinessPhoneDataGridViewTextBoxColumn1.HeaderText = "BussinessPhone";
+            this.bussinessPhoneDataGridViewTextBoxColumn1.Name = "bussinessPhoneDataGridViewTextBoxColumn1";
+            // 
+            // cellPhoneDataGridViewTextBoxColumn1
+            // 
+            this.cellPhoneDataGridViewTextBoxColumn1.DataPropertyName = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn1.HeaderText = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn1.Name = "cellPhoneDataGridViewTextBoxColumn1";
+            // 
+            // faxNumberDataGridViewTextBoxColumn1
+            // 
+            this.faxNumberDataGridViewTextBoxColumn1.DataPropertyName = "FaxNumber";
+            this.faxNumberDataGridViewTextBoxColumn1.HeaderText = "FaxNumber";
+            this.faxNumberDataGridViewTextBoxColumn1.Name = "faxNumberDataGridViewTextBoxColumn1";
+            // 
+            // addressDataGridViewTextBoxColumn1
+            // 
+            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
+            // 
+            // cityDataGridViewTextBoxColumn1
+            // 
+            this.cityDataGridViewTextBoxColumn1.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn1.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn1.Name = "cityDataGridViewTextBoxColumn1";
+            // 
+            // stateDataGridViewTextBoxColumn1
+            // 
+            this.stateDataGridViewTextBoxColumn1.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn1.HeaderText = "State";
+            this.stateDataGridViewTextBoxColumn1.Name = "stateDataGridViewTextBoxColumn1";
+            // 
+            // zIPDataGridViewTextBoxColumn1
+            // 
+            this.zIPDataGridViewTextBoxColumn1.DataPropertyName = "ZIP";
+            this.zIPDataGridViewTextBoxColumn1.HeaderText = "ZIP";
+            this.zIPDataGridViewTextBoxColumn1.Name = "zIPDataGridViewTextBoxColumn1";
+            // 
+            // countryDataGridViewTextBoxColumn1
+            // 
+            this.countryDataGridViewTextBoxColumn1.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn1.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn1.Name = "countryDataGridViewTextBoxColumn1";
+            // 
+            // creditTransDataGridViewTextBoxColumn1
+            // 
+            this.creditTransDataGridViewTextBoxColumn1.DataPropertyName = "CreditTrans";
+            this.creditTransDataGridViewTextBoxColumn1.HeaderText = "CreditTrans";
+            this.creditTransDataGridViewTextBoxColumn1.Name = "creditTransDataGridViewTextBoxColumn1";
+            // 
+            // referedDataGridViewTextBoxColumn1
+            // 
+            this.referedDataGridViewTextBoxColumn1.DataPropertyName = "Refered";
+            this.referedDataGridViewTextBoxColumn1.HeaderText = "Refered";
+            this.referedDataGridViewTextBoxColumn1.Name = "referedDataGridViewTextBoxColumn1";
+            // 
+            // webPageDataGridViewTextBoxColumn1
+            // 
+            this.webPageDataGridViewTextBoxColumn1.DataPropertyName = "WebPage";
+            this.webPageDataGridViewTextBoxColumn1.HeaderText = "WebPage";
+            this.webPageDataGridViewTextBoxColumn1.Name = "webPageDataGridViewTextBoxColumn1";
+            // 
+            // notesDataGridViewTextBoxColumn1
+            // 
+            this.notesDataGridViewTextBoxColumn1.DataPropertyName = "Notes";
+            this.notesDataGridViewTextBoxColumn1.HeaderText = "Notes";
+            this.notesDataGridViewTextBoxColumn1.Name = "notesDataGridViewTextBoxColumn1";
+            // 
+            // attachmentDataGridViewTextBoxColumn1
+            // 
+            this.attachmentDataGridViewTextBoxColumn1.DataPropertyName = "Attachment";
+            this.attachmentDataGridViewTextBoxColumn1.HeaderText = "Attachment";
+            this.attachmentDataGridViewTextBoxColumn1.Name = "attachmentDataGridViewTextBoxColumn1";
+            // 
+            // locationDataGridViewTextBoxColumn1
+            // 
+            this.locationDataGridViewTextBoxColumn1.DataPropertyName = "Location";
+            this.locationDataGridViewTextBoxColumn1.HeaderText = "Location";
+            this.locationDataGridViewTextBoxColumn1.Name = "locationDataGridViewTextBoxColumn1";
+            // 
+            // statusDataGridViewTextBoxColumn1
+            // 
+            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+            // 
+            // commentsDataGridViewTextBoxColumn1
+            // 
+            this.commentsDataGridViewTextBoxColumn1.DataPropertyName = "Comments";
+            this.commentsDataGridViewTextBoxColumn1.HeaderText = "Comments";
+            this.commentsDataGridViewTextBoxColumn1.Name = "commentsDataGridViewTextBoxColumn1";
+            // 
+            // emergencyContactNameDataGridViewTextBoxColumn1
+            // 
+            this.emergencyContactNameDataGridViewTextBoxColumn1.DataPropertyName = "EmergencyContactName";
+            this.emergencyContactNameDataGridViewTextBoxColumn1.HeaderText = "EmergencyContactName";
+            this.emergencyContactNameDataGridViewTextBoxColumn1.Name = "emergencyContactNameDataGridViewTextBoxColumn1";
+            // 
+            // emergencyContactPhone1DataGridViewTextBoxColumn1
+            // 
+            this.emergencyContactPhone1DataGridViewTextBoxColumn1.DataPropertyName = "EmergencyContactPhone1";
+            this.emergencyContactPhone1DataGridViewTextBoxColumn1.HeaderText = "EmergencyContactPhone1";
+            this.emergencyContactPhone1DataGridViewTextBoxColumn1.Name = "emergencyContactPhone1DataGridViewTextBoxColumn1";
+            // 
+            // emergencyContactPhone2DataGridViewTextBoxColumn1
+            // 
+            this.emergencyContactPhone2DataGridViewTextBoxColumn1.DataPropertyName = "EmergencyContactPhone2";
+            this.emergencyContactPhone2DataGridViewTextBoxColumn1.HeaderText = "EmergencyContactPhone2";
+            this.emergencyContactPhone2DataGridViewTextBoxColumn1.Name = "emergencyContactPhone2DataGridViewTextBoxColumn1";
+            // 
+            // emergencyContactPhone3DataGridViewTextBoxColumn1
+            // 
+            this.emergencyContactPhone3DataGridViewTextBoxColumn1.DataPropertyName = "EmergencyContactPhone3";
+            this.emergencyContactPhone3DataGridViewTextBoxColumn1.HeaderText = "EmergencyContactPhone3";
+            this.emergencyContactPhone3DataGridViewTextBoxColumn1.Name = "emergencyContactPhone3DataGridViewTextBoxColumn1";
+            // 
+            // cvDataGridViewTextBoxColumn1
+            // 
+            this.cvDataGridViewTextBoxColumn1.DataPropertyName = "Cv";
+            this.cvDataGridViewTextBoxColumn1.HeaderText = "Cv";
+            this.cvDataGridViewTextBoxColumn1.Name = "cvDataGridViewTextBoxColumn1";
+            // 
+            // cvsDataGridViewTextBoxColumn1
+            // 
+            this.cvsDataGridViewTextBoxColumn1.DataPropertyName = "Cvs";
+            this.cvsDataGridViewTextBoxColumn1.HeaderText = "Cvs";
+            this.cvsDataGridViewTextBoxColumn1.Name = "cvsDataGridViewTextBoxColumn1";
+            // 
+            // middleInitialDataGridViewTextBoxColumn1
+            // 
+            this.middleInitialDataGridViewTextBoxColumn1.DataPropertyName = "MiddleInitial";
+            this.middleInitialDataGridViewTextBoxColumn1.HeaderText = "MiddleInitial";
+            this.middleInitialDataGridViewTextBoxColumn1.Name = "middleInitialDataGridViewTextBoxColumn1";
+            // 
+            // pictureDataGridViewTextBoxColumn1
+            // 
+            this.pictureDataGridViewTextBoxColumn1.DataPropertyName = "Picture";
+            this.pictureDataGridViewTextBoxColumn1.HeaderText = "Picture";
+            this.pictureDataGridViewTextBoxColumn1.Name = "pictureDataGridViewTextBoxColumn1";
+            // 
+            // graduatedIdDataGridViewTextBoxColumn1
+            // 
+            this.graduatedIdDataGridViewTextBoxColumn1.DataPropertyName = "GraduatedId";
+            this.graduatedIdDataGridViewTextBoxColumn1.HeaderText = "GraduatedId";
+            this.graduatedIdDataGridViewTextBoxColumn1.Name = "graduatedIdDataGridViewTextBoxColumn1";
+            // 
+            // paymentInfoDataGridViewTextBoxColumn1
+            // 
+            this.paymentInfoDataGridViewTextBoxColumn1.DataPropertyName = "PaymentInfo";
+            this.paymentInfoDataGridViewTextBoxColumn1.HeaderText = "PaymentInfo";
+            this.paymentInfoDataGridViewTextBoxColumn1.Name = "paymentInfoDataGridViewTextBoxColumn1";
+            // 
+            // paymentPlanAmountDataGridViewTextBoxColumn1
+            // 
+            this.paymentPlanAmountDataGridViewTextBoxColumn1.DataPropertyName = "PaymentPlanAmount";
+            this.paymentPlanAmountDataGridViewTextBoxColumn1.HeaderText = "PaymentPlanAmount";
+            this.paymentPlanAmountDataGridViewTextBoxColumn1.Name = "paymentPlanAmountDataGridViewTextBoxColumn1";
+            // 
+            // dropinfoIdDataGridViewTextBoxColumn1
+            // 
+            this.dropinfoIdDataGridViewTextBoxColumn1.DataPropertyName = "DropinfoId";
+            this.dropinfoIdDataGridViewTextBoxColumn1.HeaderText = "DropinfoId";
+            this.dropinfoIdDataGridViewTextBoxColumn1.Name = "dropinfoIdDataGridViewTextBoxColumn1";
+            // 
+            // eOIdDataGridViewTextBoxColumn1
+            // 
+            this.eOIdDataGridViewTextBoxColumn1.DataPropertyName = "EOId";
+            this.eOIdDataGridViewTextBoxColumn1.HeaderText = "EOId";
+            this.eOIdDataGridViewTextBoxColumn1.Name = "eOIdDataGridViewTextBoxColumn1";
+            // 
+            // lockerIdDataGridViewTextBoxColumn
+            // 
+            this.lockerIdDataGridViewTextBoxColumn.DataPropertyName = "LockerId";
+            this.lockerIdDataGridViewTextBoxColumn.HeaderText = "LockerId";
+            this.lockerIdDataGridViewTextBoxColumn.Name = "lockerIdDataGridViewTextBoxColumn";
+            // 
+            // lockerDataGridViewTextBoxColumn
+            // 
+            this.lockerDataGridViewTextBoxColumn.DataPropertyName = "Locker";
+            this.lockerDataGridViewTextBoxColumn.HeaderText = "Locker";
+            this.lockerDataGridViewTextBoxColumn.Name = "lockerDataGridViewTextBoxColumn";
+            // 
+            // enrollmentOfficerDataGridViewTextBoxColumn1
+            // 
+            this.enrollmentOfficerDataGridViewTextBoxColumn1.DataPropertyName = "EnrollmentOfficer";
+            this.enrollmentOfficerDataGridViewTextBoxColumn1.HeaderText = "EnrollmentOfficer";
+            this.enrollmentOfficerDataGridViewTextBoxColumn1.Name = "enrollmentOfficerDataGridViewTextBoxColumn1";
+            // 
+            // graduatedDataGridViewTextBoxColumn1
+            // 
+            this.graduatedDataGridViewTextBoxColumn1.DataPropertyName = "Graduated";
+            this.graduatedDataGridViewTextBoxColumn1.HeaderText = "Graduated";
+            this.graduatedDataGridViewTextBoxColumn1.Name = "graduatedDataGridViewTextBoxColumn1";
+            // 
+            // dropInfoDataGridViewTextBoxColumn1
+            // 
+            this.dropInfoDataGridViewTextBoxColumn1.DataPropertyName = "DropInfo";
+            this.dropInfoDataGridViewTextBoxColumn1.HeaderText = "DropInfo";
+            this.dropInfoDataGridViewTextBoxColumn1.Name = "dropInfoDataGridViewTextBoxColumn1";
+            // 
+            // FilterGroupbox
+            // 
+            this.FilterGroupbox.Controls.Add(this.DropFilter_chk);
+            this.FilterGroupbox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.FilterGroupbox.Location = new System.Drawing.Point(3, 307);
+            this.FilterGroupbox.Name = "FilterGroupbox";
+            this.FilterGroupbox.Size = new System.Drawing.Size(649, 37);
+            this.FilterGroupbox.TabIndex = 1;
+            this.FilterGroupbox.TabStop = false;
+            this.FilterGroupbox.Text = "Filter Options";
+            // 
+            // DropFilter_chk
+            // 
+            this.DropFilter_chk.AutoSize = true;
+            this.DropFilter_chk.Location = new System.Drawing.Point(8, 17);
+            this.DropFilter_chk.Name = "DropFilter_chk";
+            this.DropFilter_chk.Size = new System.Drawing.Size(106, 17);
+            this.DropFilter_chk.TabIndex = 0;
+            this.DropFilter_chk.Text = "Droped Students";
+            this.DropFilter_chk.UseVisualStyleBackColor = true;
+            this.DropFilter_chk.CheckedChanged += new System.EventHandler(this.DropFilter_chk_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1588,15 +1975,15 @@
             this.ClientSize = new System.Drawing.Size(663, 396);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.searchStudent_txt);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.StudentMainTab);
             this.Controls.Add(this.StudentNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Cv", true));
             this.Name = "Form1";
             this.Text = "Christine Valmy Roster";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.StudentMainTab.ResumeLayout(false);
+            this.GeneralTab.ResumeLayout(false);
+            this.GeneralTab.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
@@ -1615,13 +2002,16 @@
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
+            this.GraduatedTab.ResumeLayout(false);
+            this.GraduatedTab.PerformLayout();
             this.findStudent_tab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).EndInit();
+            this.StudentActionsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.StudentNavigator)).EndInit();
             this.StudentNavigator.ResumeLayout(false);
             this.StudentNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).EndInit();
+            this.FilterGroupbox.ResumeLayout(false);
+            this.FilterGroupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1629,8 +2019,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl StudentMainTab;
+        private System.Windows.Forms.TabPage GeneralTab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -1660,7 +2050,7 @@
         private System.Windows.Forms.DateTimePicker start_DateDateTimePicker1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DateTimePicker pRINTED_DIPLOMA_DATEDateTimePicker;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage GraduatedTab;
         private System.Windows.Forms.TextBox eMPLOYER_ADDRESSTextBox;
         private System.Windows.Forms.TextBox sUPERVISOR_PHONETextBox;
         private System.Windows.Forms.TextBox sUPERVISOR_NAMETextBox;
@@ -1710,6 +2100,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn slugDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn languagesDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage findStudent_tab;
+        private System.Windows.Forms.ComboBox locker_cmb;
+        private System.Windows.Forms.BindingSource lockerBindingSource;
+        private System.Windows.Forms.Label locker_label;
+        private System.Windows.Forms.ContextMenuStrip StudentActionsMenu;
+        private System.Windows.Forms.ToolStripMenuItem dropToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem graduateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.GroupBox FilterGroupbox;
+        private System.Windows.Forms.CheckBox DropFilter_chk;
         private System.Windows.Forms.DataGridView searchStudent_GridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -1750,9 +2149,52 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ComboBox locker_cmb;
-        private System.Windows.Forms.BindingSource lockerBindingSource;
-        private System.Windows.Forms.Label locker_label;
+        private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
+        private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
+        private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
+        private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
+        private System.Windows.Forms.ToolStripContentPanel ContentPanel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn homePhoneDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bussinessPhoneDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn faxNumberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zIPDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creditTransDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn referedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn webPageDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attachmentDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentsDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone1DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone2DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone3DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cvDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cvsDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middleInitialDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pictureDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn graduatedIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paymentInfoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paymentPlanAmountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dropinfoIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eOIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lockerIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lockerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn1;
     }
 }
 

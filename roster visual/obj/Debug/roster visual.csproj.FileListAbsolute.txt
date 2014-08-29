@@ -15,3 +15,5 @@ C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.cspro
 C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.exe
 C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.pdb
 C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster visual.csprojResolveAssemblyReference.cache
+C:\Users\cyber\Desktop\Roster-master\roster visual\obj\Debug\roster_visual.DropForm.resources
+C:\Users\cyber\Desktop\Roster-master\roster visual\bin\Debug\Devart.Data.PostgreSql.Vs.dll

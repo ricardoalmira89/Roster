@@ -18,12 +18,16 @@ namespace roster_visual
         Schedule _Schedule = new Schedule();
         Student _Student = new Student();
         RosterMysqlDataContext Context = new RosterMysqlDataContext();
+        //IEnumerable<Student> Filtered_Students;
+        IQueryable<Student> Filtered_Students;
 
         public Form1()
         {
             InitializeComponent();
 
+            Filtered_Students = Context.Students;
             studentBindingSource.DataSource = Context.Students;
+            
 
             //--- Load Program/Schedule Defaults ---
             programBindingSource.DataSource = Context.Programs;
@@ -45,7 +49,7 @@ namespace roster_visual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tabControl1.Visible = true;
+            StudentMainTab.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,7 +62,7 @@ namespace roster_visual
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            tabControl1.Visible = true;
+            StudentMainTab.Visible = true;
             groupBox1.Visible = true;
         }
 
@@ -133,6 +137,18 @@ namespace roster_visual
             if (_Student.Picture != null) studentImage.Load(_Student.Picture);
                  else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
 
+            //--- Ocultar el Tab Graduated si el estudiante no es graduado --- no pincha bien cuando el GraduatedTab esta en focus
+            
+            if (_Student.Status != "graduated")
+            {
+                GeneralTab.Focus();
+                StudentMainTab.TabPages.Remove(GraduatedTab);
+            }
+            else
+                if (!StudentMainTab.TabPages.Contains(GraduatedTab)) StudentMainTab.TabPages.Add(GraduatedTab);
+
+            
+
         }
 
         private void add_schedule_btn_Click(object sender, EventArgs e)
@@ -167,15 +183,19 @@ namespace roster_visual
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            studentBindingSource.DataSource = from Students in Context.Students
-                                              where (
-                                              Students.FirstName.ToLower().StartsWith(searchStudent_txt.Text.ToLower()) ||
-                                              Students.LastName.ToLower().StartsWith(searchStudent_txt.Text.ToLower())  ||
-                                              Students.Cv.StartsWith(searchStudent_txt.Text)
-                                              )
-                                              select Students;
+            Filtered_Students = from Students in Context.Students
+                                where (
+                                (Students.FirstName.ToLower().StartsWith(searchStudent_txt.Text.ToLower()) ||
+                                Students.LastName.ToLower().StartsWith(searchStudent_txt.Text.ToLower()) ||
+                                Students.Cv.StartsWith(searchStudent_txt.Text))
+                                )
+                                select Students;
 
-            tabControl1.SelectedTab = findStudent_tab;
+            if (DropFilter_chk.Checked) Filtered_Students = Filtered_Students.Where(s => s.DropInfo != null);
+
+            studentBindingSource.DataSource = Filtered_Students;
+
+            StudentMainTab.SelectedTab = findStudent_tab;
             searchStudent_txt.Focus();
         }
 
@@ -187,13 +207,38 @@ namespace roster_visual
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_Student.Locker.Name);
+
         }
 
         private void locker_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             _Student.Locker = (Locker)locker_cmb.SelectedItem;
             lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
+        }
+
+        private void dropToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DropForm DropForm = new DropForm();
+            DropForm.ShowDialog(Context,_Student);
+        }
+
+        private void DropFilter_chk_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+                Filtered_Students = Filtered_Students.Where(s => s.DropInfo != null);
+            else 
+                Filtered_Students = from Students in Context.Students
+                                     where (
+                                     (Students.FirstName.ToLower().StartsWith(searchStudent_txt.Text.ToLower()) ||
+                                     Students.LastName.ToLower().StartsWith(searchStudent_txt.Text.ToLower()) ||
+                                     Students.Cv.StartsWith(searchStudent_txt.Text))
+                                     )
+                                     select Students;
+
+
+            studentBindingSource.DataSource = Filtered_Students;
+        
+
         }
 
 
