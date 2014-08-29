@@ -235,10 +235,14 @@ namespace roster_visual
                                      )
                                      select Students;
 
-
             studentBindingSource.DataSource = Filtered_Students;
         
 
+        }
+
+        private void StudentActionsMenu_Opening(object sender, CancelEventArgs e)
+        {
+            dropToolStripMenuItem.Visible = (_Student.DropInfo != null) ? false : true;
         }
 
 
