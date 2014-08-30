@@ -125,4 +125,19 @@
       <Association Name="Student_StudentSchedule" ed:AssociationGuid="0bfe4c72-d3b5-4c91-adea-9bfa7c180ae3" Member="Student" ed:Guid="8e1b6da4-7ae3-47a8-b4ed-decdcecabe81" ThisKey="StudentId" OtherKey="Id" Type="Student" DeleteRule="RESTRICT" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="roster_mysql.studentview" Member="Studentviews">
+    <Type Name="Studentview" ed:Guid="3e20200d-6bfe-4cbe-bd28-863fbefb21ab">
+      <Documentation>
+        <Summary>VIEW</Summary>
+      </Documentation>
+      <Column Name="schedule_id" Member="ScheduleId" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="2957df4a-52c0-4bb4-bf5e-0146060f3003" />
+      <Column Name="fullname" Member="Fullname" Type="System.String" DbType="MEDIUMTEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="11d08419-c7cc-4765-9171-77fd0e56aa59" />
+      <Column Name="cv" Member="Cv" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="17b35141-8fb6-463c-9df8-047c38f4b220" />
+      <Column Name="picture" Member="Picture" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="b008b096-19a5-4f04-9447-96887fe3094c" />
+      <Column Name="program_schedule_name" Member="ProgramScheduleName" Type="System.String" DbType="MEDIUMTEXT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="f7dd5fa6-e22b-475b-aaa1-2a176cc50d6f" />
+      <Column Name="program_schedule_slug" Member="ProgramScheduleSlug" Type="System.String" DbType="MEDIUMTEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="9260a280-2718-4c0e-bc11-7f7454ad0e06" />
+      <Column Name="languages" Member="Languages" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="ff6bcf4c-9c6d-41af-8f78-b067883fc820" />
+      <Column Name="id" Member="Id" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="cc0cc615-5613-4553-8b57-b24f8a025d90" />
+    </Type>
+  </Table>
 </Database>

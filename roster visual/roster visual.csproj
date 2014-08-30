@@ -37,10 +37,13 @@
     <Reference Include="Devart.Data.MySql, Version=8.3.201.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data.MySql.Linq, Version=4.4.463.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data.PostgreSql.Vs, Version=5.80.350.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,6 +81,9 @@
     <Compile Include="DataContext1.StudentSchedule.cs">
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </Compile>
+    <Compile Include="DataContext1.Studentview.cs">
+      <DependentUpon>DataContext1.lqml</DependentUpon>
+    </Compile>
     <Compile Include="DropFormcs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,12 @@
     </Compile>
     <Compile Include="Programa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\StudentCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\StudentCardForm.Designer.cs">
+      <DependentUpon>StudentCardForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DropFormcs.resx">
       <DependentUpon>DropFormcs.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +120,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\StudentCard.rdlc" />
+    <EmbeddedResource Include="Reports\StudentCardForm.resx">
+      <DependentUpon>StudentCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataContext1.Diagram1.view">
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </None>
@@ -131,6 +147,7 @@
     <None Include="Properties\DataSources\Schedule.datasource" />
     <None Include="Properties\DataSources\Student.datasource" />
     <None Include="Properties\DataSources\StudentSchedule.datasource" />
+    <None Include="Properties\DataSources\Studentview.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -152,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CompanyLogo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CompanyLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

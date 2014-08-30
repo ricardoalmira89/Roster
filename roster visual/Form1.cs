@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using roster_visual.Reports;
 
 
 namespace roster_visual
@@ -22,6 +23,7 @@ namespace roster_visual
 
         // --- Forms ---
         DropForm DropForm = new DropForm();
+        StudentCardForm StudentCardForm = new StudentCardForm();
 
         public Form1()
         {
@@ -235,6 +237,7 @@ namespace roster_visual
             if (MessageBox.Show("Do you really want to graduate the student " + _Student.FirstName + " " + _Student.LastName+"?", "Graduate Student", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 _Student.Graduated = new Graduated();
+                _Student.Status = "Graduated";
                 Context.SubmitChanges();
                 studentBindingSource_PositionChanged(sender, e);
             }
@@ -297,6 +300,18 @@ namespace roster_visual
                                                        from Schedules in Context.Schedules
                                                        where StudentSchedules.ScheduleId == Schedules.Id
                                                        select Schedules;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PrintID_btn_Click(object sender, EventArgs e)
+        {
+            if (_Student.StudentSchedules.Count != 0)
+                StudentCardForm.ShowDialog(Context, _Student.Id);
+            else MessageBox.Show("You need to provide Program/Schedule information for this student. Otherwise, ID can't be printed.", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
       

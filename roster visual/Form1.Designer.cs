@@ -48,7 +48,6 @@
             System.Windows.Forms.Label end_DateLabel1;
             System.Windows.Forms.Label lOCKER__Label;
             System.Windows.Forms.Label pRINTED_DIPLOMA_DATELabel;
-            System.Windows.Forms.Label license__Y_N_Label;
             System.Windows.Forms.Label cURRENT_EMPLOYMENT_STATUSLabel;
             System.Windows.Forms.Label cOMPANY_NAMELabel;
             System.Windows.Forms.Label jOB_TITLELabel;
@@ -66,7 +65,9 @@
             System.Windows.Forms.Label endDateLabel;
             System.Windows.Forms.Label cvLabel;
             System.Windows.Forms.Label cellPhoneLabel;
+            System.Windows.Forms.Label licensedLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StudentMainTab = new System.Windows.Forms.TabControl();
             this.GeneralTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -115,6 +116,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
             this.locker_label = new System.Windows.Forms.Label();
             this.locker_cmb = new System.Windows.Forms.ComboBox();
             this.lockerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -125,8 +127,9 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.end_DateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.start_DateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button5 = new System.Windows.Forms.Button();
+            this.PrintID_btn = new System.Windows.Forms.Button();
             this.GraduatedTab = new System.Windows.Forms.TabPage();
+            this.licensedCheckBox = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.eMPLOYER_ADDRESSTextBox = new System.Windows.Forms.TextBox();
             this.sUPERVISOR_PHONETextBox = new System.Windows.Forms.TextBox();
@@ -134,12 +137,9 @@
             this.jOB_TITLETextBox = new System.Windows.Forms.TextBox();
             this.cOMPANY_NAMETextBox = new System.Windows.Forms.TextBox();
             this.cURRENT_EMPLOYMENT_STATUSTextBox = new System.Windows.Forms.TextBox();
-            this.license__Y_N_TextBox = new System.Windows.Forms.TextBox();
             this.findStudent_tab = new System.Windows.Forms.TabPage();
-            this.FilterGroupbox = new System.Windows.Forms.GroupBox();
-            this.DropFilter_chk = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.searchStudent_GridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -181,6 +181,8 @@
             this.StudentActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graduateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FilterGroupbox = new System.Windows.Forms.GroupBox();
+            this.DropFilter_chk = new System.Windows.Forms.CheckBox();
             this.DropTab = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cellPhoneTextBox = new System.Windows.Forms.TextBox();
@@ -277,7 +279,6 @@
             end_DateLabel1 = new System.Windows.Forms.Label();
             lOCKER__Label = new System.Windows.Forms.Label();
             pRINTED_DIPLOMA_DATELabel = new System.Windows.Forms.Label();
-            license__Y_N_Label = new System.Windows.Forms.Label();
             cURRENT_EMPLOYMENT_STATUSLabel = new System.Windows.Forms.Label();
             cOMPANY_NAMELabel = new System.Windows.Forms.Label();
             jOB_TITLELabel = new System.Windows.Forms.Label();
@@ -295,6 +296,7 @@
             endDateLabel = new System.Windows.Forms.Label();
             cvLabel = new System.Windows.Forms.Label();
             cellPhoneLabel = new System.Windows.Forms.Label();
+            licensedLabel = new System.Windows.Forms.Label();
             this.StudentMainTab.SuspendLayout();
             this.GeneralTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -313,9 +315,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).BeginInit();
             this.GraduatedTab.SuspendLayout();
             this.findStudent_tab.SuspendLayout();
-            this.FilterGroupbox.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).BeginInit();
             this.StudentActionsMenu.SuspendLayout();
+            this.FilterGroupbox.SuspendLayout();
             this.DropTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -480,7 +483,7 @@
             // lOCKER__Label
             // 
             lOCKER__Label.AutoSize = true;
-            lOCKER__Label.Location = new System.Drawing.Point(3, 79);
+            lOCKER__Label.Location = new System.Drawing.Point(3, 96);
             lOCKER__Label.Name = "lOCKER__Label";
             lOCKER__Label.Size = new System.Drawing.Size(63, 13);
             lOCKER__Label.TabIndex = 9;
@@ -489,20 +492,11 @@
             // pRINTED_DIPLOMA_DATELabel
             // 
             pRINTED_DIPLOMA_DATELabel.AutoSize = true;
-            pRINTED_DIPLOMA_DATELabel.Location = new System.Drawing.Point(268, 83);
+            pRINTED_DIPLOMA_DATELabel.Location = new System.Drawing.Point(268, 93);
             pRINTED_DIPLOMA_DATELabel.Name = "pRINTED_DIPLOMA_DATELabel";
             pRINTED_DIPLOMA_DATELabel.Size = new System.Drawing.Size(141, 13);
             pRINTED_DIPLOMA_DATELabel.TabIndex = 11;
             pRINTED_DIPLOMA_DATELabel.Text = "PRINTED DIPLOMA DATE:";
-            // 
-            // license__Y_N_Label
-            // 
-            license__Y_N_Label.AutoSize = true;
-            license__Y_N_Label.Location = new System.Drawing.Point(66, 22);
-            license__Y_N_Label.Name = "license__Y_N_Label";
-            license__Y_N_Label.Size = new System.Drawing.Size(81, 13);
-            license__Y_N_Label.TabIndex = 0;
-            license__Y_N_Label.Text = "LICENSE(Y/N):";
             // 
             // cURRENT_EMPLOYMENT_STATUSLabel
             // 
@@ -656,6 +650,15 @@
             cellPhoneLabel.Size = new System.Drawing.Size(61, 13);
             cellPhoneLabel.TabIndex = 10;
             cellPhoneLabel.Text = "Cell Phone:";
+            // 
+            // licensedLabel
+            // 
+            licensedLabel.AutoSize = true;
+            licensedLabel.Location = new System.Drawing.Point(79, 23);
+            licensedLabel.Name = "licensedLabel";
+            licensedLabel.Size = new System.Drawing.Size(63, 13);
+            licensedLabel.TabIndex = 16;
+            licensedLabel.Text = "LICENSED:";
             // 
             // StudentMainTab
             // 
@@ -879,6 +882,7 @@
             this.iD_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Cv", true));
             this.iD_TextBox.Location = new System.Drawing.Point(107, 25);
             this.iD_TextBox.Name = "iD_TextBox";
+            this.iD_TextBox.ReadOnly = true;
             this.iD_TextBox.Size = new System.Drawing.Size(100, 20);
             this.iD_TextBox.TabIndex = 1;
             // 
@@ -1119,6 +1123,7 @@
             // tabPage4
             // 
             this.tabPage4.AutoScroll = true;
+            this.tabPage4.Controls.Add(this.label8);
             this.tabPage4.Controls.Add(this.locker_label);
             this.tabPage4.Controls.Add(this.locker_cmb);
             this.tabPage4.Controls.Add(this.checkBox1);
@@ -1131,7 +1136,7 @@
             this.tabPage4.Controls.Add(this.end_DateDateTimePicker1);
             this.tabPage4.Controls.Add(start_DateLabel1);
             this.tabPage4.Controls.Add(this.start_DateDateTimePicker1);
-            this.tabPage4.Controls.Add(this.button5);
+            this.tabPage4.Controls.Add(this.PrintID_btn);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -1140,11 +1145,20 @@
             this.tabPage4.Text = "Student Services";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(105, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Available Lockers";
+            // 
             // locker_label
             // 
             this.locker_label.AutoSize = true;
             this.locker_label.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Locker", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "N/A"));
-            this.locker_label.Location = new System.Drawing.Point(72, 79);
+            this.locker_label.Location = new System.Drawing.Point(72, 96);
             this.locker_label.Name = "locker_label";
             this.locker_label.Size = new System.Drawing.Size(27, 13);
             this.locker_label.TabIndex = 15;
@@ -1155,9 +1169,9 @@
             this.locker_cmb.DataSource = this.lockerBindingSource;
             this.locker_cmb.DisplayMember = "Name";
             this.locker_cmb.FormattingEnabled = true;
-            this.locker_cmb.Location = new System.Drawing.Point(108, 76);
+            this.locker_cmb.Location = new System.Drawing.Point(108, 93);
             this.locker_cmb.Name = "locker_cmb";
-            this.locker_cmb.Size = new System.Drawing.Size(46, 21);
+            this.locker_cmb.Size = new System.Drawing.Size(88, 21);
             this.locker_cmb.TabIndex = 14;
             this.locker_cmb.ValueMember = "Id";
             this.locker_cmb.SelectedIndexChanged += new System.EventHandler(this.locker_cmb_SelectedIndexChanged);
@@ -1180,7 +1194,7 @@
             // pRINTED_DIPLOMA_DATEDateTimePicker
             // 
             this.pRINTED_DIPLOMA_DATEDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.graduatedBindingSource, "DiplomaPrinted", true));
-            this.pRINTED_DIPLOMA_DATEDateTimePicker.Location = new System.Drawing.Point(415, 79);
+            this.pRINTED_DIPLOMA_DATEDateTimePicker.Location = new System.Drawing.Point(415, 89);
             this.pRINTED_DIPLOMA_DATEDateTimePicker.Name = "pRINTED_DIPLOMA_DATEDateTimePicker";
             this.pRINTED_DIPLOMA_DATEDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.pRINTED_DIPLOMA_DATEDateTimePicker.TabIndex = 12;
@@ -1192,7 +1206,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(369, 46);
+            this.label6.Location = new System.Drawing.Point(369, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 6;
@@ -1201,8 +1215,10 @@
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Status", true));
-            this.textBox2.Location = new System.Drawing.Point(416, 43);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(416, 48);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(199, 20);
             this.textBox2.TabIndex = 5;
             // 
@@ -1222,17 +1238,21 @@
             this.start_DateDateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.start_DateDateTimePicker1.TabIndex = 2;
             // 
-            // button5
+            // PrintID_btn
             // 
-            this.button5.Location = new System.Drawing.Point(248, 142);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Print ID";
-            this.button5.UseVisualStyleBackColor = true;
+            this.PrintID_btn.Location = new System.Drawing.Point(285, 212);
+            this.PrintID_btn.Name = "PrintID_btn";
+            this.PrintID_btn.Size = new System.Drawing.Size(75, 23);
+            this.PrintID_btn.TabIndex = 0;
+            this.PrintID_btn.Text = "Print ID";
+            this.PrintID_btn.UseVisualStyleBackColor = true;
+            this.PrintID_btn.Click += new System.EventHandler(this.PrintID_btn_Click);
             // 
             // GraduatedTab
             // 
+            this.GraduatedTab.AutoScroll = true;
+            this.GraduatedTab.Controls.Add(licensedLabel);
+            this.GraduatedTab.Controls.Add(this.licensedCheckBox);
             this.GraduatedTab.Controls.Add(this.dateTimePicker1);
             this.GraduatedTab.Controls.Add(eMPLOYER_ADDRESSLabel);
             this.GraduatedTab.Controls.Add(this.eMPLOYER_ADDRESSTextBox);
@@ -1247,8 +1267,6 @@
             this.GraduatedTab.Controls.Add(this.cOMPANY_NAMETextBox);
             this.GraduatedTab.Controls.Add(cURRENT_EMPLOYMENT_STATUSLabel);
             this.GraduatedTab.Controls.Add(this.cURRENT_EMPLOYMENT_STATUSTextBox);
-            this.GraduatedTab.Controls.Add(license__Y_N_Label);
-            this.GraduatedTab.Controls.Add(this.license__Y_N_TextBox);
             this.GraduatedTab.Location = new System.Drawing.Point(4, 22);
             this.GraduatedTab.Name = "GraduatedTab";
             this.GraduatedTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1257,6 +1275,16 @@
             this.GraduatedTab.Text = "Graduated Info";
             this.GraduatedTab.UseVisualStyleBackColor = true;
             this.GraduatedTab.Enter += new System.EventHandler(this.GraduatedTab_Enter);
+            // 
+            // licensedCheckBox
+            // 
+            this.licensedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.graduatedBindingSource, "Licensed", true));
+            this.licensedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.graduatedBindingSource, "Licensed", true));
+            this.licensedCheckBox.Location = new System.Drawing.Point(148, 18);
+            this.licensedCheckBox.Name = "licensedCheckBox";
+            this.licensedCheckBox.Size = new System.Drawing.Size(26, 24);
+            this.licensedCheckBox.TabIndex = 17;
+            this.licensedCheckBox.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
@@ -1314,17 +1342,10 @@
             this.cURRENT_EMPLOYMENT_STATUSTextBox.Size = new System.Drawing.Size(100, 20);
             this.cURRENT_EMPLOYMENT_STATUSTextBox.TabIndex = 3;
             // 
-            // license__Y_N_TextBox
-            // 
-            this.license__Y_N_TextBox.Location = new System.Drawing.Point(148, 22);
-            this.license__Y_N_TextBox.Name = "license__Y_N_TextBox";
-            this.license__Y_N_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.license__Y_N_TextBox.TabIndex = 1;
-            // 
             // findStudent_tab
             // 
+            this.findStudent_tab.Controls.Add(this.groupBox4);
             this.findStudent_tab.Controls.Add(this.FilterGroupbox);
-            this.findStudent_tab.Controls.Add(this.searchStudent_GridView);
             this.findStudent_tab.Location = new System.Drawing.Point(4, 22);
             this.findStudent_tab.Name = "findStudent_tab";
             this.findStudent_tab.Padding = new System.Windows.Forms.Padding(3);
@@ -1333,34 +1354,27 @@
             this.findStudent_tab.Text = "Find";
             this.findStudent_tab.UseVisualStyleBackColor = true;
             // 
-            // FilterGroupbox
+            // groupBox4
             // 
-            this.FilterGroupbox.Controls.Add(this.DropFilter_chk);
-            this.FilterGroupbox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FilterGroupbox.Location = new System.Drawing.Point(3, 307);
-            this.FilterGroupbox.Name = "FilterGroupbox";
-            this.FilterGroupbox.Size = new System.Drawing.Size(649, 37);
-            this.FilterGroupbox.TabIndex = 1;
-            this.FilterGroupbox.TabStop = false;
-            this.FilterGroupbox.Text = "Filter Options";
-            // 
-            // DropFilter_chk
-            // 
-            this.DropFilter_chk.AutoSize = true;
-            this.DropFilter_chk.Location = new System.Drawing.Point(8, 17);
-            this.DropFilter_chk.Name = "DropFilter_chk";
-            this.DropFilter_chk.Size = new System.Drawing.Size(106, 17);
-            this.DropFilter_chk.TabIndex = 0;
-            this.DropFilter_chk.Text = "Droped Students";
-            this.DropFilter_chk.UseVisualStyleBackColor = true;
-            this.DropFilter_chk.CheckedChanged += new System.EventHandler(this.DropFilter_chk_CheckedChanged);
+            this.groupBox4.Controls.Add(this.searchStudent_GridView);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(649, 304);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
             // 
             // searchStudent_GridView
             // 
+            this.searchStudent_GridView.AllowUserToAddRows = false;
+            this.searchStudent_GridView.AllowUserToDeleteRows = false;
+            this.searchStudent_GridView.AllowUserToOrderColumns = true;
+            this.searchStudent_GridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FloralWhite;
+            this.searchStudent_GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.searchStudent_GridView.AutoGenerateColumns = false;
             this.searchStudent_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchStudent_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
@@ -1402,244 +1416,280 @@
             this.searchStudent_GridView.ContextMenuStrip = this.StudentActionsMenu;
             this.searchStudent_GridView.DataSource = this.studentBindingSource;
             this.searchStudent_GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchStudent_GridView.Location = new System.Drawing.Point(3, 3);
+            this.searchStudent_GridView.Location = new System.Drawing.Point(3, 16);
+            this.searchStudent_GridView.MultiSelect = false;
             this.searchStudent_GridView.Name = "searchStudent_GridView";
-            this.searchStudent_GridView.Size = new System.Drawing.Size(649, 341);
-            this.searchStudent_GridView.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.searchStudent_GridView.ReadOnly = true;
+            this.searchStudent_GridView.RowHeadersVisible = false;
+            this.searchStudent_GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.searchStudent_GridView.Size = new System.Drawing.Size(643, 285);
+            this.searchStudent_GridView.TabIndex = 1;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
             this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
             this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // startDateDataGridViewTextBoxColumn
             // 
             this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
             this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
             this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            this.startDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // endDateDataGridViewTextBoxColumn
             // 
             this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
             this.endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
             this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            this.endDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // homePhoneDataGridViewTextBoxColumn
             // 
             this.homePhoneDataGridViewTextBoxColumn.DataPropertyName = "HomePhone";
             this.homePhoneDataGridViewTextBoxColumn.HeaderText = "HomePhone";
             this.homePhoneDataGridViewTextBoxColumn.Name = "homePhoneDataGridViewTextBoxColumn";
+            this.homePhoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bussinessPhoneDataGridViewTextBoxColumn
             // 
             this.bussinessPhoneDataGridViewTextBoxColumn.DataPropertyName = "BussinessPhone";
             this.bussinessPhoneDataGridViewTextBoxColumn.HeaderText = "BussinessPhone";
             this.bussinessPhoneDataGridViewTextBoxColumn.Name = "bussinessPhoneDataGridViewTextBoxColumn";
+            this.bussinessPhoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cellPhoneDataGridViewTextBoxColumn
             // 
             this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
             this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "CellPhone";
             this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
+            this.cellPhoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // faxNumberDataGridViewTextBoxColumn
             // 
             this.faxNumberDataGridViewTextBoxColumn.DataPropertyName = "FaxNumber";
             this.faxNumberDataGridViewTextBoxColumn.HeaderText = "FaxNumber";
             this.faxNumberDataGridViewTextBoxColumn.Name = "faxNumberDataGridViewTextBoxColumn";
+            this.faxNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // addressDataGridViewTextBoxColumn
             // 
             this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
             this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cityDataGridViewTextBoxColumn
             // 
             this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
             this.cityDataGridViewTextBoxColumn.HeaderText = "City";
             this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // stateDataGridViewTextBoxColumn
             // 
             this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
             this.stateDataGridViewTextBoxColumn.HeaderText = "State";
             this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            this.stateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // zIPDataGridViewTextBoxColumn
             // 
             this.zIPDataGridViewTextBoxColumn.DataPropertyName = "ZIP";
             this.zIPDataGridViewTextBoxColumn.HeaderText = "ZIP";
             this.zIPDataGridViewTextBoxColumn.Name = "zIPDataGridViewTextBoxColumn";
+            this.zIPDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // countryDataGridViewTextBoxColumn
             // 
             this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
             this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
             this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            this.countryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // creditTransDataGridViewTextBoxColumn
             // 
             this.creditTransDataGridViewTextBoxColumn.DataPropertyName = "CreditTrans";
             this.creditTransDataGridViewTextBoxColumn.HeaderText = "CreditTrans";
             this.creditTransDataGridViewTextBoxColumn.Name = "creditTransDataGridViewTextBoxColumn";
+            this.creditTransDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // referedDataGridViewTextBoxColumn
             // 
             this.referedDataGridViewTextBoxColumn.DataPropertyName = "Refered";
             this.referedDataGridViewTextBoxColumn.HeaderText = "Refered";
             this.referedDataGridViewTextBoxColumn.Name = "referedDataGridViewTextBoxColumn";
+            this.referedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // webPageDataGridViewTextBoxColumn
             // 
             this.webPageDataGridViewTextBoxColumn.DataPropertyName = "WebPage";
             this.webPageDataGridViewTextBoxColumn.HeaderText = "WebPage";
             this.webPageDataGridViewTextBoxColumn.Name = "webPageDataGridViewTextBoxColumn";
+            this.webPageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // notesDataGridViewTextBoxColumn
             // 
             this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
             this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
             this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            this.notesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // attachmentDataGridViewTextBoxColumn
             // 
             this.attachmentDataGridViewTextBoxColumn.DataPropertyName = "Attachment";
             this.attachmentDataGridViewTextBoxColumn.HeaderText = "Attachment";
             this.attachmentDataGridViewTextBoxColumn.Name = "attachmentDataGridViewTextBoxColumn";
+            this.attachmentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // locationDataGridViewTextBoxColumn
             // 
             this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
             this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
             this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            this.locationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // statusDataGridViewTextBoxColumn
             // 
             this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // commentsDataGridViewTextBoxColumn
             // 
             this.commentsDataGridViewTextBoxColumn.DataPropertyName = "Comments";
             this.commentsDataGridViewTextBoxColumn.HeaderText = "Comments";
             this.commentsDataGridViewTextBoxColumn.Name = "commentsDataGridViewTextBoxColumn";
+            this.commentsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emergencyContactNameDataGridViewTextBoxColumn
             // 
             this.emergencyContactNameDataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactName";
             this.emergencyContactNameDataGridViewTextBoxColumn.HeaderText = "EmergencyContactName";
             this.emergencyContactNameDataGridViewTextBoxColumn.Name = "emergencyContactNameDataGridViewTextBoxColumn";
+            this.emergencyContactNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emergencyContactPhone1DataGridViewTextBoxColumn
             // 
             this.emergencyContactPhone1DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone1";
             this.emergencyContactPhone1DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone1";
             this.emergencyContactPhone1DataGridViewTextBoxColumn.Name = "emergencyContactPhone1DataGridViewTextBoxColumn";
+            this.emergencyContactPhone1DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emergencyContactPhone2DataGridViewTextBoxColumn
             // 
             this.emergencyContactPhone2DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone2";
             this.emergencyContactPhone2DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone2";
             this.emergencyContactPhone2DataGridViewTextBoxColumn.Name = "emergencyContactPhone2DataGridViewTextBoxColumn";
+            this.emergencyContactPhone2DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emergencyContactPhone3DataGridViewTextBoxColumn
             // 
             this.emergencyContactPhone3DataGridViewTextBoxColumn.DataPropertyName = "EmergencyContactPhone3";
             this.emergencyContactPhone3DataGridViewTextBoxColumn.HeaderText = "EmergencyContactPhone3";
             this.emergencyContactPhone3DataGridViewTextBoxColumn.Name = "emergencyContactPhone3DataGridViewTextBoxColumn";
+            this.emergencyContactPhone3DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cvDataGridViewTextBoxColumn
             // 
             this.cvDataGridViewTextBoxColumn.DataPropertyName = "Cv";
             this.cvDataGridViewTextBoxColumn.HeaderText = "Cv";
             this.cvDataGridViewTextBoxColumn.Name = "cvDataGridViewTextBoxColumn";
+            this.cvDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cvsDataGridViewTextBoxColumn
             // 
             this.cvsDataGridViewTextBoxColumn.DataPropertyName = "Cvs";
             this.cvsDataGridViewTextBoxColumn.HeaderText = "Cvs";
             this.cvsDataGridViewTextBoxColumn.Name = "cvsDataGridViewTextBoxColumn";
+            this.cvsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // middleInitialDataGridViewTextBoxColumn
             // 
             this.middleInitialDataGridViewTextBoxColumn.DataPropertyName = "MiddleInitial";
             this.middleInitialDataGridViewTextBoxColumn.HeaderText = "MiddleInitial";
             this.middleInitialDataGridViewTextBoxColumn.Name = "middleInitialDataGridViewTextBoxColumn";
+            this.middleInitialDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pictureDataGridViewTextBoxColumn
             // 
             this.pictureDataGridViewTextBoxColumn.DataPropertyName = "Picture";
             this.pictureDataGridViewTextBoxColumn.HeaderText = "Picture";
             this.pictureDataGridViewTextBoxColumn.Name = "pictureDataGridViewTextBoxColumn";
+            this.pictureDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // graduatedIdDataGridViewTextBoxColumn
             // 
             this.graduatedIdDataGridViewTextBoxColumn.DataPropertyName = "GraduatedId";
             this.graduatedIdDataGridViewTextBoxColumn.HeaderText = "GraduatedId";
             this.graduatedIdDataGridViewTextBoxColumn.Name = "graduatedIdDataGridViewTextBoxColumn";
+            this.graduatedIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // paymentInfoDataGridViewTextBoxColumn
             // 
             this.paymentInfoDataGridViewTextBoxColumn.DataPropertyName = "PaymentInfo";
             this.paymentInfoDataGridViewTextBoxColumn.HeaderText = "PaymentInfo";
             this.paymentInfoDataGridViewTextBoxColumn.Name = "paymentInfoDataGridViewTextBoxColumn";
+            this.paymentInfoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // paymentPlanAmountDataGridViewTextBoxColumn
             // 
             this.paymentPlanAmountDataGridViewTextBoxColumn.DataPropertyName = "PaymentPlanAmount";
             this.paymentPlanAmountDataGridViewTextBoxColumn.HeaderText = "PaymentPlanAmount";
             this.paymentPlanAmountDataGridViewTextBoxColumn.Name = "paymentPlanAmountDataGridViewTextBoxColumn";
+            this.paymentPlanAmountDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dropinfoIdDataGridViewTextBoxColumn
             // 
             this.dropinfoIdDataGridViewTextBoxColumn.DataPropertyName = "DropinfoId";
             this.dropinfoIdDataGridViewTextBoxColumn.HeaderText = "DropinfoId";
             this.dropinfoIdDataGridViewTextBoxColumn.Name = "dropinfoIdDataGridViewTextBoxColumn";
+            this.dropinfoIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // eOIdDataGridViewTextBoxColumn
             // 
             this.eOIdDataGridViewTextBoxColumn.DataPropertyName = "EOId";
             this.eOIdDataGridViewTextBoxColumn.HeaderText = "EOId";
             this.eOIdDataGridViewTextBoxColumn.Name = "eOIdDataGridViewTextBoxColumn";
+            this.eOIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // enrollmentOfficerDataGridViewTextBoxColumn
             // 
             this.enrollmentOfficerDataGridViewTextBoxColumn.DataPropertyName = "EnrollmentOfficer";
             this.enrollmentOfficerDataGridViewTextBoxColumn.HeaderText = "EnrollmentOfficer";
             this.enrollmentOfficerDataGridViewTextBoxColumn.Name = "enrollmentOfficerDataGridViewTextBoxColumn";
+            this.enrollmentOfficerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // graduatedDataGridViewTextBoxColumn
             // 
             this.graduatedDataGridViewTextBoxColumn.DataPropertyName = "Graduated";
             this.graduatedDataGridViewTextBoxColumn.HeaderText = "Graduated";
             this.graduatedDataGridViewTextBoxColumn.Name = "graduatedDataGridViewTextBoxColumn";
+            this.graduatedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dropInfoDataGridViewTextBoxColumn
             // 
             this.dropInfoDataGridViewTextBoxColumn.DataPropertyName = "DropInfo";
             this.dropInfoDataGridViewTextBoxColumn.HeaderText = "DropInfo";
             this.dropInfoDataGridViewTextBoxColumn.Name = "dropInfoDataGridViewTextBoxColumn";
+            this.dropInfoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // StudentActionsMenu
             // 
@@ -1664,6 +1714,28 @@
             this.graduateToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.graduateToolStripMenuItem.Text = "Graduate";
             this.graduateToolStripMenuItem.Click += new System.EventHandler(this.graduateToolStripMenuItem_Click);
+            // 
+            // FilterGroupbox
+            // 
+            this.FilterGroupbox.Controls.Add(this.DropFilter_chk);
+            this.FilterGroupbox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.FilterGroupbox.Location = new System.Drawing.Point(3, 307);
+            this.FilterGroupbox.Name = "FilterGroupbox";
+            this.FilterGroupbox.Size = new System.Drawing.Size(649, 37);
+            this.FilterGroupbox.TabIndex = 1;
+            this.FilterGroupbox.TabStop = false;
+            this.FilterGroupbox.Text = "Filter Options";
+            // 
+            // DropFilter_chk
+            // 
+            this.DropFilter_chk.AutoSize = true;
+            this.DropFilter_chk.Location = new System.Drawing.Point(8, 17);
+            this.DropFilter_chk.Name = "DropFilter_chk";
+            this.DropFilter_chk.Size = new System.Drawing.Size(106, 17);
+            this.DropFilter_chk.TabIndex = 0;
+            this.DropFilter_chk.Text = "Droped Students";
+            this.DropFilter_chk.UseVisualStyleBackColor = true;
+            this.DropFilter_chk.CheckedChanged += new System.EventHandler(this.DropFilter_chk_CheckedChanged);
             // 
             // DropTab
             // 
@@ -2286,10 +2358,11 @@
             this.GraduatedTab.ResumeLayout(false);
             this.GraduatedTab.PerformLayout();
             this.findStudent_tab.ResumeLayout(false);
-            this.FilterGroupbox.ResumeLayout(false);
-            this.FilterGroupbox.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).EndInit();
             this.StudentActionsMenu.ResumeLayout(false);
+            this.FilterGroupbox.ResumeLayout(false);
+            this.FilterGroupbox.PerformLayout();
             this.DropTab.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -2335,7 +2408,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DateTimePicker end_DateDateTimePicker1;
         private System.Windows.Forms.DateTimePicker start_DateDateTimePicker1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button PrintID_btn;
         private System.Windows.Forms.DateTimePicker pRINTED_DIPLOMA_DATEDateTimePicker;
         private System.Windows.Forms.TabPage GraduatedTab;
         private System.Windows.Forms.TextBox eMPLOYER_ADDRESSTextBox;
@@ -2344,7 +2417,6 @@
         private System.Windows.Forms.TextBox jOB_TITLETextBox;
         private System.Windows.Forms.TextBox cOMPANY_NAMETextBox;
         private System.Windows.Forms.TextBox cURRENT_EMPLOYMENT_STATUSTextBox;
-        private System.Windows.Forms.TextBox license__Y_N_TextBox;
         private System.Windows.Forms.TextBox searchStudent_txt;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -2396,46 +2468,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.GroupBox FilterGroupbox;
         private System.Windows.Forms.CheckBox DropFilter_chk;
-        private System.Windows.Forms.DataGridView searchStudent_GridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn homePhoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bussinessPhoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn faxNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zIPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creditTransDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn referedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn webPageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn attachmentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cvDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cvsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn middleInitialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pictureDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn graduatedIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paymentInfoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paymentPlanAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dropinfoIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eOIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
         private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
@@ -2497,6 +2529,48 @@
         private System.Windows.Forms.DateTimePicker dateDateTimePicker;
         private System.Windows.Forms.TextBox amountTextBox;
         private System.Windows.Forms.Label RefundedOrBalance_lbl;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox licensedCheckBox;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView searchStudent_GridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn homePhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bussinessPhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn faxNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zIPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creditTransDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn referedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn webPageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attachmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emergencyContactPhone3DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cvsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middleInitialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pictureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn graduatedIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paymentInfoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paymentPlanAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dropinfoIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eOIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn;
     }
 }
 

@@ -12,6 +12,7 @@
         <File Name="DataContext1.Schedule.cs" />
         <File Name="DataContext1.Student.cs" />
         <File Name="DataContext1.StudentSchedule.cs" />
+        <File Name="DataContext1.Studentview.cs" />
       </GeneratedFiles>
     </Generation>
     <DatabaseFirstNamingRules>
