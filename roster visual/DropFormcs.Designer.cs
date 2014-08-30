@@ -34,10 +34,8 @@
             System.Windows.Forms.Label amountLabel;
             System.Windows.Forms.Label paidLabel;
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.amountTextBox = new System.Windows.Forms.TextBox();
-            this.dropInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paidCheckBox = new System.Windows.Forms.CheckBox();
             this.refundRadioButton = new System.Windows.Forms.RadioButton();
             this.balanceRadioButton = new System.Windows.Forms.RadioButton();
@@ -45,12 +43,14 @@
             this.Drop_btn = new System.Windows.Forms.Button();
             this.Cancel_btn = new System.Windows.Forms.Button();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.dropInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             firstNameLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
             amountLabel = new System.Windows.Forms.Label();
             paidLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropInfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // firstNameLabel
@@ -98,10 +98,6 @@
             this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.firstNameTextBox.TabIndex = 2;
             // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(roster_visual.Student);
-            // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "LastName", true));
@@ -118,10 +114,6 @@
             this.amountTextBox.Name = "amountTextBox";
             this.amountTextBox.Size = new System.Drawing.Size(52, 20);
             this.amountTextBox.TabIndex = 5;
-            // 
-            // dropInfoBindingSource
-            // 
-            this.dropInfoBindingSource.DataSource = typeof(roster_visual.DropInfo);
             // 
             // paidCheckBox
             // 
@@ -183,6 +175,7 @@
             this.Cancel_btn.TabIndex = 13;
             this.Cancel_btn.Text = "Cancel";
             this.Cancel_btn.UseVisualStyleBackColor = true;
+            this.Cancel_btn.Click += new System.EventHandler(this.Cancel_btn_Click);
             // 
             // dateLabel
             // 
@@ -192,6 +185,14 @@
             this.dateLabel.Size = new System.Drawing.Size(75, 13);
             this.dateLabel.TabIndex = 14;
             this.dateLabel.Text = "To be paid by:";
+            // 
+            // dropInfoBindingSource
+            // 
+            this.dropInfoBindingSource.DataSource = typeof(roster_visual.DropInfo);
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(roster_visual.Student);
             // 
             // DropForm
             // 
@@ -214,8 +215,8 @@
             this.Controls.Add(this.firstNameTextBox);
             this.Name = "DropForm";
             this.Text = "Drop Student";
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropInfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,20 +44,25 @@ namespace roster_visual
         private void Drop_btn_Click(object sender, EventArgs e)
         {
 
-            _Student.DropInfo = new DropInfo()
-            {
-                Refund = refundRadioButton.Checked,
-                Paid = paidCheckBox.Checked,
-                Amount = int.Parse(amountTextBox.Text),
-                Check = null,
-                Date = dateDateTimePicker.Value
-            };
-
             if (MessageBox.Show("Do you really want to Drop "+_Student.FirstName+" "+_Student.LastName, "Drop Student", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
+                _Student.DropInfo = new DropInfo()
+                {
+                    Refund = refundRadioButton.Checked,
+                    Paid = paidCheckBox.Checked,
+                    Amount = int.Parse(amountTextBox.Text),
+                    Check = null,
+                    Date = dateDateTimePicker.Value
+                };
+
                 Validate();
                 Context.SubmitChanges();
             }
+        }
+
+        private void Cancel_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
