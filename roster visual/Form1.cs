@@ -150,6 +150,11 @@ namespace roster_visual
 
             dropInfoBindingSource.DataSource = _Student.DropInfo;
 
+            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
+                                                       from Schedules in Context.Schedules
+                                                       where StudentSchedules.ScheduleId == Schedules.Id
+                                                       select Schedules;
+
             //-- Cambia los label de informacion en el tab Droped teniendo en cuenta si es Balance o Refund
             DropedTabBindManage();
 
