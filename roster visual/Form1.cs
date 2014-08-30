@@ -29,7 +29,6 @@ namespace roster_visual
 
             Filtered_Students = Context.Students;
             studentBindingSource.DataSource = Context.Students;
-            
 
             //--- Load Program/Schedule Defaults ---
             programBindingSource.DataSource = Context.Programs;
@@ -39,11 +38,8 @@ namespace roster_visual
 
 
             enrollmentOfficerBindingSource.DataSource = Context.EnrollmentOfficers;
+            graduatedBindingSource.DataSource = _Student.Graduated;
 
-            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
-                                                       from Schedules in Context.Schedules
-                                                       where StudentSchedules.ScheduleId == Schedules.Id
-                                                       select Schedules;
 
             lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
 
@@ -104,6 +100,9 @@ namespace roster_visual
                 label5.Visible = false;
                 textBox1.Visible = false;
             }
+
+           
+
         }
 
         private void program_cmb_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,25 +140,6 @@ namespace roster_visual
             lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
         }
 
-        private void studentBindingSource_PositionChanged(object sender, EventArgs e)
-        {
-            _Student = (Student)studentBindingSource.Current;
-            if (_Student.Picture != null) studentImage.Load(_Student.Picture);
-                 else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
-
-
-            dropInfoBindingSource.DataSource = _Student.DropInfo;
-
-            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
-                                                       from Schedules in Context.Schedules
-                                                       where StudentSchedules.ScheduleId == Schedules.Id
-                                                       select Schedules;
-
-            //-- Cambia los label de informacion en el tab Droped teniendo en cuenta si es Balance o Refund
-            DropedTabBindManage();
-
-        }
-
         private void add_schedule_btn_Click(object sender, EventArgs e)
         {
             if (!_Student.StudentSchedules.ToList().Exists(c => c.ProgramId == _Program.Id))
@@ -171,6 +151,7 @@ namespace roster_visual
                                                            from Schedules in Context.Schedules
                                                            where StudentSchedules.ScheduleId == Schedules.Id
                                                            select Schedules;
+
             }
 
             else MessageBox.Show("Current Program already exists for this student.\nPlease select another one.", "Program already exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -214,11 +195,6 @@ namespace roster_visual
             
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void locker_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             _Student.Locker = (Locker)locker_cmb.SelectedItem;
@@ -250,11 +226,54 @@ namespace roster_visual
 
         private void StudentActionsMenu_Opening(object sender, CancelEventArgs e)
         {
-            dropToolStripMenuItem.Visible = (_Student.DropInfo != null) ? false : true;
+            dropToolStripMenuItem.Enabled = (_Student.DropInfo != null) ? false : true;
+            graduateToolStripMenuItem.Enabled = (_Student.Graduated != null) ? false : true;
         }
 
-        private void DropedTabBindManage()
+        private void graduateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Do you really want to graduate the student " + _Student.FirstName + " " + _Student.LastName+"?", "Graduate Student", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                _Student.Graduated = new Graduated();
+                Context.SubmitChanges();
+                studentBindingSource_PositionChanged(sender, e);
+            }
+        }
+
+        private void StudentActionsMenu_Opened(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            _Student = (Student)studentBindingSource.Current;
+
+            if (StudentMainTab.SelectedTab == GeneralTab) GeneralTab_Enter(sender, e);
+            if (StudentMainTab.SelectedTab == DropTab)    DropTab_Enter(sender, e);
+            if (StudentMainTab.SelectedTab == GraduatedTab) GraduatedTab_Enter(sender, e);
+            if (StudentMainTab.SelectedTab == EnrollmentTab) EnrollmentTab_Enter(sender, e);
+
+            if (_Student.Graduated == null) StudentMainTab.TabPages.Remove(GraduatedTab);
+            else
+                if (!StudentMainTab.TabPages.Contains(GraduatedTab)) StudentMainTab.TabPages.Add(GraduatedTab);
+
+
+            if (_Student.DropInfo == null) StudentMainTab.TabPages.Remove(DropTab);
+            else if (!StudentMainTab.TabPages.Contains(DropTab)) StudentMainTab.TabPages.Add(DropTab);
+        }
+
+        private void GeneralTab_Enter(object sender, EventArgs e)
+        {
+            if (_Student.Picture != null) studentImage.Load(_Student.Picture);
+            else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
+
+        }
+
+        private void DropTab_Enter(object sender, EventArgs e)
+        {
+            dropInfoBindingSource.DataSource = _Student.DropInfo;
+
             if (_Student.DropInfo.Refund == true)
             {
                 RefundedOrBalance_lbl.Text = "Refund Due";
@@ -267,7 +286,18 @@ namespace roster_visual
             }
         }
 
+        private void GraduatedTab_Enter(object sender, EventArgs e)
+        {
+            graduatedBindingSource.DataSource = _Student.Graduated;
+        }
 
+        private void EnrollmentTab_Enter(object sender, EventArgs e)
+        {
+            CurrentSchedulesBindingSource.DataSource = from StudentSchedules in _Student.StudentSchedules
+                                                       from Schedules in Context.Schedules
+                                                       where StudentSchedules.ScheduleId == Schedules.Id
+                                                       select Schedules;
+        }
 
       
     }

@@ -89,7 +89,7 @@
             this.fIRST_NAMETextBox = new System.Windows.Forms.TextBox();
             this.lAST_NAMETextBox = new System.Windows.Forms.TextBox();
             this.iD_TextBox = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.EnrollmentTab = new System.Windows.Forms.TabPage();
             this.add_schedule_btn = new System.Windows.Forms.Button();
             this.studentSchedulesGridView = new System.Windows.Forms.DataGridView();
             this.programDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -300,7 +300,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentImage)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.EnrollmentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentSchedulesGridView)).BeginInit();
             this.studentSchedulesMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentSchedulesBindingSource)).BeginInit();
@@ -660,7 +660,7 @@
             // StudentMainTab
             // 
             this.StudentMainTab.Controls.Add(this.GeneralTab);
-            this.StudentMainTab.Controls.Add(this.tabPage2);
+            this.StudentMainTab.Controls.Add(this.EnrollmentTab);
             this.StudentMainTab.Controls.Add(this.tabPage3);
             this.StudentMainTab.Controls.Add(this.tabPage4);
             this.StudentMainTab.Controls.Add(this.GraduatedTab);
@@ -705,6 +705,7 @@
             this.GeneralTab.TabIndex = 0;
             this.GeneralTab.Text = "General";
             this.GeneralTab.UseVisualStyleBackColor = true;
+            this.GeneralTab.Enter += new System.EventHandler(this.GeneralTab_Enter);
             // 
             // groupBox1
             // 
@@ -881,29 +882,30 @@
             this.iD_TextBox.Size = new System.Drawing.Size(100, 20);
             this.iD_TextBox.TabIndex = 1;
             // 
-            // tabPage2
+            // EnrollmentTab
             // 
-            this.tabPage2.Controls.Add(this.add_schedule_btn);
-            this.tabPage2.Controls.Add(this.studentSchedulesGridView);
-            this.tabPage2.Controls.Add(label7);
-            this.tabPage2.Controls.Add(this.schedule_cmb);
-            this.tabPage2.Controls.Add(this.eo_cmb);
-            this.tabPage2.Controls.Add(this.program_cmb);
-            this.tabPage2.Controls.Add(cOMMENTSLabel);
-            this.tabPage2.Controls.Add(this.cOMMENTSTextBox);
-            this.tabPage2.Controls.Add(end_DateLabel);
-            this.tabPage2.Controls.Add(this.end_DateDateTimePicker);
-            this.tabPage2.Controls.Add(start_DateLabel);
-            this.tabPage2.Controls.Add(this.start_DateDateTimePicker);
-            this.tabPage2.Controls.Add(e_OLabel);
-            this.tabPage2.Controls.Add(cOURSELabel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(655, 347);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Enrollment";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.EnrollmentTab.Controls.Add(this.add_schedule_btn);
+            this.EnrollmentTab.Controls.Add(this.studentSchedulesGridView);
+            this.EnrollmentTab.Controls.Add(label7);
+            this.EnrollmentTab.Controls.Add(this.schedule_cmb);
+            this.EnrollmentTab.Controls.Add(this.eo_cmb);
+            this.EnrollmentTab.Controls.Add(this.program_cmb);
+            this.EnrollmentTab.Controls.Add(cOMMENTSLabel);
+            this.EnrollmentTab.Controls.Add(this.cOMMENTSTextBox);
+            this.EnrollmentTab.Controls.Add(end_DateLabel);
+            this.EnrollmentTab.Controls.Add(this.end_DateDateTimePicker);
+            this.EnrollmentTab.Controls.Add(start_DateLabel);
+            this.EnrollmentTab.Controls.Add(this.start_DateDateTimePicker);
+            this.EnrollmentTab.Controls.Add(e_OLabel);
+            this.EnrollmentTab.Controls.Add(cOURSELabel);
+            this.EnrollmentTab.Location = new System.Drawing.Point(4, 22);
+            this.EnrollmentTab.Name = "EnrollmentTab";
+            this.EnrollmentTab.Padding = new System.Windows.Forms.Padding(3);
+            this.EnrollmentTab.Size = new System.Drawing.Size(655, 347);
+            this.EnrollmentTab.TabIndex = 1;
+            this.EnrollmentTab.Text = "Enrollment";
+            this.EnrollmentTab.UseVisualStyleBackColor = true;
+            this.EnrollmentTab.Enter += new System.EventHandler(this.EnrollmentTab_Enter);
             // 
             // add_schedule_btn
             // 
@@ -1228,7 +1230,6 @@
             this.button5.TabIndex = 0;
             this.button5.Text = "Print ID";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // GraduatedTab
             // 
@@ -1255,6 +1256,7 @@
             this.GraduatedTab.TabIndex = 4;
             this.GraduatedTab.Text = "Graduated Info";
             this.GraduatedTab.UseVisualStyleBackColor = true;
+            this.GraduatedTab.Enter += new System.EventHandler(this.GraduatedTab_Enter);
             // 
             // dateTimePicker1
             // 
@@ -1647,6 +1649,7 @@
             this.StudentActionsMenu.Name = "StudentActionsMenu";
             this.StudentActionsMenu.Size = new System.Drawing.Size(123, 48);
             this.StudentActionsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.StudentActionsMenu_Opening);
+            this.StudentActionsMenu.Opened += new System.EventHandler(this.StudentActionsMenu_Opened);
             // 
             // dropToolStripMenuItem
             // 
@@ -1660,6 +1663,7 @@
             this.graduateToolStripMenuItem.Name = "graduateToolStripMenuItem";
             this.graduateToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.graduateToolStripMenuItem.Text = "Graduate";
+            this.graduateToolStripMenuItem.Click += new System.EventHandler(this.graduateToolStripMenuItem_Click);
             // 
             // DropTab
             // 
@@ -1673,6 +1677,7 @@
             this.DropTab.TabIndex = 6;
             this.DropTab.Text = "Droped Info";
             this.DropTab.UseVisualStyleBackColor = true;
+            this.DropTab.Enter += new System.EventHandler(this.DropTab_Enter);
             // 
             // groupBox3
             // 
@@ -2264,8 +2269,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentImage)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.EnrollmentTab.ResumeLayout(false);
+            this.EnrollmentTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentSchedulesGridView)).EndInit();
             this.studentSchedulesMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CurrentSchedulesBindingSource)).EndInit();
@@ -2303,7 +2308,7 @@
 
         private System.Windows.Forms.TabControl StudentMainTab;
         private System.Windows.Forms.TabPage GeneralTab;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage EnrollmentTab;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox iD_TextBox;
