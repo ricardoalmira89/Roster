@@ -1003,7 +1003,7 @@
             // 
             // eo_cmb
             // 
-            this.eo_cmb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.enrollmentOfficerBindingSource, "Text", true));
+            this.eo_cmb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.studentBindingSource, "EnrollmentOfficer", true));
             this.eo_cmb.DataSource = this.enrollmentOfficerBindingSource;
             this.eo_cmb.DisplayMember = "Text";
             this.eo_cmb.FormattingEnabled = true;
