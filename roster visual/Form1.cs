@@ -18,8 +18,10 @@ namespace roster_visual
         Schedule _Schedule = new Schedule();
         Student _Student = new Student();
         RosterMysqlDataContext Context = new RosterMysqlDataContext();
-        //IEnumerable<Student> Filtered_Students;
         IQueryable<Student> Filtered_Students;
+
+        // --- Forms ---
+        DropForm DropForm = new DropForm();
 
         public Form1()
         {
@@ -45,6 +47,14 @@ namespace roster_visual
 
             lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
 
+            DropForm.FormClosed += DropForm_FormClosed;
+
+        }
+
+        void DropForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //-- Para que se actualice el binding ---
+            studentBindingSource_PositionChanged(sender, e);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -137,17 +147,11 @@ namespace roster_visual
             if (_Student.Picture != null) studentImage.Load(_Student.Picture);
                  else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
 
-            //--- Ocultar el Tab Graduated si el estudiante no es graduado --- no pincha bien cuando el GraduatedTab esta en focus
-            
-            if (_Student.Status != "graduated")
-            {
-                GeneralTab.Focus();
-                StudentMainTab.TabPages.Remove(GraduatedTab);
-            }
-            else
-                if (!StudentMainTab.TabPages.Contains(GraduatedTab)) StudentMainTab.TabPages.Add(GraduatedTab);
 
-            
+            dropInfoBindingSource.DataSource = _Student.DropInfo;
+
+            //-- Cambia los label de informacion en el tab Droped teniendo en cuenta si es Balance o Refund
+            DropedTabBindManage();
 
         }
 
@@ -218,7 +222,6 @@ namespace roster_visual
 
         private void dropToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DropForm DropForm = new DropForm();
             DropForm.ShowDialog(Context,_Student);
         }
 
@@ -243,6 +246,20 @@ namespace roster_visual
         private void StudentActionsMenu_Opening(object sender, CancelEventArgs e)
         {
             dropToolStripMenuItem.Visible = (_Student.DropInfo != null) ? false : true;
+        }
+
+        private void DropedTabBindManage()
+        {
+            if (_Student.DropInfo.Refund == true)
+            {
+                RefundedOrBalance_lbl.Text = "Refund Due";
+                RefundedOrPaidDateText_lbl.Text = "To be refunded by:";
+            }
+            else
+            {
+                RefundedOrBalance_lbl.Text = "Balance Due";
+                RefundedOrPaidDateText_lbl.Text = "To be paid by:";
+            }
         }
 
 

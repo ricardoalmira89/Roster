@@ -57,6 +57,15 @@
             System.Windows.Forms.Label sUPERVISOR_PHONELabel;
             System.Windows.Forms.Label eMPLOYER_ADDRESSLabel;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label checkLabel;
+            System.Windows.Forms.Label dateLabel;
+            System.Windows.Forms.Label amountLabel;
+            System.Windows.Forms.Label firstNameLabel;
+            System.Windows.Forms.Label lastNameLabel;
+            System.Windows.Forms.Label startDateLabel;
+            System.Windows.Forms.Label endDateLabel;
+            System.Windows.Forms.Label cvLabel;
+            System.Windows.Forms.Label cellPhoneLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.StudentMainTab = new System.Windows.Forms.TabControl();
             this.GeneralTab = new System.Windows.Forms.TabPage();
@@ -172,6 +181,21 @@
             this.StudentActionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dropToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graduateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DropTab = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cellPhoneTextBox = new System.Windows.Forms.TextBox();
+            this.cvTextBox = new System.Windows.Forms.TextBox();
+            this.endDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.startDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkTextBox = new System.Windows.Forms.TextBox();
+            this.dropInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RefundedOrPaidDateText_lbl = new System.Windows.Forms.Label();
+            this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.amountTextBox = new System.Windows.Forms.TextBox();
+            this.RefundedOrBalance_lbl = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.searchStudent_txt = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
@@ -262,6 +286,15 @@
             sUPERVISOR_PHONELabel = new System.Windows.Forms.Label();
             eMPLOYER_ADDRESSLabel = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
+            checkLabel = new System.Windows.Forms.Label();
+            dateLabel = new System.Windows.Forms.Label();
+            amountLabel = new System.Windows.Forms.Label();
+            firstNameLabel = new System.Windows.Forms.Label();
+            lastNameLabel = new System.Windows.Forms.Label();
+            startDateLabel = new System.Windows.Forms.Label();
+            endDateLabel = new System.Windows.Forms.Label();
+            cvLabel = new System.Windows.Forms.Label();
+            cellPhoneLabel = new System.Windows.Forms.Label();
             this.StudentMainTab.SuspendLayout();
             this.GeneralTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -283,6 +316,10 @@
             this.FilterGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).BeginInit();
             this.StudentActionsMenu.SuspendLayout();
+            this.DropTab.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dropInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StudentNavigator)).BeginInit();
             this.StudentNavigator.SuspendLayout();
             this.SuspendLayout();
@@ -539,6 +576,87 @@
             label7.TabIndex = 13;
             label7.Text = "SCHEDULE:";
             // 
+            // checkLabel
+            // 
+            checkLabel.AutoSize = true;
+            checkLabel.Location = new System.Drawing.Point(40, 65);
+            checkLabel.Name = "checkLabel";
+            checkLabel.Size = new System.Drawing.Size(41, 13);
+            checkLabel.TabIndex = 14;
+            checkLabel.Text = "Check:";
+            // 
+            // dateLabel
+            // 
+            dateLabel.AutoSize = true;
+            dateLabel.Location = new System.Drawing.Point(246, 43);
+            dateLabel.Name = "dateLabel";
+            dateLabel.Size = new System.Drawing.Size(33, 13);
+            dateLabel.TabIndex = 11;
+            dateLabel.Text = "Date:";
+            // 
+            // amountLabel
+            // 
+            amountLabel.AutoSize = true;
+            amountLabel.Location = new System.Drawing.Point(35, 39);
+            amountLabel.Name = "amountLabel";
+            amountLabel.Size = new System.Drawing.Size(46, 13);
+            amountLabel.TabIndex = 9;
+            amountLabel.Text = "Amount:";
+            // 
+            // firstNameLabel
+            // 
+            firstNameLabel.AutoSize = true;
+            firstNameLabel.Location = new System.Drawing.Point(21, 32);
+            firstNameLabel.Name = "firstNameLabel";
+            firstNameLabel.Size = new System.Drawing.Size(60, 13);
+            firstNameLabel.TabIndex = 0;
+            firstNameLabel.Text = "First Name:";
+            // 
+            // lastNameLabel
+            // 
+            lastNameLabel.AutoSize = true;
+            lastNameLabel.Location = new System.Drawing.Point(20, 65);
+            lastNameLabel.Name = "lastNameLabel";
+            lastNameLabel.Size = new System.Drawing.Size(61, 13);
+            lastNameLabel.TabIndex = 2;
+            lastNameLabel.Text = "Last Name:";
+            // 
+            // startDateLabel
+            // 
+            startDateLabel.AutoSize = true;
+            startDateLabel.Location = new System.Drawing.Point(221, 30);
+            startDateLabel.Name = "startDateLabel";
+            startDateLabel.Size = new System.Drawing.Size(58, 13);
+            startDateLabel.TabIndex = 4;
+            startDateLabel.Text = "Start Date:";
+            // 
+            // endDateLabel
+            // 
+            endDateLabel.AutoSize = true;
+            endDateLabel.Location = new System.Drawing.Point(224, 71);
+            endDateLabel.Name = "endDateLabel";
+            endDateLabel.Size = new System.Drawing.Size(55, 13);
+            endDateLabel.TabIndex = 6;
+            endDateLabel.Text = "End Date:";
+            // 
+            // cvLabel
+            // 
+            cvLabel.AutoSize = true;
+            cvLabel.Location = new System.Drawing.Point(58, 105);
+            cvLabel.Name = "cvLabel";
+            cvLabel.Size = new System.Drawing.Size(23, 13);
+            cvLabel.TabIndex = 8;
+            cvLabel.Text = "Cv:";
+            // 
+            // cellPhoneLabel
+            // 
+            cellPhoneLabel.AutoSize = true;
+            cellPhoneLabel.Location = new System.Drawing.Point(218, 105);
+            cellPhoneLabel.Name = "cellPhoneLabel";
+            cellPhoneLabel.Size = new System.Drawing.Size(61, 13);
+            cellPhoneLabel.TabIndex = 10;
+            cellPhoneLabel.Text = "Cell Phone:";
+            // 
             // StudentMainTab
             // 
             this.StudentMainTab.Controls.Add(this.GeneralTab);
@@ -547,6 +665,7 @@
             this.StudentMainTab.Controls.Add(this.tabPage4);
             this.StudentMainTab.Controls.Add(this.GraduatedTab);
             this.StudentMainTab.Controls.Add(this.findStudent_tab);
+            this.StudentMainTab.Controls.Add(this.DropTab);
             this.StudentMainTab.Location = new System.Drawing.Point(0, 28);
             this.StudentMainTab.Name = "StudentMainTab";
             this.StudentMainTab.SelectedIndex = 0;
@@ -1526,21 +1645,177 @@
             this.dropToolStripMenuItem,
             this.graduateToolStripMenuItem});
             this.StudentActionsMenu.Name = "StudentActionsMenu";
-            this.StudentActionsMenu.Size = new System.Drawing.Size(153, 70);
+            this.StudentActionsMenu.Size = new System.Drawing.Size(123, 48);
             this.StudentActionsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.StudentActionsMenu_Opening);
             // 
             // dropToolStripMenuItem
             // 
             this.dropToolStripMenuItem.Name = "dropToolStripMenuItem";
-            this.dropToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dropToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.dropToolStripMenuItem.Text = "Drop";
             this.dropToolStripMenuItem.Click += new System.EventHandler(this.dropToolStripMenuItem_Click);
             // 
             // graduateToolStripMenuItem
             // 
             this.graduateToolStripMenuItem.Name = "graduateToolStripMenuItem";
-            this.graduateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.graduateToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.graduateToolStripMenuItem.Text = "Graduate";
+            // 
+            // DropTab
+            // 
+            this.DropTab.AutoScroll = true;
+            this.DropTab.Controls.Add(this.groupBox3);
+            this.DropTab.Controls.Add(this.groupBox2);
+            this.DropTab.Location = new System.Drawing.Point(4, 22);
+            this.DropTab.Name = "DropTab";
+            this.DropTab.Padding = new System.Windows.Forms.Padding(3);
+            this.DropTab.Size = new System.Drawing.Size(655, 347);
+            this.DropTab.TabIndex = 6;
+            this.DropTab.Text = "Droped Info";
+            this.DropTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(cellPhoneLabel);
+            this.groupBox3.Controls.Add(this.cellPhoneTextBox);
+            this.groupBox3.Controls.Add(cvLabel);
+            this.groupBox3.Controls.Add(this.cvTextBox);
+            this.groupBox3.Controls.Add(endDateLabel);
+            this.groupBox3.Controls.Add(this.endDateDateTimePicker);
+            this.groupBox3.Controls.Add(startDateLabel);
+            this.groupBox3.Controls.Add(this.startDateDateTimePicker);
+            this.groupBox3.Controls.Add(lastNameLabel);
+            this.groupBox3.Controls.Add(this.lastNameTextBox);
+            this.groupBox3.Controls.Add(firstNameLabel);
+            this.groupBox3.Controls.Add(this.firstNameTextBox);
+            this.groupBox3.Location = new System.Drawing.Point(8, 114);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(639, 146);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Student Information";
+            // 
+            // cellPhoneTextBox
+            // 
+            this.cellPhoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "CellPhone", true));
+            this.cellPhoneTextBox.Location = new System.Drawing.Point(285, 102);
+            this.cellPhoneTextBox.Name = "cellPhoneTextBox";
+            this.cellPhoneTextBox.ReadOnly = true;
+            this.cellPhoneTextBox.Size = new System.Drawing.Size(122, 20);
+            this.cellPhoneTextBox.TabIndex = 11;
+            // 
+            // cvTextBox
+            // 
+            this.cvTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Cv", true));
+            this.cvTextBox.Location = new System.Drawing.Point(87, 102);
+            this.cvTextBox.Name = "cvTextBox";
+            this.cvTextBox.ReadOnly = true;
+            this.cvTextBox.Size = new System.Drawing.Size(100, 20);
+            this.cvTextBox.TabIndex = 9;
+            // 
+            // endDateDateTimePicker
+            // 
+            this.endDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studentBindingSource, "EndDate", true));
+            this.endDateDateTimePicker.Enabled = false;
+            this.endDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDateDateTimePicker.Location = new System.Drawing.Point(285, 67);
+            this.endDateDateTimePicker.Name = "endDateDateTimePicker";
+            this.endDateDateTimePicker.Size = new System.Drawing.Size(244, 20);
+            this.endDateDateTimePicker.TabIndex = 7;
+            // 
+            // startDateDateTimePicker
+            // 
+            this.startDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studentBindingSource, "StartDate", true));
+            this.startDateDateTimePicker.Enabled = false;
+            this.startDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDateDateTimePicker.Location = new System.Drawing.Point(285, 26);
+            this.startDateDateTimePicker.Name = "startDateDateTimePicker";
+            this.startDateDateTimePicker.Size = new System.Drawing.Size(244, 20);
+            this.startDateDateTimePicker.TabIndex = 5;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "LastName", true));
+            this.lastNameTextBox.Location = new System.Drawing.Point(87, 62);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.ReadOnly = true;
+            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameTextBox.TabIndex = 3;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "FirstName", true));
+            this.firstNameTextBox.Location = new System.Drawing.Point(87, 29);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.ReadOnly = true;
+            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameTextBox.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(checkLabel);
+            this.groupBox2.Controls.Add(this.checkTextBox);
+            this.groupBox2.Controls.Add(this.RefundedOrPaidDateText_lbl);
+            this.groupBox2.Controls.Add(dateLabel);
+            this.groupBox2.Controls.Add(this.dateDateTimePicker);
+            this.groupBox2.Controls.Add(amountLabel);
+            this.groupBox2.Controls.Add(this.amountTextBox);
+            this.groupBox2.Controls.Add(this.RefundedOrBalance_lbl);
+            this.groupBox2.Location = new System.Drawing.Point(8, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(639, 109);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Payment Information";
+            // 
+            // checkTextBox
+            // 
+            this.checkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dropInfoBindingSource, "Check", true));
+            this.checkTextBox.Location = new System.Drawing.Point(87, 62);
+            this.checkTextBox.Name = "checkTextBox";
+            this.checkTextBox.Size = new System.Drawing.Size(100, 20);
+            this.checkTextBox.TabIndex = 15;
+            // 
+            // dropInfoBindingSource
+            // 
+            this.dropInfoBindingSource.DataSource = typeof(roster_visual.DropInfo);
+            // 
+            // RefundedOrPaidDateText_lbl
+            // 
+            this.RefundedOrPaidDateText_lbl.AutoSize = true;
+            this.RefundedOrPaidDateText_lbl.Location = new System.Drawing.Point(282, 23);
+            this.RefundedOrPaidDateText_lbl.Name = "RefundedOrPaidDateText_lbl";
+            this.RefundedOrPaidDateText_lbl.Size = new System.Drawing.Size(35, 13);
+            this.RefundedOrPaidDateText_lbl.TabIndex = 13;
+            this.RefundedOrPaidDateText_lbl.Text = "label8";
+            // 
+            // dateDateTimePicker
+            // 
+            this.dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.dropInfoBindingSource, "Date", true));
+            this.dateDateTimePicker.Enabled = false;
+            this.dateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateDateTimePicker.Location = new System.Drawing.Point(285, 39);
+            this.dateDateTimePicker.Name = "dateDateTimePicker";
+            this.dateDateTimePicker.Size = new System.Drawing.Size(244, 20);
+            this.dateDateTimePicker.TabIndex = 12;
+            // 
+            // amountTextBox
+            // 
+            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dropInfoBindingSource, "Amount", true));
+            this.amountTextBox.Location = new System.Drawing.Point(87, 36);
+            this.amountTextBox.Name = "amountTextBox";
+            this.amountTextBox.ReadOnly = true;
+            this.amountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.amountTextBox.TabIndex = 10;
+            // 
+            // RefundedOrBalance_lbl
+            // 
+            this.RefundedOrBalance_lbl.AutoSize = true;
+            this.RefundedOrBalance_lbl.Location = new System.Drawing.Point(84, 20);
+            this.RefundedOrBalance_lbl.Name = "RefundedOrBalance_lbl";
+            this.RefundedOrBalance_lbl.Size = new System.Drawing.Size(35, 13);
+            this.RefundedOrBalance_lbl.TabIndex = 8;
+            this.RefundedOrBalance_lbl.Text = "label8";
             // 
             // openFileDialog
             // 
@@ -1973,7 +2248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(663, 396);
+            this.ClientSize = new System.Drawing.Size(663, 401);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.searchStudent_txt);
             this.Controls.Add(this.StudentMainTab);
@@ -2010,6 +2285,12 @@
             this.FilterGroupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).EndInit();
             this.StudentActionsMenu.ResumeLayout(false);
+            this.DropTab.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dropInfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StudentNavigator)).EndInit();
             this.StudentNavigator.ResumeLayout(false);
             this.StudentNavigator.PerformLayout();
@@ -2196,6 +2477,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TabPage DropTab;
+        private System.Windows.Forms.BindingSource dropInfoBindingSource;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox cellPhoneTextBox;
+        private System.Windows.Forms.TextBox cvTextBox;
+        private System.Windows.Forms.DateTimePicker endDateDateTimePicker;
+        private System.Windows.Forms.DateTimePicker startDateDateTimePicker;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox checkTextBox;
+        private System.Windows.Forms.Label RefundedOrPaidDateText_lbl;
+        private System.Windows.Forms.DateTimePicker dateDateTimePicker;
+        private System.Windows.Forms.TextBox amountTextBox;
+        private System.Windows.Forms.Label RefundedOrBalance_lbl;
     }
 }
 
