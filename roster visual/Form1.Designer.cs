@@ -66,6 +66,9 @@
             System.Windows.Forms.Label cvLabel;
             System.Windows.Forms.Label cellPhoneLabel;
             System.Windows.Forms.Label licensedLabel;
+            System.Windows.Forms.Label label10;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.Label label12;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StudentMainTab = new System.Windows.Forms.TabControl();
@@ -198,6 +201,15 @@
             this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.RefundedOrBalance_lbl = new System.Windows.Forms.Label();
+            this.ReportingTab = new System.Windows.Forms.TabPage();
+            this.ShowReport_btn = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.RepSelectReports_cmb = new System.Windows.Forms.ComboBox();
+            this.RepEO_cmb = new System.Windows.Forms.ComboBox();
+            this.RepSchedules_cmb = new System.Windows.Forms.ComboBox();
+            this.RepProgram_cmb = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.RepStartDate = new System.Windows.Forms.DateTimePicker();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.searchStudent_txt = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
@@ -297,6 +309,9 @@
             cvLabel = new System.Windows.Forms.Label();
             cellPhoneLabel = new System.Windows.Forms.Label();
             licensedLabel = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
             this.StudentMainTab.SuspendLayout();
             this.GeneralTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -323,6 +338,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dropInfoBindingSource)).BeginInit();
+            this.ReportingTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentNavigator)).BeginInit();
             this.StudentNavigator.SuspendLayout();
             this.SuspendLayout();
@@ -660,6 +676,33 @@
             licensedLabel.TabIndex = 16;
             licensedLabel.Text = "LICENSED:";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(257, 69);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(68, 13);
+            label10.TabIndex = 16;
+            label10.Text = "SCHEDULE:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(295, 97);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(30, 13);
+            label11.TabIndex = 15;
+            label11.Text = "E/O:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(261, 35);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(65, 13);
+            label12.TabIndex = 14;
+            label12.Text = "PROGRAM:";
+            // 
             // StudentMainTab
             // 
             this.StudentMainTab.Controls.Add(this.GeneralTab);
@@ -669,6 +712,7 @@
             this.StudentMainTab.Controls.Add(this.GraduatedTab);
             this.StudentMainTab.Controls.Add(this.findStudent_tab);
             this.StudentMainTab.Controls.Add(this.DropTab);
+            this.StudentMainTab.Controls.Add(this.ReportingTab);
             this.StudentMainTab.Location = new System.Drawing.Point(0, 28);
             this.StudentMainTab.Name = "StudentMainTab";
             this.StudentMainTab.SelectedIndex = 0;
@@ -1894,6 +1938,103 @@
             this.RefundedOrBalance_lbl.TabIndex = 8;
             this.RefundedOrBalance_lbl.Text = "label8";
             // 
+            // ReportingTab
+            // 
+            this.ReportingTab.Controls.Add(this.ShowReport_btn);
+            this.ReportingTab.Controls.Add(this.label13);
+            this.ReportingTab.Controls.Add(this.RepSelectReports_cmb);
+            this.ReportingTab.Controls.Add(this.RepEO_cmb);
+            this.ReportingTab.Controls.Add(this.RepSchedules_cmb);
+            this.ReportingTab.Controls.Add(this.RepProgram_cmb);
+            this.ReportingTab.Controls.Add(label10);
+            this.ReportingTab.Controls.Add(label11);
+            this.ReportingTab.Controls.Add(label12);
+            this.ReportingTab.Controls.Add(this.label9);
+            this.ReportingTab.Controls.Add(this.RepStartDate);
+            this.ReportingTab.Location = new System.Drawing.Point(4, 22);
+            this.ReportingTab.Name = "ReportingTab";
+            this.ReportingTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ReportingTab.Size = new System.Drawing.Size(655, 347);
+            this.ReportingTab.TabIndex = 7;
+            this.ReportingTab.Text = "Reports";
+            this.ReportingTab.UseVisualStyleBackColor = true;
+            // 
+            // ShowReport_btn
+            // 
+            this.ShowReport_btn.Location = new System.Drawing.Point(17, 154);
+            this.ShowReport_btn.Name = "ShowReport_btn";
+            this.ShowReport_btn.Size = new System.Drawing.Size(105, 23);
+            this.ShowReport_btn.TabIndex = 22;
+            this.ShowReport_btn.Text = "Show Report";
+            this.ShowReport_btn.UseVisualStyleBackColor = true;
+            this.ShowReport_btn.Click += new System.EventHandler(this.ShowReport_btn_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(14, 81);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 13);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Select Report :";
+            // 
+            // RepSelectReports_cmb
+            // 
+            this.RepSelectReports_cmb.FormattingEnabled = true;
+            this.RepSelectReports_cmb.Items.AddRange(new object[] {
+            "Attendance Sheet",
+            "Class List",
+            "Student ID"});
+            this.RepSelectReports_cmb.Location = new System.Drawing.Point(17, 97);
+            this.RepSelectReports_cmb.Name = "RepSelectReports_cmb";
+            this.RepSelectReports_cmb.Size = new System.Drawing.Size(200, 21);
+            this.RepSelectReports_cmb.TabIndex = 20;
+            this.RepSelectReports_cmb.Text = "Available Reports...";
+            // 
+            // RepEO_cmb
+            // 
+            this.RepEO_cmb.DisplayMember = "Text";
+            this.RepEO_cmb.FormattingEnabled = true;
+            this.RepEO_cmb.Location = new System.Drawing.Point(332, 97);
+            this.RepEO_cmb.Name = "RepEO_cmb";
+            this.RepEO_cmb.Size = new System.Drawing.Size(121, 21);
+            this.RepEO_cmb.TabIndex = 19;
+            // 
+            // RepSchedules_cmb
+            // 
+            this.RepSchedules_cmb.DisplayMember = "Name";
+            this.RepSchedules_cmb.FormattingEnabled = true;
+            this.RepSchedules_cmb.Location = new System.Drawing.Point(332, 65);
+            this.RepSchedules_cmb.Name = "RepSchedules_cmb";
+            this.RepSchedules_cmb.Size = new System.Drawing.Size(121, 21);
+            this.RepSchedules_cmb.TabIndex = 18;
+            // 
+            // RepProgram_cmb
+            // 
+            this.RepProgram_cmb.DisplayMember = "Name";
+            this.RepProgram_cmb.FormattingEnabled = true;
+            this.RepProgram_cmb.Location = new System.Drawing.Point(332, 32);
+            this.RepProgram_cmb.Name = "RepProgram_cmb";
+            this.RepProgram_cmb.Size = new System.Drawing.Size(121, 21);
+            this.RepProgram_cmb.TabIndex = 17;
+            this.RepProgram_cmb.SelectedIndexChanged += new System.EventHandler(this.RepProgram_cmb_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Select Start Date:";
+            // 
+            // RepStartDate
+            // 
+            this.RepStartDate.Location = new System.Drawing.Point(17, 35);
+            this.RepStartDate.Name = "RepStartDate";
+            this.RepStartDate.Size = new System.Drawing.Size(200, 20);
+            this.RepStartDate.TabIndex = 0;
+            // 
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Png Images|*.png|Bitmap Images|*.bmp|JPG Images|*.jpg;*.jpeg|All Files|*.*";
@@ -2369,6 +2510,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dropInfoBindingSource)).EndInit();
+            this.ReportingTab.ResumeLayout(false);
+            this.ReportingTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentNavigator)).EndInit();
             this.StudentNavigator.ResumeLayout(false);
             this.StudentNavigator.PerformLayout();
@@ -2571,6 +2714,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage ReportingTab;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker RepStartDate;
+        private System.Windows.Forms.ComboBox RepProgram_cmb;
+        private System.Windows.Forms.ComboBox RepSchedules_cmb;
+        private System.Windows.Forms.ComboBox RepEO_cmb;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox RepSelectReports_cmb;
+        private System.Windows.Forms.Button ShowReport_btn;
     }
 }
 

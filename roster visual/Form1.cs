@@ -24,6 +24,7 @@ namespace roster_visual
         // --- Forms ---
         DropForm DropForm = new DropForm();
         StudentCardForm StudentCardForm = new StudentCardForm();
+        AttendanceSheetForm AttendanceSheetForm = new AttendanceSheetForm();
 
         public Form1()
         {
@@ -44,6 +45,9 @@ namespace roster_visual
 
 
             lockerBindingSource.DataSource = Context.Lockers.Where(l => l.Student.Id == null);
+
+            RepProgram_cmb.DataSource = Context.Programs;
+            RepEO_cmb.DataSource = Context.EnrollmentOfficers;
 
             DropForm.FormClosed += DropForm_FormClosed;
 
@@ -312,6 +316,36 @@ namespace roster_visual
             if (_Student.StudentSchedules.Count != 0)
                 StudentCardForm.ShowDialog(Context, _Student.Id);
             else MessageBox.Show("You need to provide Program/Schedule information for this student. Otherwise, ID can't be printed.", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void RepProgram_cmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RepSchedules_cmb.DataSource = (RepProgram_cmb.SelectedItem as Program).Schedules;
+        }
+
+        private void ShowReport_btn_Click(object sender, EventArgs e)
+        {
+            Program _program = (Program)RepProgram_cmb.SelectedItem;
+            Schedule _schedule = (Schedule)RepSchedules_cmb.SelectedItem;
+
+
+
+            if (RepSelectReports_cmb.Text == "Attendance Sheet")
+            {
+                IQueryable _studentview = from studentview in Context.Studentviews
+                                          where
+                                          (studentview.Programid == _program.Id) &&
+                                          (studentview.Scheduleid == _schedule.Id) &&
+                                          (studentview.StartDate.Date == RepStartDate.Value.Date)
+                                          select studentview;
+
+                AttendanceSheetForm.ShowDialog(_studentview);
+
+            }
+
+
+            
+
         }
 
       

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50524
 File Encoding         : 65001
 
-Date: 2014-08-23 10:54:12
+Date: 2014-09-07 00:33:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `drop_info` (
   `check` text,
   `paid` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of drop_info
@@ -41,15 +41,16 @@ CREATE TABLE `enrollment_officer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of enrollment_officer
 -- ----------------------------
-INSERT INTO `enrollment_officer` VALUES ('1', 'Lars Ulrich');
+INSERT INTO `enrollment_officer` VALUES ('1', 'Not Assigned');
 INSERT INTO `enrollment_officer` VALUES ('2', 'Lars Ulrich');
-INSERT INTO `enrollment_officer` VALUES ('3', 'Kirk Hammer');
+INSERT INTO `enrollment_officer` VALUES ('3', 'Axel Rose');
 INSERT INTO `enrollment_officer` VALUES ('4', 'James Hetfield');
+INSERT INTO `enrollment_officer` VALUES ('5', 'Kirk Hammer');
 
 -- ----------------------------
 -- Table structure for graduated
@@ -74,11 +75,12 @@ CREATE TABLE `graduated` (
   `job_title` text,
   `employer_address` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of graduated
 -- ----------------------------
+INSERT INTO `graduated` VALUES ('4', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for locker
@@ -206,17 +208,17 @@ CREATE TABLE `student` (
   KEY `fk_student_enrollmentofficer` (`EO_id`),
   KEY `fk_sudent_dropinfo` (`dropinfo_id`),
   KEY `fk_student_locker` (`locker_id`),
-  CONSTRAINT `fk_student_locker` FOREIGN KEY (`locker_id`) REFERENCES `locker` (`id`),
   CONSTRAINT `fk_student_enrollmentofficer` FOREIGN KEY (`EO_id`) REFERENCES `enrollment_officer` (`id`),
   CONSTRAINT `fk_student_graduated` FOREIGN KEY (`graduated_id`) REFERENCES `graduated` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_student_locker` FOREIGN KEY (`locker_id`) REFERENCES `locker` (`id`),
   CONSTRAINT `fk_sudent_dropinfo` FOREIGN KEY (`dropinfo_id`) REFERENCES `drop_info` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES ('2', 'Almira', 'Ricardo', 'ricardoalmira89@bnjm.cu', '2014-07-01 11:54:15', '2014-09-01 11:54:20', '2036910', '6558999', '052789045', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '89998877', null, 'http://www.programacion.com', null, null, null, null, '123456', null, null, null, null, null, '', null, 'C:\\Users\\cyber\\Desktop\\Roster-master\\roster visual\\bin\\Debug\\Student_Pictures\\a661d680a7f53fbe5ce9e2b0c2ca4fcc01cec1bd.png', null, 'VESID', null, null, null, '4');
-INSERT INTO `student` VALUES ('3', 'Alvarez', 'Dileimis', 'lili@gmail.com', '2014-06-01 13:30:31', '2014-08-11 13:30:36', '23456789', '65432123', '056777766', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '78887788', null, null, null, null, null, null, null, null, null, null, null, null, '\0', null, null, null, null, null, null, null, '2');
+INSERT INTO `student` VALUES ('2', 'Almira', 'Ricardo', 'ricardoalmira89@bnjm.cu', '2014-09-07 11:54:15', '2014-09-07 11:54:20', '2036910', '6558999', '052789045', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '89998877', null, 'http://www.programacion.com', null, null, null, 'Graduated', '123456', null, null, null, null, '214001', '', null, 'D:\\Roster-master\\roster visual\\bin\\Debug\\Student_Pictures\\a661d680a7f53fbe5ce9e2b0c2ca4fcc01cec1bd.jpg', '4', 'VESID', null, null, '2', '3');
+INSERT INTO `student` VALUES ('3', 'Alvarez', 'Dileimis', 'lili@gmail.com', '2014-09-07 13:30:31', '2014-09-14 13:30:36', '23456789', '65432123', '056777766', null, 'calle 214 A# 6707', 'Havana', null, '10400', 'Cuba', '78887788', null, null, null, null, null, null, null, null, null, null, null, null, '\0', null, null, null, null, null, null, '2', '2');
 
 -- ----------------------------
 -- Table structure for student_schedule
@@ -234,9 +236,40 @@ CREATE TABLE `student_schedule` (
   CONSTRAINT `student_schedule_ibfk3` FOREIGN KEY (`program_id`) REFERENCES `program` (`id`),
   CONSTRAINT `student_schedule_ibfk_1` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`id`),
   CONSTRAINT `student_schedule_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of student_schedule
 -- ----------------------------
-INSERT INTO `student_schedule` VALUES ('41', '2', '2', '1');
+INSERT INTO `student_schedule` VALUES ('48', '3', '2', '1');
+INSERT INTO `student_schedule` VALUES ('50', '2', '2', '1');
+
+-- ----------------------------
+-- View structure for studentview
+-- ----------------------------
+DROP VIEW IF EXISTS `studentview`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `studentview` AS SELECT
+student_schedule.schedule_id,
+CONCAT(student.first_name,' ',student.last_name) AS fullname,
+CONCAT('CV# :',student.cv) AS cv,
+student.cv as cv_clear,
+student.picture,
+CONCAT(program.`name`,'/',`schedule`.`name`) AS program_schedule_name,
+CONCAT(program.`slug`,'/',`schedule`.`slug`) AS program_schedule_slug,
+`schedule`.languages,
+student.id,
+student.last_name,
+student.first_name,
+student.start_date,
+student.cell_phone,
+program.`name` AS program_name,
+program.slug AS program_slug,
+`schedule`.`name` AS schedule_name,
+`schedule`.slug AS schedule_slug,
+program.id as 'programid',
+`schedule`.id as 'scheduleid'
+FROM
+student_schedule
+INNER JOIN student ON student_schedule.student_id = student.id
+INNER JOIN `schedule` ON student_schedule.schedule_id = `schedule`.id
+INNER JOIN program ON student_schedule.program_id = program.id AND `schedule`.program_id = program.id ;
