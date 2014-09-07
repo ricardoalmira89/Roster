@@ -149,6 +149,7 @@
       <Column Name="schedule_slug" Member="ScheduleSlug" Type="System.String" DbType="TEXT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="68f36330-c2e1-47f1-80a9-57586bc4b557" />
       <Column Name="programid" Member="Programid" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="072b7b34-0cae-4e5b-86f4-d2a4d5e7f1fe" />
       <Column Name="scheduleid" Member="Scheduleid" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="True" ed:Guid="078df7bc-9ef6-43bf-ab6f-c58afdd2c2ca" />
+      <Column Name="EO" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="f5eb4996-220d-4442-b692-e1d4c2be9a28" />
     </Type>
   </Table>
 </Database>

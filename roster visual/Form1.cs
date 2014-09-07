@@ -25,6 +25,7 @@ namespace roster_visual
         DropForm DropForm = new DropForm();
         StudentCardForm StudentCardForm = new StudentCardForm();
         AttendanceSheetForm AttendanceSheetForm = new AttendanceSheetForm();
+        ClassListForm ClassListForm = new ClassListForm();
 
         public Form1()
         {
@@ -99,12 +100,12 @@ namespace roster_visual
             if (comboBox1.SelectedIndex == 4)
             {
                 label5.Visible = true;
-                textBox1.Visible = true;
+                PaymentPlanInfo_txt.Visible = true;
             }
             else
             {
                 label5.Visible = false;
-                textBox1.Visible = false;
+                PaymentPlanInfo_txt.Visible = false;
             }
 
            
@@ -328,20 +329,15 @@ namespace roster_visual
             Program _program = (Program)RepProgram_cmb.SelectedItem;
             Schedule _schedule = (Schedule)RepSchedules_cmb.SelectedItem;
 
+            IQueryable _studentview = from studentview in Context.Studentviews
+                                      where
+                                      (studentview.Programid == _program.Id) &&
+                                      (studentview.Scheduleid == _schedule.Id) &&
+                                      (studentview.StartDate.Date == RepStartDate.Value.Date)
+                                      select studentview;
 
-
-            if (RepSelectReports_cmb.Text == "Attendance Sheet")
-            {
-                IQueryable _studentview = from studentview in Context.Studentviews
-                                          where
-                                          (studentview.Programid == _program.Id) &&
-                                          (studentview.Scheduleid == _schedule.Id) &&
-                                          (studentview.StartDate.Date == RepStartDate.Value.Date)
-                                          select studentview;
-
-                AttendanceSheetForm.ShowDialog(_studentview);
-
-            }
+            if (RepSelectReports_cmb.Text == "Attendance Sheet")  AttendanceSheetForm.ShowDialog(_studentview);
+            if (RepSelectReports_cmb.Text == "Class List")  ClassListForm.ShowDialog(_studentview);
 
 
             

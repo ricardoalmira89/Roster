@@ -1,0 +1,118 @@
+commit 874796efdb52e821c87670dbfda7aba515f57e72
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sun Sep 7 15:21:05 2014 +0200
+
+    -se agrega el reporte ClassList
+    
+    Signed-off-by: cyber <ricardoalmira89@bnjm.cu>
+
+commit eb44c9fc0044c636a444432312a252c621fc4fd8
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sun Sep 7 00:34:09 2014 +0200
+
+    -Se agrega el reporte Attendance Sheet
+
+commit 7746f07865915206f9cb52debe493dd3b241f89e
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 30 16:15:14 2014 +0200
+
+    -Se modifica el esquema agregando un view StudentView para usarlo en el reporte de PrintId.
+    -Se agrega el reporte PrintId y funciona, solo falta que cargue la imagen del estudiante.
+    -El reporte no carga todos los Program/Schedules del estudiante, solo el primero.
+
+commit 7f2893771b06409bd1d94409922723eaa3bdc766
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 30 13:13:54 2014 +0200
+
+    -Se agrega el Enrollment Officer "Not Assigned" por default en la interfaz para saber si un estudiante tiene un EO asignado o no.
+
+commit 42c842d59c6840f596431f54910de82e80463bff
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 30 12:43:25 2014 +0200
+
+    -Se mejora el rendimiento considerablemente con arreglos en StudentBindingSource.PositionChanged, ahora solo se cargan los datos correspondientes al tab actual.
+    -Se muestran solamente los tab Drop y Graduated cuando el estudiante esta Dropeado o esta graduado, "pero", si el tab actual es graduated o drop, y se cambia el estudiante, y este nuevo estudiante no debe mostrar ese tab, se muestra, ya que no me deja ocultar el tab porque esta activo.
+    -Se mejora el menu contextual del estudiante en el tab Find, ahora en lugar de ocultar la opcion Drop o Graduate en el caso necesario, se deshabilita.
+
+commit 3a591c4260302ce01095a783c59cc325a3303155
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 30 10:35:51 2014 +0200
+
+    Se arregla el binding de CurrentStudentSchedules. Ahora cuando se navega se cargan los schedules de cada estudiante en la interfaz
+
+commit bce53d7f31b5513bb81160f8b8401c27a7de8f6a
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 30 07:05:51 2014 +0200
+
+    Se agrega el Tab Drop.
+    Queda hacer que los Tab Drop y Graduated se muestren solo cuando sea necesario.
+
+commit 2a0c58a805a0f24810fd1dba89d024f63b9949eb
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 30 05:21:33 2014 +0200
+
+    Arreglado el Cancel de la ventana Drop Student
+
+commit 9025f598400386e771bbb6b866e1a1593623bfe3
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Fri Aug 29 15:21:26 2014 +0200
+
+    - Solo se muestra el menu contextcual Drop cuando el estudiante seleccionado no ha sido dropeado
+
+commit 2e9f563472d3d9203b075e12fde655b6cb1f2746
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Fri Aug 29 14:48:55 2014 +0200
+
+    - Se agrega filtrado para estudiantes Dropeados en la pestaña Find Student
+
+commit 54530a1a8821cfc968a9dc4dacaa27390222053d
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 23 10:56:17 2014 +0200
+
+    -Se cambia el esquema de la db, se elimina el campo busy de la tabla locker, en su lugar se utiliza una consulta LinQ para obtener los Lockers disponibles.
+    -La asignacion de lockers funciona correctamente.
+    -Se modifico el procedimiento para cargar la imagen del estudiante, se agrego una imagen por defecto para cuando no exista imagen disponible para el estudiante.
+
+commit d29175a806533c8b7a89c7751dfa9a9d34eb2f47
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Thu Aug 21 14:56:21 2014 +0200
+
+    -Se modifica el esquema para agregar tabla locker y relacion con tabla student.
+    -se agrega en la interfaz funcionalidades para seleccionar el locker.
+    -todavia no se restringen los locker ocupados.
+
+commit 6c08e7ff8e7845691e2b2894903d6e9e6dfb11d1
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Thu Aug 21 13:51:23 2014 +0200
+
+    -Ahora las busquedas de estudiantes no son sensitivas a mayusculas.
+
+commit bc5eadf5df5de82d7325ed3a53497a0c66e4f614
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Thu Aug 28 09:35:19 2014 +0200
+
+    -Modificado el esquema de la db, se elimina la tabla StudentsPrograms, y se deja en su lugar StudentSchedules, agregandole un campo ProgramId y su respectiva clave foranea.
+    -Ya se pueden agregar y eliminar schedules a los estudiantes. Se restringe solo un schedule por programa para cada estudiante.
+    -Se agrega el tab Find. Se puede buscar por FirstName, LastName y CV. La busqueda es sensitiva a mayusculas.
+
+commit 5c58a893bc16b9d908fa1c4f93b22d018bfec1b2
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Sat Aug 16 12:06:49 2014 +0200
+
+    Ahora se agregan varios programas a un estudiante, manteniendo que solo se permite un schedule por programa.
+    (me da bateo cuando agrego mas de 1 y los guardo)
+
+commit 511d68e47deaf2d8403b64d31f7ae7af050f8c2f
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Wed Aug 13 16:20:07 2014 +0200
+
+    Ahora se cargan las fotos de los estudiantes y ademas se guardan.
+    Se agregaron datos de prueba para Enrollment.
+
+commit c2371e12e9fe304cbb968dcdddea877a79046af0
+Author: cyber <ricardoalmira89@bnjm.cu>
+Date:   Mon Aug 11 15:15:30 2014 +0200
+
+    -Database schema changed.
+    -Entity Models created.
+    -Binding started.

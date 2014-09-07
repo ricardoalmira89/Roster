@@ -115,7 +115,7 @@
             this.start_DateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.PaymentPlanInfo_txt = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -1109,7 +1109,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.PaymentPlanInfo_txt);
             this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -1129,13 +1129,13 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Payment Plan Info:";
             // 
-            // textBox1
+            // PaymentPlanInfo_txt
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "PaymentPlanAmount", true));
-            this.textBox1.Location = new System.Drawing.Point(419, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 20);
-            this.textBox1.TabIndex = 2;
+            this.PaymentPlanInfo_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "PaymentPlanAmount", true));
+            this.PaymentPlanInfo_txt.Location = new System.Drawing.Point(419, 26);
+            this.PaymentPlanInfo_txt.Name = "PaymentPlanInfo_txt";
+            this.PaymentPlanInfo_txt.Size = new System.Drawing.Size(119, 20);
+            this.PaymentPlanInfo_txt.TabIndex = 2;
             // 
             // comboBox1
             // 
@@ -2471,7 +2471,6 @@
             this.Controls.Add(this.searchStudent_txt);
             this.Controls.Add(this.StudentMainTab);
             this.Controls.Add(this.StudentNavigator);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Cv", true));
             this.Name = "Form1";
             this.Text = "Christine Valmy Roster";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2545,7 +2544,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox PaymentPlanInfo_txt;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
