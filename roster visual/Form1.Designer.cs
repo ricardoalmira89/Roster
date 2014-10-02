@@ -68,9 +68,9 @@
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label12;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label pRINTED_DIPLOMA_DATELabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StudentMainTab = new System.Windows.Forms.TabControl();
             this.GeneralTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -124,13 +124,14 @@
             this.locker_cmb = new System.Windows.Forms.ComboBox();
             this.lockerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.graduatedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.end_DateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.start_DateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.PrintID_btn = new System.Windows.Forms.Button();
             this.GraduatedTab = new System.Windows.Forms.TabPage();
+            this.pRINTED_DIPLOMA_DATEDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.graduatedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.licensedCheckBox = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.eMPLOYER_ADDRESSTextBox = new System.Windows.Forms.TextBox();
@@ -271,7 +272,6 @@
             this.enrollmentOfficerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.graduatedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dropInfoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRINTED_DIPLOMA_DATEDateTimePicker = new System.Windows.Forms.DateTimePicker();
             iD_Label = new System.Windows.Forms.Label();
             lAST_NAMELabel = new System.Windows.Forms.Label();
             fIRST_NAMELabel = new System.Windows.Forms.Label();
@@ -327,8 +327,8 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).BeginInit();
             this.GraduatedTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).BeginInit();
             this.findStudent_tab.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).BeginInit();
@@ -694,6 +694,15 @@
             label12.TabIndex = 14;
             label12.Text = "PROGRAM:";
             // 
+            // pRINTED_DIPLOMA_DATELabel
+            // 
+            pRINTED_DIPLOMA_DATELabel.AutoSize = true;
+            pRINTED_DIPLOMA_DATELabel.Location = new System.Drawing.Point(1, 132);
+            pRINTED_DIPLOMA_DATELabel.Name = "pRINTED_DIPLOMA_DATELabel";
+            pRINTED_DIPLOMA_DATELabel.Size = new System.Drawing.Size(141, 13);
+            pRINTED_DIPLOMA_DATELabel.TabIndex = 18;
+            pRINTED_DIPLOMA_DATELabel.Text = "PRINTED DIPLOMA DATE:";
+            // 
             // StudentMainTab
             // 
             this.StudentMainTab.Controls.Add(this.GeneralTab);
@@ -826,6 +835,7 @@
             // studentBindingSource
             // 
             this.studentBindingSource.DataSource = typeof(roster_visual.Student);
+            this.studentBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.studentBindingSource_AddingNew);
             this.studentBindingSource.PositionChanged += new System.EventHandler(this.studentBindingSource_PositionChanged);
             // 
             // sTATETextBox
@@ -1224,10 +1234,6 @@
             this.checkBox1.Text = "CVS";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // graduatedBindingSource
-            // 
-            this.graduatedBindingSource.DataSource = typeof(roster_visual.Graduated);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -1302,6 +1308,18 @@
             this.GraduatedTab.Text = "Graduated Info";
             this.GraduatedTab.UseVisualStyleBackColor = true;
             this.GraduatedTab.Enter += new System.EventHandler(this.GraduatedTab_Enter);
+            // 
+            // pRINTED_DIPLOMA_DATEDateTimePicker
+            // 
+            this.pRINTED_DIPLOMA_DATEDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.graduatedBindingSource, "DiplomaPrinted", true));
+            this.pRINTED_DIPLOMA_DATEDateTimePicker.Location = new System.Drawing.Point(148, 128);
+            this.pRINTED_DIPLOMA_DATEDateTimePicker.Name = "pRINTED_DIPLOMA_DATEDateTimePicker";
+            this.pRINTED_DIPLOMA_DATEDateTimePicker.Size = new System.Drawing.Size(207, 20);
+            this.pRINTED_DIPLOMA_DATEDateTimePicker.TabIndex = 19;
+            // 
+            // graduatedBindingSource
+            // 
+            this.graduatedBindingSource.DataSource = typeof(roster_visual.Graduated);
             // 
             // licensedCheckBox
             // 
@@ -1397,8 +1415,8 @@
             this.searchStudent_GridView.AllowUserToDeleteRows = false;
             this.searchStudent_GridView.AllowUserToOrderColumns = true;
             this.searchStudent_GridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FloralWhite;
-            this.searchStudent_GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite;
+            this.searchStudent_GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.searchStudent_GridView.AutoGenerateColumns = false;
             this.searchStudent_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchStudent_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2078,6 +2096,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -2444,23 +2463,6 @@
             this.dropInfoDataGridViewTextBoxColumn1.HeaderText = "DropInfo";
             this.dropInfoDataGridViewTextBoxColumn1.Name = "dropInfoDataGridViewTextBoxColumn1";
             // 
-            // pRINTED_DIPLOMA_DATELabel
-            // 
-            pRINTED_DIPLOMA_DATELabel.AutoSize = true;
-            pRINTED_DIPLOMA_DATELabel.Location = new System.Drawing.Point(1, 132);
-            pRINTED_DIPLOMA_DATELabel.Name = "pRINTED_DIPLOMA_DATELabel";
-            pRINTED_DIPLOMA_DATELabel.Size = new System.Drawing.Size(141, 13);
-            pRINTED_DIPLOMA_DATELabel.TabIndex = 18;
-            pRINTED_DIPLOMA_DATELabel.Text = "PRINTED DIPLOMA DATE:";
-            // 
-            // pRINTED_DIPLOMA_DATEDateTimePicker
-            // 
-            this.pRINTED_DIPLOMA_DATEDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.graduatedBindingSource, "DiplomaPrinted", true));
-            this.pRINTED_DIPLOMA_DATEDateTimePicker.Location = new System.Drawing.Point(148, 128);
-            this.pRINTED_DIPLOMA_DATEDateTimePicker.Name = "pRINTED_DIPLOMA_DATEDateTimePicker";
-            this.pRINTED_DIPLOMA_DATEDateTimePicker.Size = new System.Drawing.Size(207, 20);
-            this.pRINTED_DIPLOMA_DATEDateTimePicker.TabIndex = 19;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2494,9 +2496,9 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).EndInit();
             this.GraduatedTab.ResumeLayout(false);
             this.GraduatedTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.graduatedBindingSource)).EndInit();
             this.findStudent_tab.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchStudent_GridView)).EndInit();

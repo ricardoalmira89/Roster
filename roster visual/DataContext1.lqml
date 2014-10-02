@@ -97,7 +97,7 @@
       <Column Name="emergency_contact_phone1" Member="EmergencyContactPhone1" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="2eab3f15-b29c-41bc-b704-caace1f28bf8" />
       <Column Name="emergency_contact_phone2" Member="EmergencyContactPhone2" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="c4941d29-4f3b-4bfc-b764-d38fd945acfe" />
       <Column Name="emergency_contact_phone3" Member="EmergencyContactPhone3" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="ce87c837-46a0-4287-8fe8-73ba2f5471d1" />
-      <Column Name="cv" Member="Cv" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="7d6cc6f9-6913-486c-bb74-08bbb86f23f3" />
+      <Column Name="cv" Member="Cv" Type="System.String" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="7d6cc6f9-6913-486c-bb74-08bbb86f23f3" />
       <Column Name="cvs" Member="Cvs" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="8d175754-39a3-4195-a3b9-7c5d7853f425" />
       <Column Name="middle_initial" Member="MiddleInitial" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="9ba57c2a-b305-445a-8412-78db67cbc139" />
       <Column Name="picture" Member="Picture" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="4dfd60e0-0253-46fa-a207-98ef5bd9575a" />

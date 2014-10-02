@@ -141,6 +141,9 @@ namespace roster_visual
 
         private void save_btn_Click(object sender, EventArgs e)
         {
+            _Student.StartDate = start_DateDateTimePicker.Value;             //-- por si no se selecciono ninguno, el sistema me pone 0000:00:00 por defecto, aunque me muestra la fecha actual en StartDateTimePicker. Asi que se lo asigno si o si.
+            if (_Student.Cv != string.Empty || _Student.Cv != null) _Student.Cv = GeneraCv(_Student);       //-- le asigna un cv en caso de que no tenga solamente.
+            
             studentBindingSource.EndEdit();
             Validate();
             Context.SubmitChanges();
@@ -348,9 +351,39 @@ namespace roster_visual
             if (RepSelectReports_cmb.Text == "Attendance Sheet")  AttendanceSheetForm.ShowDialog(_studentview);
             if (RepSelectReports_cmb.Text == "Class List")  ClassListForm.ShowDialog(_studentview);
 
+        }
 
+        private string GeneraCv(Student student)
+        {
+            int i = 0;
+            var year_students = Context.Students.Where(e => e.StartDate.Year == student.StartDate.Year);
+            foreach (Student item in year_students)
+            {
+                if (item == student) break;
+                i++;
+            }
+
+            string b;
+
+            if (i < 9) b = "00" + i.ToString();
+                else 
+                    if (i < 99) b = "0" + i.ToString();
+                        else b = i.ToString();
+
+            string year = student.StartDate.Year.ToString();
+            year = year[0].ToString() + year[2].ToString() + year[3].ToString();
+
+            return year + b;
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void studentBindingSource_AddingNew(object sender, AddingNewEventArgs e)
+        {
             
-
         }
 
       
