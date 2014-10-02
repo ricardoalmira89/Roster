@@ -141,6 +141,7 @@ namespace roster_visual
 
         private void save_btn_Click(object sender, EventArgs e)
         {
+            studentBindingSource.EndEdit();
             Validate();
             Context.SubmitChanges();
 
@@ -273,8 +274,16 @@ namespace roster_visual
 
         private void GeneralTab_Enter(object sender, EventArgs e)
         {
-            if (_Student.Picture != null) studentImage.Load(_Student.Picture);
-            else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
+            try
+            {
+                if (_Student.Picture != null) studentImage.Load(_Student.Picture);
+                else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
+            }
+            catch (Exception)
+            {
+
+            }
+
 
         }
 

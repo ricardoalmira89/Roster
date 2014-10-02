@@ -164,6 +164,11 @@ namespace roster_visual
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
 }

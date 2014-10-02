@@ -216,6 +216,11 @@ namespace roster_visual
             this.SendPropertyChanging("StudentSchedules");
             entity.Program = null;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
 }
