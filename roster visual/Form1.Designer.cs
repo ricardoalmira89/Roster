@@ -70,7 +70,7 @@
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label pRINTED_DIPLOMA_DATELabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StudentMainTab = new System.Windows.Forms.TabControl();
             this.GeneralTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -272,6 +272,7 @@
             this.enrollmentOfficerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.graduatedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dropInfoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
             iD_Label = new System.Windows.Forms.Label();
             lAST_NAMELabel = new System.Windows.Forms.Label();
             fIRST_NAMELabel = new System.Windows.Forms.Label();
@@ -722,6 +723,7 @@
             // GeneralTab
             // 
             this.GeneralTab.AutoScroll = true;
+            this.GeneralTab.Controls.Add(this.button4);
             this.GeneralTab.Controls.Add(this.groupBox1);
             this.GeneralTab.Controls.Add(zIP_CODELabel);
             this.GeneralTab.Controls.Add(this.zIP_CODETextBox);
@@ -1413,8 +1415,8 @@
             this.searchStudent_GridView.AllowUserToDeleteRows = false;
             this.searchStudent_GridView.AllowUserToOrderColumns = true;
             this.searchStudent_GridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FloralWhite;
-            this.searchStudent_GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite;
+            this.searchStudent_GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.searchStudent_GridView.AutoGenerateColumns = false;
             this.searchStudent_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchStudent_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2459,6 +2461,16 @@
             this.dropInfoDataGridViewTextBoxColumn1.HeaderText = "DropInfo";
             this.dropInfoDataGridViewTextBoxColumn1.Name = "dropInfoDataGridViewTextBoxColumn1";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(266, 91);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 23;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2720,6 +2732,7 @@
         private System.Windows.Forms.ComboBox RepSelectReports_cmb;
         private System.Windows.Forms.Button ShowReport_btn;
         private System.Windows.Forms.DateTimePicker pRINTED_DIPLOMA_DATEDateTimePicker;
+        private System.Windows.Forms.Button button4;
     }
 }
 

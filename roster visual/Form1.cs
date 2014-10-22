@@ -314,6 +314,7 @@ namespace roster_visual
 
             if (RepSelectReports_cmb.Text == "Attendance Sheet")  AttendanceSheetForm.ShowDialog(_studentview);
             if (RepSelectReports_cmb.Text == "Class List")  ClassListForm.ShowDialog(_studentview);
+            if (RepSelectReports_cmb.Text == "Student ID") StudentCardForm.ShowDialog(Context, _Student.Id);
 
         }
 
@@ -338,6 +339,11 @@ namespace roster_visual
             year = year[0].ToString() + year[2].ToString() + year[3].ToString();
 
             return year + b;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           StudentCardForm.ShowDialog(Context, _Student.Id);
         }
     }
 }

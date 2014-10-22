@@ -113,9 +113,9 @@
         </Style>
       </Textbox>
       <Image Name="Image2">
-        <Source>Embedded</Source>
+        <Source>Database</Source>
         <Value>=First(Fields!Picture.Value, "DataSet1")</Value>
-        <MIMEType>image/png</MIMEType>
+        <MIMEType>image/bmp</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.26086cm</Top>
         <Left>4.39058cm</Left>
@@ -128,15 +128,109 @@
           </Border>
         </Style>
       </Image>
+      <Image Name="Image3">
+        <Source>Database</Source>
+        <Value>=First(Fields!Picture.Value, "DataSet1")</Value>
+        <MIMEType>image/jpeg</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.26086cm</Top>
+        <Left>7.16719cm</Left>
+        <Height>2.57757cm</Height>
+        <Width>2.36766cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Image4">
+        <Source>Database</Source>
+        <Value>=First(Fields!Picture.Value, "DataSet1")</Value>
+        <MIMEType>image/gif</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.26086cm</Top>
+        <Left>9.86594cm</Left>
+        <Height>2.57757cm</Height>
+        <Width>2.36766cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Image5">
+        <Source>Database</Source>
+        <Value>=First(Fields!Picture.Value, "DataSet1")</Value>
+        <MIMEType>image/png</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Top>2.97954cm</Top>
+        <Left>4.49696cm</Left>
+        <Height>2.57757cm</Height>
+        <Width>2.36766cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Image6">
+        <Source>Database</Source>
+        <Value>=First(Fields!Picture.Value, "DataSet1")</Value>
+        <MIMEType>image/x-png</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Top>2.97954cm</Top>
+        <Left>7.27357cm</Left>
+        <Height>2.57757cm</Height>
+        <Width>2.36766cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Picture">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Picture.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Picture</rd:DefaultName>
+        <Top>6.92891cm</Top>
+        <Left>0.31435cm</Left>
+        <Height>0.6cm</Height>
+        <Width>21.70875cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>1.57702in</Height>
+    <Height>3.09785in</Height>
     <Style>
       <Border>
         <Style>Solid</Style>
       </Border>
     </Style>
   </Body>
-  <Width>2.76311in</Width>
+  <Width>8.91936in</Width>
   <Page>
     <PageHeight>4cm</PageHeight>
     <PageWidth>7cm</PageWidth>

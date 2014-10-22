@@ -12,8 +12,6 @@ namespace roster_visual.Reports
 {
     public partial class StudentCardForm : Form
     {
-        private Student _Student;
-
         public StudentCardForm()
         {
             InitializeComponent();
@@ -36,7 +34,7 @@ namespace roster_visual.Reports
 
         private void reportViewer1_Load(object sender, EventArgs e)
         {
-           
+          
         }
     }
 }
