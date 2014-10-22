@@ -96,6 +96,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageManager.cs" />
     <Compile Include="Programa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\AttendanceSheetForm.cs">
@@ -184,9 +185,7 @@
   <ItemGroup>
     <None Include="Resources\Tasks.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Student_Pictures\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\noimage.png" />
   </ItemGroup>

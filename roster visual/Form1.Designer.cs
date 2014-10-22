@@ -70,7 +70,7 @@
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label pRINTED_DIPLOMA_DATELabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StudentMainTab = new System.Windows.Forms.TabControl();
             this.GeneralTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -85,7 +85,7 @@
             this.sTATETextBox = new System.Windows.Forms.TextBox();
             this.cITYTextBox = new System.Windows.Forms.TextBox();
             this.aDDRESSTextBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.loadImage_btn = new System.Windows.Forms.Button();
             this.studentImage = new System.Windows.Forms.PictureBox();
             this.e_MAIL_ADDRESSTextBox = new System.Windows.Forms.TextBox();
             this.cELL_PHONE__TextBox = new System.Windows.Forms.TextBox();
@@ -731,7 +731,7 @@
             this.GeneralTab.Controls.Add(this.cITYTextBox);
             this.GeneralTab.Controls.Add(aDDRESSLabel);
             this.GeneralTab.Controls.Add(this.aDDRESSTextBox);
-            this.GeneralTab.Controls.Add(this.button4);
+            this.GeneralTab.Controls.Add(this.loadImage_btn);
             this.GeneralTab.Controls.Add(this.studentImage);
             this.GeneralTab.Controls.Add(e_MAIL_ADDRESSLabel);
             this.GeneralTab.Controls.Add(this.e_MAIL_ADDRESSTextBox);
@@ -752,7 +752,6 @@
             this.GeneralTab.TabIndex = 0;
             this.GeneralTab.Text = "General";
             this.GeneralTab.UseVisualStyleBackColor = true;
-            this.GeneralTab.Enter += new System.EventHandler(this.GeneralTab_Enter);
             // 
             // groupBox1
             // 
@@ -835,7 +834,6 @@
             // studentBindingSource
             // 
             this.studentBindingSource.DataSource = typeof(roster_visual.Student);
-            this.studentBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.studentBindingSource_AddingNew);
             this.studentBindingSource.PositionChanged += new System.EventHandler(this.studentBindingSource_PositionChanged);
             // 
             // sTATETextBox
@@ -862,15 +860,15 @@
             this.aDDRESSTextBox.Size = new System.Drawing.Size(181, 20);
             this.aDDRESSTextBox.TabIndex = 15;
             // 
-            // button4
+            // loadImage_btn
             // 
-            this.button4.Location = new System.Drawing.Point(599, 124);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(23, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "...";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.loadImage_btn.Location = new System.Drawing.Point(599, 124);
+            this.loadImage_btn.Name = "loadImage_btn";
+            this.loadImage_btn.Size = new System.Drawing.Size(23, 23);
+            this.loadImage_btn.TabIndex = 14;
+            this.loadImage_btn.Text = "...";
+            this.loadImage_btn.UseVisualStyleBackColor = true;
+            this.loadImage_btn.Click += new System.EventHandler(this.loadImage_btn_Click);
             // 
             // studentImage
             // 
@@ -1415,8 +1413,8 @@
             this.searchStudent_GridView.AllowUserToDeleteRows = false;
             this.searchStudent_GridView.AllowUserToOrderColumns = true;
             this.searchStudent_GridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite;
-            this.searchStudent_GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FloralWhite;
+            this.searchStudent_GridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.searchStudent_GridView.AutoGenerateColumns = false;
             this.searchStudent_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchStudent_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1744,7 +1742,6 @@
             this.StudentActionsMenu.Name = "StudentActionsMenu";
             this.StudentActionsMenu.Size = new System.Drawing.Size(123, 48);
             this.StudentActionsMenu.Opening += new System.ComponentModel.CancelEventHandler(this.StudentActionsMenu_Opening);
-            this.StudentActionsMenu.Opened += new System.EventHandler(this.StudentActionsMenu_Opened);
             // 
             // dropToolStripMenuItem
             // 
@@ -2096,7 +2093,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -2535,7 +2531,7 @@
         private System.Windows.Forms.TextBox hOME_PHONE__TextBox;
         private System.Windows.Forms.TextBox fIRST_NAMETextBox;
         private System.Windows.Forms.TextBox lAST_NAMETextBox;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button loadImage_btn;
         private System.Windows.Forms.TextBox zIP_CODETextBox;
         private System.Windows.Forms.TextBox sTATETextBox;
         private System.Windows.Forms.TextBox cITYTextBox;

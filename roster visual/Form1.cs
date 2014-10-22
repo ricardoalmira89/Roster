@@ -68,9 +68,6 @@ namespace roster_visual
         private void Form1_Load(object sender, EventArgs e)
         {
 
- 
-
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -79,20 +76,10 @@ namespace roster_visual
             groupBox1.Visible = true;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void loadImage_btn_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string new_filepath = Application.StartupPath + @"\Student_Pictures\" + Path.GetFileName(openFileDialog.FileName);
-
-                if (!File.Exists(new_filepath)) File.Copy(openFileDialog.FileName, new_filepath);
-                else 
-                {
-                    _Student.Picture = new_filepath;
-                    studentImage.Load(new_filepath);
-                }
-            }
-
+                studentImage.Load(openFileDialog.FileName);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,7 +130,8 @@ namespace roster_visual
         {
             _Student.StartDate = start_DateDateTimePicker.Value;             //-- por si no se selecciono ninguno, el sistema me pone 0000:00:00 por defecto, aunque me muestra la fecha actual en StartDateTimePicker. Asi que se lo asigno si o si.
             if (_Student.Cv != string.Empty || _Student.Cv != null) _Student.Cv = GeneraCv(_Student);       //-- le asigna un cv en caso de que no tenga solamente.
-            
+            _Student.Picture = ImageManager.imageToByteArray(studentImage.Image);
+
             studentBindingSource.EndEdit();
             Validate();
             Context.SubmitChanges();
@@ -231,8 +219,6 @@ namespace roster_visual
                                      select Students;
 
             studentBindingSource.DataSource = Filtered_Students;
-        
-
         }
 
         private void StudentActionsMenu_Opening(object sender, CancelEventArgs e)
@@ -252,16 +238,10 @@ namespace roster_visual
             }
         }
 
-        private void StudentActionsMenu_Opened(object sender, EventArgs e)
-        {
-
-        }
-
         private void studentBindingSource_PositionChanged(object sender, EventArgs e)
         {
             _Student = (Student)studentBindingSource.Current;
 
-            if (StudentMainTab.SelectedTab == GeneralTab) GeneralTab_Enter(sender, e);
             if (StudentMainTab.SelectedTab == DropTab)    DropTab_Enter(sender, e);
             if (StudentMainTab.SelectedTab == GraduatedTab) GraduatedTab_Enter(sender, e);
             if (StudentMainTab.SelectedTab == EnrollmentTab) EnrollmentTab_Enter(sender, e);
@@ -273,21 +253,10 @@ namespace roster_visual
 
             if (_Student.DropInfo == null) StudentMainTab.TabPages.Remove(DropTab);
             else if (!StudentMainTab.TabPages.Contains(DropTab)) StudentMainTab.TabPages.Add(DropTab);
-        }
 
-        private void GeneralTab_Enter(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_Student.Picture != null) studentImage.Load(_Student.Picture);
-                else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
-            }
-            catch (Exception)
-            {
-
-            }
-
-
+            //--- load the image ---
+            if (_Student.Picture != null) studentImage.Image = ImageManager.byteArrayToImage(_Student.Picture);
+            else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
         }
 
         private void DropTab_Enter(object sender, EventArgs e)
@@ -317,11 +286,6 @@ namespace roster_visual
                                                        from Schedules in Context.Schedules
                                                        where StudentSchedules.ScheduleId == Schedules.Id
                                                        select Schedules;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void PrintID_btn_Click(object sender, EventArgs e)
@@ -375,17 +339,5 @@ namespace roster_visual
 
             return year + b;
         }
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void studentBindingSource_AddingNew(object sender, AddingNewEventArgs e)
-        {
-            
-        }
-
-      
     }
 }

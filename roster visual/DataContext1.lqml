@@ -100,7 +100,7 @@
       <Column Name="cv" Member="Cv" Type="System.String" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="True" ed:Guid="7d6cc6f9-6913-486c-bb74-08bbb86f23f3" />
       <Column Name="cvs" Member="Cvs" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="8d175754-39a3-4195-a3b9-7c5d7853f425" />
       <Column Name="middle_initial" Member="MiddleInitial" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="9ba57c2a-b305-445a-8412-78db67cbc139" />
-      <Column Name="picture" Member="Picture" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="4dfd60e0-0253-46fa-a207-98ef5bd9575a" />
+      <Column Name="picture" Member="Picture" Type="System.Byte[]" DbType="LongBlob" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="4dfd60e0-0253-46fa-a207-98ef5bd9575a" />
       <Column Name="graduated_id" Member="GraduatedId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="58b64ea7-a02d-4dd4-834d-c144073d5b24" />
       <Column Name="payment_info" Member="PaymentInfo" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="42f7e88e-c4a3-49b1-9f0b-f9c2d237f92e" />
       <Column Name="payment_plan_amount" Member="PaymentPlanAmount" Type="System.String" DbType="TEXT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="2d0337fe-40b9-458f-98b0-53081b7180d8" />
