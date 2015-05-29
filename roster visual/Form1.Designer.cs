@@ -73,7 +73,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StudentMainTab = new System.Windows.Forms.TabControl();
             this.GeneralTab = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -723,7 +722,6 @@
             // GeneralTab
             // 
             this.GeneralTab.AutoScroll = true;
-            this.GeneralTab.Controls.Add(this.button4);
             this.GeneralTab.Controls.Add(this.groupBox1);
             this.GeneralTab.Controls.Add(zIP_CODELabel);
             this.GeneralTab.Controls.Add(this.zIP_CODETextBox);
@@ -755,16 +753,6 @@
             this.GeneralTab.Text = "General";
             this.GeneralTab.UseVisualStyleBackColor = true;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(266, 91);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button2);
@@ -773,7 +761,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(54, 330);
+            this.groupBox1.Location = new System.Drawing.Point(54, 324);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(539, 181);
             this.groupBox1.TabIndex = 22;
@@ -2720,8 +2708,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentInfoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentPlanAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dropinfoIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eOIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn eOIdDataGridViewTextBoxColumn;
+       // private System.Windows.Forms.DataGridViewTextBoxColumn enrollmentOfficerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn graduatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dropInfoDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage ReportingTab;
@@ -2734,7 +2722,6 @@
         private System.Windows.Forms.ComboBox RepSelectReports_cmb;
         private System.Windows.Forms.Button ShowReport_btn;
         private System.Windows.Forms.DateTimePicker pRINTED_DIPLOMA_DATEDateTimePicker;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox EO_txt;
         private System.Windows.Forms.BindingSource studentsBindingSource;
         private System.Windows.Forms.Label label14;

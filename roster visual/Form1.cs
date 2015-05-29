@@ -80,7 +80,7 @@ namespace roster_visual
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -255,21 +255,24 @@ namespace roster_visual
         {
             _Student = (Student)studentBindingSource.Current;
 
-            if (StudentMainTab.SelectedTab == DropTab)    DropTab_Enter(sender, e);
-            if (StudentMainTab.SelectedTab == GraduatedTab) GraduatedTab_Enter(sender, e);
-            if (StudentMainTab.SelectedTab == EnrollmentTab) EnrollmentTab_Enter(sender, e);
+            if (studentBindingSource.Count > 0) { 
 
-            if (_Student.Graduated == null) Security.Hide("GraduatedTab");
-            else
-                Security.Show("GraduatedTab");
+                if (StudentMainTab.SelectedTab == DropTab)    DropTab_Enter(sender, e);
+                if (StudentMainTab.SelectedTab == GraduatedTab) GraduatedTab_Enter(sender, e);
+                if (StudentMainTab.SelectedTab == EnrollmentTab) EnrollmentTab_Enter(sender, e);
+
+                if (_Student.Graduated == null) Security.Hide("GraduatedTab");
+                else
+                    Security.Show("GraduatedTab");
 
 
-            if (_Student.DropInfo == null) StudentMainTab.TabPages.Remove(DropTab);
-            else if (!StudentMainTab.TabPages.Contains(DropTab)) StudentMainTab.TabPages.Add(DropTab);
+                if (_Student.DropInfo == null) StudentMainTab.TabPages.Remove(DropTab);
+                else if (!StudentMainTab.TabPages.Contains(DropTab)) StudentMainTab.TabPages.Add(DropTab);
 
-            //--- load the image ---
-            if (_Student.Picture != null) studentImage.Image = ImageManager.byteArrayToImage(_Student.Picture);
-            else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
+                //--- load the image ---
+                if (_Student.Picture != null) studentImage.Image = ImageManager.byteArrayToImage(_Student.Picture);
+                else studentImage.Image = global::roster_visual.Properties.Resources.noimage;
+            }
         }
 
         private void DropTab_Enter(object sender, EventArgs e)
@@ -355,11 +358,6 @@ namespace roster_visual
             return "";
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-           //StudentCardForm.ShowDialog(Context, _Student.Id);
-        }
-
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
@@ -391,6 +389,11 @@ namespace roster_visual
         }
 
         private void add_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }

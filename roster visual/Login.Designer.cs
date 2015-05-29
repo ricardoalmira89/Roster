@@ -66,14 +66,14 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(129, 20);
-            this.txt_password.TabIndex = 5;
+            this.txt_password.TabIndex = 2;
             // 
             // login_btn
             // 
             this.login_btn.Location = new System.Drawing.Point(54, 99);
             this.login_btn.Name = "login_btn";
             this.login_btn.Size = new System.Drawing.Size(75, 23);
-            this.login_btn.TabIndex = 6;
+            this.login_btn.TabIndex = 3;
             this.login_btn.Text = "Login";
             this.login_btn.UseVisualStyleBackColor = true;
             this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
